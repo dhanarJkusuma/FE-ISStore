@@ -91,6 +91,12 @@ namespace Sales.model
             get { return _tmpNo; }
             set { _tmpNo = value; }
         }
+
+        public static QueryBuilder query()
+        {
+            table = VariableBuilder.Table.Supplier;
+            return new QueryBuilder();
+        }
         public void New() 
         {
             String[] values = { No, Name, Desc, Telp, Address, ProvCode.ToString(), RegCode.ToString(), DisCode.ToString(), VillCode.ToString() };
@@ -114,7 +120,7 @@ namespace Sales.model
                 supplier.No = (reader.IsDBNull(0)) ? "" : reader.GetString(0);
                 supplier.Name = (reader.IsDBNull(1)) ? "" : reader.GetString(1);
                 supplier.Desc = (reader.IsDBNull(2)) ? "" : reader.GetString(2);
-                supplier.Telp = (reader.IsDBNull(3)) ? "" : reader.GetString(3);
+                supplier.Telp = (reader.IsDBNull(3)) ? "" : reader.GetValue(3).ToString();
                 supplier.Address = (reader.IsDBNull(4)) ? "" : reader.GetString(4);
                 supplier.ProvCode = (reader.IsDBNull(5)) ? 0 : Convert.ToInt32(reader.GetValue(5));
                 supplier.RegCode = (reader.IsDBNull(6)) ? 0 : Convert.ToInt32(reader.GetValue(6));

@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.memberGrid = new System.Windows.Forms.DataGridView();
+            this.supplierGrid = new System.Windows.Forms.DataGridView();
             this.btnDelete = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.memberGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // memberGrid
+            // supplierGrid
             // 
-            this.memberGrid.AllowUserToAddRows = false;
-            this.memberGrid.AllowUserToDeleteRows = false;
-            this.memberGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.supplierGrid.AllowUserToAddRows = false;
+            this.supplierGrid.AllowUserToDeleteRows = false;
+            this.supplierGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.memberGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.memberGrid.Location = new System.Drawing.Point(12, 107);
-            this.memberGrid.Name = "memberGrid";
-            this.memberGrid.ReadOnly = true;
-            this.memberGrid.RowHeadersVisible = false;
-            this.memberGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.memberGrid.Size = new System.Drawing.Size(696, 384);
-            this.memberGrid.TabIndex = 5;
+            this.supplierGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.supplierGrid.Location = new System.Drawing.Point(12, 107);
+            this.supplierGrid.Name = "supplierGrid";
+            this.supplierGrid.ReadOnly = true;
+            this.supplierGrid.RowHeadersVisible = false;
+            this.supplierGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.supplierGrid.Size = new System.Drawing.Size(696, 384);
+            this.supplierGrid.TabIndex = 5;
             // 
             // btnDelete
             // 
@@ -70,6 +70,7 @@
             this.editBtn.Text = "Edit Supplier";
             this.editBtn.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // btnNew
             // 
@@ -87,20 +88,24 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(731, 522);
-            this.Controls.Add(this.memberGrid);
+            this.Controls.Add(this.supplierGrid);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.btnNew);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "supplierForm";
             this.Text = "supplierForm";
-            ((System.ComponentModel.ISupportInitialize)(this.memberGrid)).EndInit();
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)(this.supplierGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView memberGrid;
+        private System.Windows.Forms.DataGridView supplierGrid;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button btnNew;

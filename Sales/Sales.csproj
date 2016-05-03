@@ -123,11 +123,11 @@
     <Compile Include="ui\data\member\processForm\newMember.Designer.cs">
       <DependentUpon>newMember.cs</DependentUpon>
     </Compile>
-    <Compile Include="ui\data\supplier\processForm\editSuppliercs.cs">
+    <Compile Include="ui\data\supplier\processForm\editSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ui\data\supplier\processForm\editSuppliercs.Designer.cs">
-      <DependentUpon>editSuppliercs.cs</DependentUpon>
+    <Compile Include="ui\data\supplier\processForm\editSupplier.Designer.cs">
+      <DependentUpon>editSupplier.cs</DependentUpon>
     </Compile>
     <Compile Include="ui\data\supplier\processForm\newSupplier.cs">
       <SubType>Form</SubType>
@@ -292,8 +292,8 @@
     <EmbeddedResource Include="ui\data\member\processForm\newMember.resx">
       <DependentUpon>newMember.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ui\data\supplier\processForm\editSuppliercs.resx">
-      <DependentUpon>editSuppliercs.cs</DependentUpon>
+    <EmbeddedResource Include="ui\data\supplier\processForm\editSupplier.resx">
+      <DependentUpon>editSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\data\supplier\processForm\newSupplier.resx">
       <DependentUpon>newSupplier.cs</DependentUpon>

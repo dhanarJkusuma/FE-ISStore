@@ -1,6 +1,6 @@
 ﻿namespace Sales.ui.data.supplier.processForm
 {
-    partial class editSuppliercs
+    partial class editSupplier
     {
         /// <summary>
         /// Required designer variable.
@@ -167,6 +167,7 @@
             this.saveBtn.Text = "Save";
             this.saveBtn.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // cVill
             // 
@@ -187,6 +188,7 @@
             this.cDis.Name = "cDis";
             this.cDis.Size = new System.Drawing.Size(298, 21);
             this.cDis.TabIndex = 37;
+            this.cDis.SelectedIndexChanged += new System.EventHandler(this.cDis_SelectedIndexChanged);
             // 
             // cReg
             // 
@@ -197,6 +199,7 @@
             this.cReg.Name = "cReg";
             this.cReg.Size = new System.Drawing.Size(298, 21);
             this.cReg.TabIndex = 36;
+            this.cReg.SelectedIndexChanged += new System.EventHandler(this.cReg_SelectedIndexChanged);
             // 
             // cProv
             // 
@@ -207,6 +210,7 @@
             this.cProv.Name = "cProv";
             this.cProv.Size = new System.Drawing.Size(298, 21);
             this.cProv.TabIndex = 35;
+            this.cProv.SelectedIndexChanged += new System.EventHandler(this.cProv_SelectedIndexChanged);
             // 
             // panel8
             // 
@@ -342,7 +346,7 @@
             this.tName.Size = new System.Drawing.Size(298, 23);
             this.tName.TabIndex = 31;
             // 
-            // editSuppliercs
+            // editSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -367,8 +371,9 @@
             this.Controls.Add(this.tNo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tName);
-            this.Name = "editSuppliercs";
+            this.Name = "editSupplier";
             this.Text = "editSuppliercs";
+            this.Load += new System.EventHandler(this.editSuppliercs_Load);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);

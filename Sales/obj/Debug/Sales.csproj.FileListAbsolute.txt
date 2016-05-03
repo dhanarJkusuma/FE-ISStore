@@ -32,6 +32,6 @@ C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\S
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.data.member.memberForm.resources
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.data.member.processForm.newMember.resources
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.data.member.processForm.editMember.resources
-C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.data.supplier.processForm.editSuppliercs.resources
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.data.supplier.processForm.newSupplier.resources
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.data.supplier.supplierForm.resources
+C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.data.supplier.processForm.editSupplier.resources
