@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EC877101-469F-4C9A-A5BF-1D0CAE5285ED}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sales</RootNamespace>
+    <AssemblyName>Sales</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Sales.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="libs\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="libs\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="libs\BaseFormSuggest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="libs\BaseFormSuggest.Designer.cs">
+      <DependentUpon>BaseFormSuggest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="libs\DatabaseBuilder.cs" />
+    <Compile Include="libs\EncryptBuilder.cs" />
+    <Compile Include="libs\Helper.cs" />
+    <Compile Include="libs\INIBuilder.cs" />
+    <Compile Include="libs\suggestItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="libs\suggestItem.Designer.cs">
+      <DependentUpon>suggestItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="libs\VariableBuilder.cs" />
+    <Compile Include="mainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainForm.Designer.cs">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="model\BaseModel.cs" />
+    <Compile Include="model\Category.cs" />
+    <Compile Include="model\Group.cs" />
+    <Compile Include="model\Item.cs" />
+    <Compile Include="model\Member.cs" />
+    <Compile Include="model\Region.cs" />
+    <Compile Include="model\Supplier.cs" />
+    <Compile Include="model\TrxInvIncome.cs" />
+    <Compile Include="model\TrxInvIncomeItem.cs" />
+    <Compile Include="model\Unit.cs" />
+    <Compile Include="model\User.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ui\data\member\memberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\data\member\memberForm.Designer.cs">
+      <DependentUpon>memberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\data\member\processForm\editMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\data\member\processForm\editMember.Designer.cs">
+      <DependentUpon>editMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\data\member\processForm\newMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\data\member\processForm\newMember.Designer.cs">
+      <DependentUpon>newMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\data\supplier\processForm\editSuppliercs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\data\supplier\processForm\editSuppliercs.Designer.cs">
+      <DependentUpon>editSuppliercs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\data\supplier\processForm\newSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\data\supplier\processForm\newSupplier.Designer.cs">
+      <DependentUpon>newSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\data\supplier\supplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\data\supplier\supplierForm.Designer.cs">
+      <DependentUpon>supplierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\inventory\category\categoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\inventory\category\categoryForm.Designer.cs">
+      <DependentUpon>categoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\inventory\category\processForm\editCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\inventory\category\processForm\editCategory.Designer.cs">
+      <DependentUpon>editCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\inventory\category\processForm\newCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\inventory\category\processForm\newCategory.Designer.cs">
+      <DependentUpon>newCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\inventory\master_item\itemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\inventory\master_item\itemForm.Designer.cs">
+      <DependentUpon>itemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\inventory\master_item\processForm\editItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\inventory\master_item\processForm\editItem.Designer.cs">
+      <DependentUpon>editItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\inventory\master_item\processForm\newItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\inventory\master_item\processForm\newItem.Designer.cs">
+      <DependentUpon>newItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\inventory\master_stock\stockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\inventory\master_stock\stockForm.Designer.cs">
+      <DependentUpon>stockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\inventory\stock_alert\alertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\inventory\stock_alert\alertForm.Designer.cs">
+      <DependentUpon>alertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\inventory\unit\processForm\editUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\inventory\unit\processForm\editUnit.Designer.cs">
+      <DependentUpon>editUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\inventory\unit\processForm\newUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\inventory\unit\processForm\newUnit.Designer.cs">
+      <DependentUpon>newUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\inventory\unit\unitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\inventory\unit\unitForm.Designer.cs">
+      <DependentUpon>unitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\loginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\loginForm.Designer.cs">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\transaction\draft_incoming_item\incomeItemDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\transaction\draft_incoming_item\incomeItemDetail.Designer.cs">
+      <DependentUpon>incomeItemDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\transaction\draft_incoming_item\listIncomingItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\transaction\draft_incoming_item\listIncomingItem.Designer.cs">
+      <DependentUpon>listIncomingItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\transaction\incoming_item\incomeItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\transaction\incoming_item\incomeItemForm.Designer.cs">
+      <DependentUpon>incomeItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\users\group\groupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\users\group\groupForm.Designer.cs">
+      <DependentUpon>groupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\users\group\processForm\groupEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\users\group\processForm\groupEdit.Designer.cs">
+      <DependentUpon>groupEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\users\group\processForm\groupNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\users\group\processForm\groupNew.Designer.cs">
+      <DependentUpon>groupNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\users\users\processForm\userEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\users\users\processForm\userEdit.Designer.cs">
+      <DependentUpon>userEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\users\users\processForm\userNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\users\users\processForm\userNew.Designer.cs">
+      <DependentUpon>userNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\users\users\usersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\users\users\usersForm.Designer.cs">
+      <DependentUpon>usersForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="libs\suggestItem.resx">
+      <DependentUpon>suggestItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainForm.resx">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ui\data\member\memberForm.resx">
+      <DependentUpon>memberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\data\member\processForm\editMember.resx">
+      <DependentUpon>editMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\data\member\processForm\newMember.resx">
+      <DependentUpon>newMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\data\supplier\processForm\editSuppliercs.resx">
+      <DependentUpon>editSuppliercs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\data\supplier\processForm\newSupplier.resx">
+      <DependentUpon>newSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\data\supplier\supplierForm.resx">
+      <DependentUpon>supplierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\inventory\category\categoryForm.resx">
+      <DependentUpon>categoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\inventory\category\processForm\editCategory.resx">
+      <DependentUpon>editCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\inventory\category\processForm\newCategory.resx">
+      <DependentUpon>newCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\inventory\master_item\itemForm.resx">
+      <DependentUpon>itemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\inventory\master_item\processForm\editItem.resx">
+      <DependentUpon>editItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\inventory\master_item\processForm\newItem.resx">
+      <DependentUpon>newItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\inventory\master_stock\stockForm.resx">
+      <DependentUpon>stockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\inventory\stock_alert\alertForm.resx">
+      <DependentUpon>alertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\inventory\unit\processForm\editUnit.resx">
+      <DependentUpon>editUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\inventory\unit\processForm\newUnit.resx">
+      <DependentUpon>newUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\inventory\unit\unitForm.resx">
+      <DependentUpon>unitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\loginForm.resx">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\transaction\draft_incoming_item\incomeItemDetail.resx">
+      <DependentUpon>incomeItemDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\transaction\draft_incoming_item\listIncomingItem.resx">
+      <DependentUpon>listIncomingItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\transaction\incoming_item\incomeItemForm.resx">
+      <DependentUpon>incomeItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\users\group\groupForm.resx">
+      <DependentUpon>groupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\users\group\processForm\groupEdit.resx">
+      <DependentUpon>groupEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\users\group\processForm\groupNew.resx">
+      <DependentUpon>groupNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\users\users\processForm\userEdit.resx">
+      <DependentUpon>userEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\users\users\processForm\userNew.resx">
+      <DependentUpon>userNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\users\users\usersForm.resx">
+      <DependentUpon>usersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
