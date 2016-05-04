@@ -117,6 +117,20 @@ namespace Sales.model
             return itemName;
         }
 
+        public static Int32 getQty(String barcode) 
+        {
+            Int32 qty = 0;
+            SqlConnection connection = DatabaseBuilder.getConnection();
+            connection.Open();
+            SqlDataReader reader = DatabaseBuilder.readData(VariableBuilder.Table.StockItem, new String[] { StockColumns[1] }, StockColumns[0] + "=" + barcode, connection);
+            while (reader.Read())
+            {
+                qty = (reader.IsDBNull(0)) ? 0 : reader.GetInt32(0);
+            }
+            connection.Close();
+            return qty;
+        }
+
         public static Item Find(String barcode)
         {
             Item item = new Item();
@@ -125,13 +139,20 @@ namespace Sales.model
             SqlDataReader reader = DatabaseBuilder.readData(VariableBuilder.Table.Item,Columns,Columns[0] + "=" + barcode, connection);
             while (reader.Read())
             {
-                item.Barcode = reader.GetValue(0).ToString();
-                item.Name = reader.GetString(1);
-                item.Category = reader.GetString(2);
-                item.Unit = reader.GetString(3);
-                item.Price = reader.GetValue(4).ToString();
-                item.StockAlert = reader.GetValue(5).ToString();
-                item.tmpBarcode = barcode;
+                if (reader.HasRows)
+                {
+                    item.Barcode = reader.GetValue(0).ToString();
+                    item.Name = reader.GetString(1);
+                    item.Category = reader.GetString(2);
+                    item.Unit = reader.GetString(3);
+                    item.Price = reader.GetValue(4).ToString();
+                    item.StockAlert = reader.GetValue(5).ToString();
+                    item.tmpBarcode = barcode;
+                }
+                else 
+                {
+                    item = null;
+                }
             }
             connection.Close();
             return item;

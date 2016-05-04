@@ -60,6 +60,7 @@
             this.btnDelete.Text = "Delete Supplier";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // editBtn
             // 

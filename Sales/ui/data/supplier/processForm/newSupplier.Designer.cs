@@ -371,7 +371,11 @@
             this.Controls.Add(this.tNo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "newSupplier";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "newSupplier";
             this.Load += new System.EventHandler(this.newSupplier_Load);
             this.panel8.ResumeLayout(false);

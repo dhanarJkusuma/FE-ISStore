@@ -33,6 +33,7 @@
             this.btnUser = new System.Windows.Forms.Button();
             this.btnGroup = new System.Windows.Forms.Button();
             this.tabData = new System.Windows.Forms.TabPage();
+            this.btnSupplier = new System.Windows.Forms.Button();
             this.btnMember = new System.Windows.Forms.Button();
             this.tabInventory = new System.Windows.Forms.TabPage();
             this.btnAlert = new System.Windows.Forms.Button();
@@ -43,9 +44,8 @@
             this.tabTransaction = new System.Windows.Forms.TabPage();
             this.btnListIncome = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPayment = new System.Windows.Forms.Button();
             this.btnIncomeItem = new System.Windows.Forms.Button();
-            this.btnSupplier = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.tabUser.SuspendLayout();
             this.tabData.SuspendLayout();
@@ -111,6 +111,17 @@
             this.tabData.TabIndex = 3;
             this.tabData.Text = "Data";
             this.tabData.UseVisualStyleBackColor = true;
+            // 
+            // btnSupplier
+            // 
+            this.btnSupplier.Location = new System.Drawing.Point(115, 6);
+            this.btnSupplier.Name = "btnSupplier";
+            this.btnSupplier.Size = new System.Drawing.Size(103, 124);
+            this.btnSupplier.TabIndex = 1;
+            this.btnSupplier.Text = "Supplier";
+            this.btnSupplier.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btnSupplier.UseVisualStyleBackColor = true;
+            this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
             // 
             // btnMember
             // 
@@ -197,7 +208,7 @@
             // 
             this.tabTransaction.Controls.Add(this.btnListIncome);
             this.tabTransaction.Controls.Add(this.button3);
-            this.tabTransaction.Controls.Add(this.button1);
+            this.tabTransaction.Controls.Add(this.btnPayment);
             this.tabTransaction.Controls.Add(this.btnIncomeItem);
             this.tabTransaction.Location = new System.Drawing.Point(4, 22);
             this.tabTransaction.Name = "tabTransaction";
@@ -227,15 +238,16 @@
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnPayment
             // 
-            this.button1.Location = new System.Drawing.Point(224, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 124);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Payment";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPayment.Location = new System.Drawing.Point(224, 6);
+            this.btnPayment.Name = "btnPayment";
+            this.btnPayment.Size = new System.Drawing.Size(103, 124);
+            this.btnPayment.TabIndex = 1;
+            this.btnPayment.Text = "Payment";
+            this.btnPayment.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnPayment.UseVisualStyleBackColor = true;
+            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // btnIncomeItem
             // 
@@ -247,17 +259,6 @@
             this.btnIncomeItem.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnIncomeItem.UseVisualStyleBackColor = true;
             this.btnIncomeItem.Click += new System.EventHandler(this.btnIncomeItem_Click);
-            // 
-            // btnSupplier
-            // 
-            this.btnSupplier.Location = new System.Drawing.Point(115, 6);
-            this.btnSupplier.Name = "btnSupplier";
-            this.btnSupplier.Size = new System.Drawing.Size(103, 124);
-            this.btnSupplier.TabIndex = 1;
-            this.btnSupplier.Text = "Supplier";
-            this.btnSupplier.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnSupplier.UseVisualStyleBackColor = true;
-            this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
             // 
             // mainForm
             // 
@@ -293,7 +294,7 @@
         private System.Windows.Forms.Button btnIncomeItem;
         private System.Windows.Forms.Button btnGroup;
         private System.Windows.Forms.Button btnUser;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPayment;
         private System.Windows.Forms.Button btnListIncome;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TabPage tabData;

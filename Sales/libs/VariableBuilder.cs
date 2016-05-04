@@ -32,6 +32,8 @@ namespace Sales.libs
             /* TABLE TRANSACTION */
             public static String TrxInvIncome = "trx_inv_income";
             public static String TrxInvIncomeItem = "trx_inv_income_item";
+            public static String TrxPayment = "trx_payment";
+            public static String TrxPaymentItem = "trx_payment_item";
             /* END TABLE TRANSACTION */
 
             

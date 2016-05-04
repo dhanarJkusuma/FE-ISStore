@@ -8,6 +8,7 @@ using Sales.ui.inventory.stock_alert;
 using Sales.ui.inventory.unit;
 using Sales.ui.transaction.draft_incoming_item;
 using Sales.ui.transaction.incoming_item;
+using Sales.ui.transaction.payment;
 using Sales.ui.users.group;
 using Sales.ui.users.users;
 using System;
@@ -92,6 +93,12 @@ namespace Sales
         {
             supplierForm supplier = new supplierForm();
             Helper.Forms.startForm(supplier);
+        }
+
+        private void btnPayment_Click(object sender, EventArgs e)
+        {
+            paymentForm payment = new paymentForm();
+            Helper.Forms.startForm(payment);
         }
     }
 }

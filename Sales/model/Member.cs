@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Sales.model
 {
-    class Member : BaseModel
+    public class Member : BaseModel
     {
         public static String[] Columns = {
                                             "member_id",
@@ -106,9 +106,14 @@ namespace Sales.model
             DatabaseBuilder.insert(VariableBuilder.Table.Member, selectedColumns, selectedColumns, values,"New member has been added successfully.");
         }
 
-        public DataTable All() 
+        public static DataTable All() 
         {
             return DatabaseBuilder.read(VariableBuilder.Table.Member);
+        }
+
+        public static DataTable Get(String[] sColumns) 
+        {
+            return DatabaseBuilder.read(VariableBuilder.Table.Member, sColumns);
         }
 
         public static Member Find(Int64 member_id)

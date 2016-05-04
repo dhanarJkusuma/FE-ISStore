@@ -22,6 +22,11 @@ namespace Sales.libs
         
         }
 
+        public virtual void populateMember(Member member) 
+        {
+            
+        }
+
 
     }
 }

@@ -77,5 +77,18 @@ namespace Sales.ui.data.supplier
                 Helper.Forms.startForm(editForm);
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Delete this supplier ?", "Dialog Confirmation", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                foreach (DataGridViewRow row in supplierGrid.SelectedRows)
+                {
+                    Supplier.Destroy(row.Cells[0].Value.ToString());
+                }
+                refreshData();
+            }
+        }
     }
 }
