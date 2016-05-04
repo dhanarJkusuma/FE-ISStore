@@ -98,7 +98,7 @@ namespace Sales.libs
                 SqlCommand insCommand = new SqlCommand(query, openCon);
                 for (int i = 0; i < iparams.Length; i++)
                 {
-                    insCommand.Parameters.AddWithValue("@" + iparams[i], value[i]);
+                    insCommand.Parameters.AddWithValue("@" + iparams[i], (value[i] == "") ? DBNull.Value : (object) value[i]);
                 }
                 openCon.Open();
                 insCommand.ExecuteNonQuery();
@@ -124,7 +124,7 @@ namespace Sales.libs
                 SqlCommand insCommand = new SqlCommand(query, openCon);
                 for (int i = 0; i < iparams.Length; i++)
                 {
-                    insCommand.Parameters.AddWithValue("@" + iparams[i], value[i]);
+                    insCommand.Parameters.AddWithValue("@" + iparams[i], (value[i] == "") ? DBNull.Value : (object)value[i]);
                 }
                 openCon.Open();
                 insCommand.ExecuteNonQuery();

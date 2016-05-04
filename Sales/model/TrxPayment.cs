@@ -35,7 +35,7 @@ namespace Sales.model
             get { return _modi_id; }
             set { _modi_id = value; }
         }
-        private Int64 _member_id;
+        private Int64 _member_id=-1;
 
         public Int64 MemberID
         {
@@ -96,7 +96,7 @@ namespace Sales.model
             CreatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             String[] values = {     TrxNo, 
                                     ModiID.ToString(), 
-                                    (MemberID==null) ? "" : MemberID.ToString(),
+                                    (MemberID == -1) ? "" : MemberID.ToString(),
                                     TotalAmount.ToString(), 
                                     Discount.ToString(), 
                                     TotalPay.ToString(), 

@@ -27,6 +27,10 @@ namespace Sales.libs
             
         }
 
+        public virtual void populateSupplier(Supplier supplier) 
+        {
+        
+        }
 
     }
 }

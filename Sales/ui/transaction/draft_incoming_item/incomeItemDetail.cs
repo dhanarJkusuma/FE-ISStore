@@ -14,9 +14,11 @@ namespace Sales.ui.transaction.draft_incoming_item
     public partial class incomeItemDetail : BaseFormSuggest
     {
         private TrxInvIncome trxInvIncome;
+        private Supplier selectedSupplier;
         private List<TrxInvIncomeItem> items;
         private List<TrxInvIncomeItem> selectedItem = new List<TrxInvIncomeItem>();
         private suggestItem suggestForm;
+        private suggestSupplier suggestSuppForm;
         private Double amount = 0;
 
         internal List<TrxInvIncomeItem> Items
@@ -36,6 +38,7 @@ namespace Sales.ui.transaction.draft_incoming_item
         {
             InitializeComponent();
             suggestForm = new suggestItem(new Point(tBarcode.Location.X, tBarcode.Location.Y + tBarcode.Height + 40), this);
+            suggestSuppForm = new suggestSupplier(this);
             this.home = home;
             tTotal.Text = "Rp. 0,00";
         }
@@ -58,8 +61,9 @@ namespace Sales.ui.transaction.draft_incoming_item
             {
                 String[] iparams = { "pStrTrxNo" };
                 String[] values = { vTrxInvIncome.TrxNo };
-                DatabaseBuilder.usingStoredProcedure("SP_TRX_INV_INCOME_ITEM", iparams, values);
+                DatabaseBuilder.usingStoredProcedure("SP_TRX_INV_INCOME_ITEM", iparams, values, "Process Success.");
                 home.refreshData();
+                this.Dispose();
             }
             else             
             {
@@ -88,7 +92,10 @@ namespace Sales.ui.transaction.draft_incoming_item
             itemGridList.Columns[5].ReadOnly = true;
 
             itemGridList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            
+            if (vTrxInvIncome.SupplierID != "") 
+            {
+                selectedSupplier = Supplier.Find(vTrxInvIncome.SupplierID);
+            }
         }
 
         public override void populateItem(Item item)
@@ -153,6 +160,8 @@ namespace Sales.ui.transaction.draft_incoming_item
             else
             {
                 suggestForm.Hide();
+                tName.Text = "";
+                tPrice.Text = "";
             }
         }
 
@@ -175,8 +184,9 @@ namespace Sales.ui.transaction.draft_incoming_item
                 amount -= Convert.ToDouble(itemGridList.Rows[e.RowIndex].Cells[5].Value);
                 amount += Convert.ToDouble(itemGridList.Rows[e.RowIndex].Cells[4].Value) * newQty;
                 tTotal.Text = Helper.Data.rupiahParser(amount.ToString());*/
-                setAmount();
+                
                 itemGridList.Rows[e.RowIndex].Cells[5].Value = Convert.ToDouble(itemGridList.Rows[e.RowIndex].Cells[4].Value) * newQty;
+                setAmount();
             }
             if (e.ColumnIndex == 4 && itemGridList.SelectedRows.Count > 0)
             {
@@ -212,6 +222,23 @@ namespace Sales.ui.transaction.draft_incoming_item
             }
 
             tTotal.Text = Helper.Data.rupiahParser(amount.ToString());
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSup_Click(object sender, EventArgs e)
+        {
+            suggestSuppForm.Show();
+        }
+
+        public override void populateSupplier(Supplier supplier)
+        {
+            base.populateSupplier(supplier);
+            tSupplier.Text = supplier.Name;
+            selectedSupplier = supplier;
         }
 
     }

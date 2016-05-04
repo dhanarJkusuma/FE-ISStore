@@ -33,9 +33,9 @@ namespace Sales.model
             get { return _modi_id; }
             set { _modi_id = value; }
         }
-        private Int32 _supplier_id;
+        private String _supplier_id="";
 
-        public Int32 SupplierID
+        public String SupplierID
         {
             get { return _supplier_id; }
             set { _supplier_id = value; }
@@ -61,6 +61,7 @@ namespace Sales.model
             String[] selectedColumns = {
                                 "trx_no",
                                 "modi_id",
+                                "supplier_id",
                                 "total_amount",
                                 "created_at"
                                 };
@@ -68,7 +69,7 @@ namespace Sales.model
             TrxNo = generateTrxNo();
             ModiID = VariableBuilder.Session.userLogged.Id;
             CreatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            String[] values = { TrxNo, ModiID.ToString(), Amount.ToString() , CreatedAt };
+            String[] values = { TrxNo, ModiID.ToString(), SupplierID, Amount.ToString() , CreatedAt };
             DatabaseBuilder.insert(VariableBuilder.Table.TrxInvIncome, selectedColumns, selectedColumns, values);
         }
 
@@ -99,8 +100,8 @@ namespace Sales.model
 
         public void Update() 
         {
-            String[] editedColumns = { Columns[3] };
-            String[] values = { Amount.ToString() };
+            String[] editedColumns = { Columns[2], Columns[3] };
+            String[] values = { SupplierID, Amount.ToString() };
             DatabaseBuilder.update(VariableBuilder.Table.TrxInvIncome, editedColumns, editedColumns, values, Columns[0] + "='" + TrxNo + "'");
         }
 
@@ -125,7 +126,7 @@ namespace Sales.model
             {
                 trxIncome.TrxNo = reader.GetString(0);
                 trxIncome.ModiID = Convert.ToInt32(reader.GetValue(1));
-                trxIncome.SupplierID = (reader.IsDBNull(2)) ? -1 : Convert.ToInt32(reader.GetValue(2));
+                trxIncome.SupplierID = (reader.IsDBNull(2)) ? "" : reader.GetValue(2).ToString();
                 trxIncome.Amount = (reader.IsDBNull(3)) ? 0 : Convert.ToDouble(reader.GetValue(3));
                 trxIncome.CreatedAt = reader.GetDateTime(4).ToString();
             }

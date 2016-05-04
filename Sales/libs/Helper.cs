@@ -106,7 +106,7 @@ namespace Sales.libs
             {
                 BindingSource bs = new BindingSource();
                 bs.DataSource = dataGrid.DataSource;
-                bs.Filter = columnName + " like '%" + bindingText + "%'";
+                bs.Filter = columnName + " like '" + bindingText + "%'";
                 dataGrid.DataSource = bs;
             }
 

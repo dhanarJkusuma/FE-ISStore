@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace Sales.libs
 {
-    public partial class suggestMember : Form
+    public partial class suggestSupplier : Form
     {
         private String[] sColumns = {
-                                        "CAST(" + Member.Columns[0] + " as VARCHAR(255)) as ID ",
-                                        Member.Columns[1] + " as Name"
+                                        Supplier.Columns[0] + " as ID",
+                                        Supplier.Columns[1] + " as Name"
                                     };
 
         BaseFormSuggest form;
-        public suggestMember(BaseFormSuggest form)
+        public suggestSupplier(BaseFormSuggest form)
         {
             InitializeComponent();
             setData();
@@ -26,19 +26,19 @@ namespace Sales.libs
             rID.Checked = true;
         }
 
-        private void setData() 
+        private void setData()
         {
-            memberGrid.DataSource = Member.Get(sColumns);
-            memberGrid.ReadOnly = true;
-            memberGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            supplierGrid.DataSource = Supplier.Get(sColumns);
+            supplierGrid.ReadOnly = true;
+            supplierGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            if (memberGrid.SelectedRows.Count == 1) 
+            if (supplierGrid.SelectedRows.Count == 1)
             {
-                Member member = Member.Find(Convert.ToInt64(memberGrid.SelectedRows[0].Cells[0].Value));
-                form.populateMember(member);
+                Supplier supplier = Supplier.Find(supplierGrid.SelectedRows[0].Cells[0].Value.ToString());
+                form.populateSupplier(supplier);
                 this.Dispose();
             }
         }
@@ -52,17 +52,18 @@ namespace Sales.libs
         {
             if (rID.Checked)
             {
-                Helper.Data.setBinding(memberGrid, "ID", tBindGrid.Text);
+                Helper.Data.setBinding(supplierGrid, "ID", tBindGrid.Text);
             }
             else
             {
-                Helper.Data.setBinding(memberGrid, "Name", tBindGrid.Text);
+                Helper.Data.setBinding(supplierGrid, "Name", tBindGrid.Text);
             }
+            
         }
 
         private void tBindGrid_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+            
         }
     }
 }

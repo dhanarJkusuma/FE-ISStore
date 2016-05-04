@@ -43,7 +43,6 @@
             this.btnUnit = new System.Windows.Forms.Button();
             this.tabTransaction = new System.Windows.Forms.TabPage();
             this.btnListIncome = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.btnPayment = new System.Windows.Forms.Button();
             this.btnIncomeItem = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
@@ -207,7 +206,6 @@
             // tabTransaction
             // 
             this.tabTransaction.Controls.Add(this.btnListIncome);
-            this.tabTransaction.Controls.Add(this.button3);
             this.tabTransaction.Controls.Add(this.btnPayment);
             this.tabTransaction.Controls.Add(this.btnIncomeItem);
             this.tabTransaction.Location = new System.Drawing.Point(4, 22);
@@ -227,16 +225,6 @@
             this.btnListIncome.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnListIncome.UseVisualStyleBackColor = true;
             this.btnListIncome.Click += new System.EventHandler(this.btnListIncome_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(333, 6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(103, 124);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Draft Payment";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // btnPayment
             // 
@@ -296,7 +284,6 @@
         private System.Windows.Forms.Button btnUser;
         private System.Windows.Forms.Button btnPayment;
         private System.Windows.Forms.Button btnListIncome;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TabPage tabData;
         private System.Windows.Forms.Button btnMember;
         private System.Windows.Forms.Button btnSupplier;

@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.tTrxNo = new System.Windows.Forms.TextBox();
             this.tTotal = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.itemGridList = new System.Windows.Forms.DataGridView();
             this.colBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +38,8 @@
             this.colQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBuying = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,7 +57,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.tQty = new System.Windows.Forms.TextBox();
-            this.tTrxNo = new System.Windows.Forms.TextBox();
+            this.btnSup = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tSupplier = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemGridList)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -65,41 +69,30 @@
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tTrxNo
+            // 
+            this.tTrxNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tTrxNo.Enabled = false;
+            this.tTrxNo.Location = new System.Drawing.Point(766, 116);
+            this.tTrxNo.Name = "tTrxNo";
+            this.tTrxNo.Size = new System.Drawing.Size(240, 20);
+            this.tTrxNo.TabIndex = 18;
             // 
             // tTotal
             // 
             this.tTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tTotal.BackColor = System.Drawing.Color.White;
             this.tTotal.Enabled = false;
             this.tTotal.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tTotal.Location = new System.Drawing.Point(481, 29);
             this.tTotal.Name = "tTotal";
-            this.tTotal.Size = new System.Drawing.Size(274, 52);
+            this.tTotal.Size = new System.Drawing.Size(525, 52);
             this.tTotal.TabIndex = 17;
             this.tTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(577, 89);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(151, 63);
-            this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "Save Transaction";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Location = new System.Drawing.Point(577, 19);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(151, 63);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Delete Item";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // groupBox2
             // 
@@ -111,10 +104,11 @@
             this.groupBox2.Controls.Add(this.btnDelete);
             this.groupBox2.Location = new System.Drawing.Point(21, 266);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(734, 227);
+            this.groupBox2.Size = new System.Drawing.Size(985, 227);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Item List";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // itemGridList
             // 
@@ -137,7 +131,7 @@
             this.itemGridList.Name = "itemGridList";
             this.itemGridList.RowHeadersVisible = false;
             this.itemGridList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.itemGridList.Size = new System.Drawing.Size(553, 202);
+            this.itemGridList.Size = new System.Drawing.Size(804, 202);
             this.itemGridList.TabIndex = 3;
             this.itemGridList.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemGridList_CellValueChanged);
             // 
@@ -170,6 +164,28 @@
             // 
             this.colTotal.HeaderText = "Total";
             this.colTotal.Name = "colTotal";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Location = new System.Drawing.Point(828, 89);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(151, 63);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Text = "Save Transaction";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.Location = new System.Drawing.Point(828, 19);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(151, 63);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Delete Item";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // groupBox1
             // 
@@ -231,6 +247,8 @@
             // 
             // tName
             // 
+            this.tName.BackColor = System.Drawing.Color.White;
+            this.tName.Enabled = false;
             this.tName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tName.Location = new System.Drawing.Point(121, 48);
             this.tName.Name = "tName";
@@ -285,6 +303,8 @@
             // 
             // tPrice
             // 
+            this.tPrice.BackColor = System.Drawing.Color.White;
+            this.tPrice.Enabled = false;
             this.tPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tPrice.Location = new System.Drawing.Point(121, 77);
             this.tPrice.Name = "tPrice";
@@ -337,21 +357,56 @@
             this.tQty.Size = new System.Drawing.Size(298, 23);
             this.tQty.TabIndex = 3;
             // 
-            // tTrxNo
+            // btnSup
             // 
-            this.tTrxNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tTrxNo.Enabled = false;
-            this.tTrxNo.Location = new System.Drawing.Point(509, 87);
-            this.tTrxNo.Name = "tTrxNo";
-            this.tTrxNo.Size = new System.Drawing.Size(240, 20);
-            this.tTrxNo.TabIndex = 18;
+            this.btnSup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSup.Location = new System.Drawing.Point(937, 87);
+            this.btnSup.Name = "btnSup";
+            this.btnSup.Size = new System.Drawing.Size(69, 23);
+            this.btnSup.TabIndex = 14;
+            this.btnSup.Text = "...";
+            this.btnSup.UseVisualStyleBackColor = true;
+            this.btnSup.Click += new System.EventHandler(this.btnSup_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.label6);
+            this.panel6.Location = new System.Drawing.Point(605, 87);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(103, 23);
+            this.panel6.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 17);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Supplier";
+            // 
+            // tSupplier
+            // 
+            this.tSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tSupplier.Enabled = false;
+            this.tSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tSupplier.Location = new System.Drawing.Point(708, 87);
+            this.tSupplier.Name = "tSupplier";
+            this.tSupplier.Size = new System.Drawing.Size(232, 23);
+            this.tSupplier.TabIndex = 12;
             // 
             // incomeItemDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 516);
+            this.ClientSize = new System.Drawing.Size(1027, 516);
+            this.Controls.Add(this.btnSup);
             this.Controls.Add(this.tTrxNo);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.tSupplier);
             this.Controls.Add(this.tTotal);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -373,6 +428,8 @@
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -409,5 +466,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBuying;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
+        private System.Windows.Forms.Button btnSup;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tSupplier;
     }
 }

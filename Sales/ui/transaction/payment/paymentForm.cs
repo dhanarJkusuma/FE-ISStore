@@ -20,6 +20,7 @@ namespace Sales.ui.transaction.payment
         private List<TrxPaymentItem> items = new List<TrxPaymentItem>();
         private List<Item> gridContainer = new List<Item>();
         private Double amount=0;
+        private Double payment = 0;
         
         public paymentForm()
         {
@@ -31,13 +32,15 @@ namespace Sales.ui.transaction.payment
                 tCustomer.Text = "General";
             }
             setGrid();
-            memberForm = new suggestMember(new Point(memberBtn.Location.X, memberBtn.Location.Y + memberBtn.Height + 5), this);
+            memberForm = new suggestMember(this);
             itemGrid.CurrentCell = itemGrid.Rows[0].Cells[0];
             itemGrid.Focus();
             itemGrid.BeginEdit(true);
             tTotal.Text = "Rp. 0,00";
             tPayment.Text = Helper.Data.rupiahParser(paymentStr);
             tCashback.Text = "Rp. 0,00";
+            tTrxNo.Text = TrxPayment.generateTrxNo();
+            tDiscount.Text = "0";
         }
 
 
@@ -61,7 +64,6 @@ namespace Sales.ui.transaction.payment
             itemGrid.Columns[3].ReadOnly = true;
             itemGrid.Columns[4].ReadOnly = true;
             itemGrid.Columns[5].ReadOnly = true;
-            itemGrid.Columns[6].ReadOnly = true;
 
         }
 
@@ -81,12 +83,11 @@ namespace Sales.ui.transaction.payment
                                 itemGrid.Rows[e.RowIndex].Cells[2].Value = item.Name;
                                 itemGrid.Rows[e.RowIndex].Cells[3].Value = Unit.getUnitName(item.Unit);
                                 itemGrid.Rows[e.RowIndex].Cells[4].Value = item.Price;
-                                gridContainer.Add(item);
                                 if (itemGrid.Rows[e.RowIndex].Cells[1].Value != null) 
                                 {
                                     if (itemGrid.Rows[e.RowIndex].Cells[1].Value.ToString().Length > 0)
                                     {
-                                        itemGrid.Rows[e.RowIndex].Cells[6].Value = Convert.ToDouble(itemGrid.Rows[e.RowIndex].Cells[4].Value) * Convert.ToInt32(itemGrid.Rows[e.RowIndex].Cells[1].Value);
+                                        itemGrid.Rows[e.RowIndex].Cells[5].Value = Convert.ToDouble(itemGrid.Rows[e.RowIndex].Cells[4].Value) * Convert.ToInt32(itemGrid.Rows[e.RowIndex].Cells[1].Value);
                                         setAmount();
                                         cashBackStr = (Convert.ToDouble((paymentStr == "") ? "0" : paymentStr) - Convert.ToDouble(amount)).ToString();
                                         tCashback.Text = Helper.Data.rupiahParser(cashBackStr);
@@ -98,7 +99,6 @@ namespace Sales.ui.transaction.payment
                                 itemGrid.Rows[e.RowIndex].Cells[2].Value = item.Name;
                                 itemGrid.Rows[e.RowIndex].Cells[3].Value = Unit.getUnitName(item.Unit);
                                 itemGrid.Rows[e.RowIndex].Cells[4].Value = item.Price;
-                                gridContainer.Add(item);
                                 MessageBox.Show("The item is on stock alert");
                             }
                             else
@@ -138,7 +138,7 @@ namespace Sales.ui.transaction.payment
                             item.ItemBarcode = barcode;
                             item.Qty = Convert.ToInt32(itemGrid.Rows[e.RowIndex].Cells[1].Value);
                             items.Add(item);
-                            itemGrid.Rows[e.RowIndex].Cells[6].Value = Convert.ToDouble(itemGrid.Rows[e.RowIndex].Cells[4].Value) * Convert.ToInt32(itemGrid.Rows[e.RowIndex].Cells[1].Value);
+                            itemGrid.Rows[e.RowIndex].Cells[5].Value = Convert.ToDouble(itemGrid.Rows[e.RowIndex].Cells[4].Value) * Convert.ToInt32(itemGrid.Rows[e.RowIndex].Cells[1].Value);
                             setAmount();
                             cashBackStr = (Convert.ToDouble((paymentStr == "") ? "0" : paymentStr) - Convert.ToDouble(amount)).ToString();
                             tCashback.Text = Helper.Data.rupiahParser(cashBackStr);
@@ -172,10 +172,15 @@ namespace Sales.ui.transaction.payment
             amount = 0;
             foreach (DataGridViewRow row in itemGrid.Rows) 
             {
-                if (row.Cells[6].Value != null)
+                if (row.Cells[5].Value != null)
                 {
-                    amount += Convert.ToDouble(row.Cells[6].Value.ToString());                    
+                    amount += Convert.ToDouble(row.Cells[5].Value.ToString());                    
                 }
+            }
+
+            if (tDiscount.Text != "0" && tDiscount.Text.Length > 0) 
+            {
+                amount = amount - (amount * (Convert.ToDouble(tDiscount.Text) / 100));
             }
 
             tTotal.Text = Helper.Data.rupiahParser(amount.ToString());
@@ -206,13 +211,19 @@ namespace Sales.ui.transaction.payment
                 if (paymentStr.Length > 0) 
                 {
                     paymentStr = paymentStr.Substring(0, paymentStr.Length - 1);
+                    tPayment.Text = Helper.Data.rupiahParser(paymentStr);
+                    if (paymentStr == "") 
+                    {
+                        payment = Convert.ToDouble(0);
+                    }
                 }
-                tPayment.Text = Helper.Data.rupiahParser(paymentStr);
+                
             }
             else if (char.IsNumber(e.KeyChar)) 
             {
                 paymentStr += e.KeyChar.ToString();
                 tPayment.Text = Helper.Data.rupiahParser(paymentStr);
+                payment = Convert.ToDouble(paymentStr);
             }   
         }
 
@@ -229,6 +240,62 @@ namespace Sales.ui.transaction.payment
         private void paymentForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            if (payment >= amount)
+            {
+                DialogResult dialogResult = MessageBox.Show("Confirm Payment?", "Dialog Confirmation", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+
+                    TrxPayment vpayment = new TrxPayment();
+                    vpayment.TrxNo = tTrxNo.Text;
+                    if (customer != null)
+                    {
+                        vpayment.MemberID = customer.Id;
+                    }
+                    vpayment.TotalAmount = amount;
+                    vpayment.Discount = Convert.ToDouble(tDiscount.Text);
+                    vpayment.TotalPay = payment;
+                    vpayment.CashBack = payment-amount;
+                    vpayment.New();
+                    getItemList();
+                    String[] iparams = { "pStrTrxNo" };
+                    String[] values = { vpayment.TrxNo };
+                    DatabaseBuilder.usingStoredProcedure("SP_TRX_PAYMENT", iparams, values, "Process Success.");
+                    paymentForm paymentForm = new paymentForm();
+                    Helper.Forms.startForm(paymentForm);
+                    this.Dispose();
+                }
+            }
+            else 
+            {
+                MessageBox.Show("Please pay your order.");
+            }
+
+        }
+
+        private void tDiscount_TextChanged(object sender, EventArgs e)
+        {
+            setAmount();
+            tCashback.Text = Helper.Data.rupiahParser((payment - amount).ToString());
+        }
+
+        private void getItemList() 
+        {
+            foreach (DataGridViewRow row in itemGrid.Rows) 
+            {
+                if (row.Cells[0].Value != null && row.Cells[1].Value != null && row.Cells[2].Value != null) 
+                {
+                    TrxPaymentItem newItem = new TrxPaymentItem();
+                    newItem.TrxNo = tTrxNo.Text;
+                    newItem.ItemBarcode = row.Cells[0].Value.ToString();
+                    newItem.Qty = Convert.ToInt32(row.Cells[1].Value);
+                    newItem.New();
+                }                                
+            }
         }
 
 

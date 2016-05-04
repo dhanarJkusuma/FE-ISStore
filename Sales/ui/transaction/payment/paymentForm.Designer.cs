@@ -35,13 +35,6 @@
             this.tPayment = new System.Windows.Forms.TextBox();
             this.tTotal = new System.Windows.Forms.TextBox();
             this.itemGrid = new System.Windows.Forms.DataGridView();
-            this.cBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.memberBtn = new System.Windows.Forms.Button();
@@ -54,11 +47,24 @@
             this.tCustomer = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnPay = new System.Windows.Forms.Button();
+            this.tTrxNo = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tDiscount = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.itemGrid)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
@@ -104,6 +110,7 @@
             this.tCashback.Name = "tCashback";
             this.tCashback.Size = new System.Drawing.Size(271, 30);
             this.tCashback.TabIndex = 17;
+            this.tCashback.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tPayment
             // 
@@ -114,6 +121,7 @@
             this.tPayment.Name = "tPayment";
             this.tPayment.Size = new System.Drawing.Size(271, 30);
             this.tPayment.TabIndex = 17;
+            this.tPayment.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tPayment.TextChanged += new System.EventHandler(this.tPayment_TextChanged);
             this.tPayment.Enter += new System.EventHandler(this.tPayment_Enter);
             this.tPayment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tPayment_KeyPress);
@@ -136,7 +144,8 @@
             this.itemGrid.AllowUserToDeleteRows = false;
             this.itemGrid.AllowUserToResizeColumns = false;
             this.itemGrid.AllowUserToResizeRows = false;
-            this.itemGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.itemGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.itemGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.itemGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -146,17 +155,199 @@
             this.cName,
             this.cUnit,
             this.cPrice,
-            this.cDiscount,
             this.cTotal});
             this.itemGrid.Location = new System.Drawing.Point(12, 187);
             this.itemGrid.MultiSelect = false;
             this.itemGrid.Name = "itemGrid";
             this.itemGrid.RowHeadersVisible = false;
             this.itemGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.itemGrid.Size = new System.Drawing.Size(1186, 347);
+            this.itemGrid.Size = new System.Drawing.Size(1186, 374);
             this.itemGrid.TabIndex = 0;
             this.itemGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemGrid_CellValueChanged);
             this.itemGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.itemGrid_EditingControlShowing);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.memberBtn);
+            this.groupBox1.Controls.Add(this.panel4);
+            this.groupBox1.Controls.Add(this.tTrxNo);
+            this.groupBox1.Controls.Add(this.panel2);
+            this.groupBox1.Controls.Add(this.tCashier);
+            this.groupBox1.Controls.Add(this.tDate);
+            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Controls.Add(this.tCustomer);
+            this.groupBox1.Controls.Add(this.panel3);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(511, 141);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Transaction Info";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(413, 111);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Member List";
+            // 
+            // memberBtn
+            // 
+            this.memberBtn.Location = new System.Drawing.Point(361, 105);
+            this.memberBtn.Name = "memberBtn";
+            this.memberBtn.Size = new System.Drawing.Size(46, 23);
+            this.memberBtn.TabIndex = 1;
+            this.memberBtn.Text = "...";
+            this.memberBtn.UseVisualStyleBackColor = true;
+            this.memberBtn.Click += new System.EventHandler(this.memberBtn_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(6, 47);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(103, 23);
+            this.panel2.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Cashier";
+            // 
+            // tCashier
+            // 
+            this.tCashier.Enabled = false;
+            this.tCashier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tCashier.Location = new System.Drawing.Point(109, 47);
+            this.tCashier.Name = "tCashier";
+            this.tCashier.Size = new System.Drawing.Size(298, 23);
+            this.tCashier.TabIndex = 0;
+            // 
+            // tDate
+            // 
+            this.tDate.Enabled = false;
+            this.tDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tDate.Location = new System.Drawing.Point(109, 76);
+            this.tDate.Name = "tDate";
+            this.tDate.Size = new System.Drawing.Size(298, 23);
+            this.tDate.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(6, 76);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(103, 23);
+            this.panel1.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Date";
+            // 
+            // tCustomer
+            // 
+            this.tCustomer.Enabled = false;
+            this.tCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tCustomer.Location = new System.Drawing.Point(109, 105);
+            this.tCustomer.Name = "tCustomer";
+            this.tCustomer.Size = new System.Drawing.Size(246, 23);
+            this.tCustomer.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Location = new System.Drawing.Point(6, 105);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(103, 23);
+            this.panel3.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 17);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Customer";
+            // 
+            // btnPay
+            // 
+            this.btnPay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPay.Location = new System.Drawing.Point(1028, 567);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(170, 46);
+            this.btnPay.TabIndex = 19;
+            this.btnPay.Text = "Pay";
+            this.btnPay.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnPay.UseVisualStyleBackColor = true;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
+            // 
+            // tTrxNo
+            // 
+            this.tTrxNo.Enabled = false;
+            this.tTrxNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tTrxNo.Location = new System.Drawing.Point(109, 19);
+            this.tTrxNo.Name = "tTrxNo";
+            this.tTrxNo.Size = new System.Drawing.Size(298, 23);
+            this.tTrxNo.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Location = new System.Drawing.Point(6, 19);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(103, 23);
+            this.panel4.TabIndex = 10;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 3);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 17);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Trx No";
+            // 
+            // tDiscount
+            // 
+            this.tDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tDiscount.Location = new System.Drawing.Point(928, 150);
+            this.tDiscount.Name = "tDiscount";
+            this.tDiscount.Size = new System.Drawing.Size(271, 20);
+            this.tDiscount.TabIndex = 20;
+            this.tDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tDiscount.TextChanged += new System.EventHandler(this.tDiscount_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(857, 151);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(55, 15);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Discount";
             // 
             // cBarcode
             // 
@@ -183,141 +374,19 @@
             this.cPrice.HeaderText = "Price";
             this.cPrice.Name = "cPrice";
             // 
-            // cDiscount
-            // 
-            this.cDiscount.HeaderText = "Discount";
-            this.cDiscount.Name = "cDiscount";
-            // 
             // cTotal
             // 
             this.cTotal.HeaderText = "Sub Total";
             this.cTotal.Name = "cTotal";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.memberBtn);
-            this.groupBox1.Controls.Add(this.panel2);
-            this.groupBox1.Controls.Add(this.tCashier);
-            this.groupBox1.Controls.Add(this.tDate);
-            this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Controls.Add(this.tCustomer);
-            this.groupBox1.Controls.Add(this.panel3);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(511, 126);
-            this.groupBox1.TabIndex = 13;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Transaction Info";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(425, 83);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Member List";
-            // 
-            // memberBtn
-            // 
-            this.memberBtn.Location = new System.Drawing.Point(373, 77);
-            this.memberBtn.Name = "memberBtn";
-            this.memberBtn.Size = new System.Drawing.Size(46, 23);
-            this.memberBtn.TabIndex = 1;
-            this.memberBtn.Text = "...";
-            this.memberBtn.UseVisualStyleBackColor = true;
-            this.memberBtn.Click += new System.EventHandler(this.memberBtn_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(18, 19);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(103, 23);
-            this.panel2.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Cashier";
-            // 
-            // tCashier
-            // 
-            this.tCashier.Enabled = false;
-            this.tCashier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tCashier.Location = new System.Drawing.Point(121, 19);
-            this.tCashier.Name = "tCashier";
-            this.tCashier.Size = new System.Drawing.Size(298, 23);
-            this.tCashier.TabIndex = 0;
-            // 
-            // tDate
-            // 
-            this.tDate.Enabled = false;
-            this.tDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tDate.Location = new System.Drawing.Point(121, 48);
-            this.tDate.Name = "tDate";
-            this.tDate.Size = new System.Drawing.Size(298, 23);
-            this.tDate.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(18, 48);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(103, 23);
-            this.panel1.TabIndex = 10;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Date";
-            // 
-            // tCustomer
-            // 
-            this.tCustomer.Enabled = false;
-            this.tCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tCustomer.Location = new System.Drawing.Point(121, 77);
-            this.tCustomer.Name = "tCustomer";
-            this.tCustomer.Size = new System.Drawing.Size(246, 23);
-            this.tCustomer.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(18, 77);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(103, 23);
-            this.panel3.TabIndex = 10;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Customer";
-            // 
             // paymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1211, 546);
+            this.ClientSize = new System.Drawing.Size(1211, 625);
+            this.Controls.Add(this.tDiscount);
+            this.Controls.Add(this.btnPay);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -339,6 +408,8 @@
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,18 +430,23 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView itemGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cBarcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cUnit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cDiscount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cTotal;
         private System.Windows.Forms.TextBox tTotal;
         private System.Windows.Forms.TextBox tPayment;
         private System.Windows.Forms.TextBox tCashback;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnPay;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tTrxNo;
+        private System.Windows.Forms.TextBox tDiscount;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cBarcode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cTotal;
     }
 }

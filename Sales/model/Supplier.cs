@@ -1,13 +1,15 @@
 ﻿using Sales.libs;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Sales.model
 {
-    class Supplier : BaseModel
+    public class Supplier : BaseModel
     {
         public static String[] Columns = { 
                                             "supplier_id",
@@ -109,6 +111,11 @@ namespace Sales.model
             DatabaseBuilder.update(VariableBuilder.Table.Supplier, Columns, Columns, values, Columns[0] + "='" + TmpNo + "'","Selected supplier has been edited successfully.");
         }
 
+        public static DataTable Get(String[] selectedColumns) 
+        {
+            return DatabaseBuilder.read(VariableBuilder.Table.Supplier, selectedColumns);
+        }
+
         public static Supplier Find(String No) 
         {
             Supplier supplier = new Supplier();
@@ -160,6 +167,32 @@ namespace Sales.model
             }
             connection.Close();
             return TrxNo;
+        }
+
+        public static List<Supplier> FillComboBox(ComboBox comboBox)
+        {
+            List<Supplier> values = new List<Supplier>();
+            SqlConnection connection = DatabaseBuilder.getConnection();
+            connection.Open();
+            SqlDataReader reader = DatabaseBuilder.readData(VariableBuilder.Table.Supplier, connection);
+            while (reader.Read())
+            {
+                Supplier supplier = new Supplier();
+                supplier.No = reader.GetString(0);
+                supplier.Name = reader.GetString(1);
+                supplier.Desc = reader.GetString(2);
+                supplier.Telp = reader.GetValue(3).ToString();
+                supplier.Address = reader.GetString(4);
+                supplier.ProvCode = Convert.ToInt32(reader.GetValue(5));
+                supplier.RegCode = Convert.ToInt32(reader.GetValue(6));
+                supplier.DisCode = Convert.ToInt32(reader.GetValue(7));
+                supplier.VillCode = Convert.ToInt64(reader.GetValue(8));
+                values.Add(supplier);
+                comboBox.Items.Add(supplier.Name);
+            }
+
+            connection.Close();
+            return values;
         }
     }
 }

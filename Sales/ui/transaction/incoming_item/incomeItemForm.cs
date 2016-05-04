@@ -13,13 +13,15 @@ namespace Sales.ui.transaction.incoming_item
     public partial class incomeItemForm : BaseFormSuggest
     {
         private Double amount=0;
+        private Supplier selectedSupplier;
         private suggestItem suggestForm;
+        private suggestSupplier suggestSuppForm;
         private List<TrxInvIncomeItem> selectedItem=new List<TrxInvIncomeItem>();
         public incomeItemForm()
         {
             InitializeComponent();
             suggestForm = new suggestItem(new Point(tBarcode.Location.X , tBarcode.Location.Y + tBarcode.Height + 40), this);
-            
+            suggestSuppForm = new suggestSupplier(this);
             itemGridList.Columns[0].ReadOnly = true;
             itemGridList.Columns[1].ReadOnly = true;
             itemGridList.Columns[2].ReadOnly = true;
@@ -35,15 +37,15 @@ namespace Sales.ui.transaction.incoming_item
             if (tBarcode.Text.Length > 3)
             {
                 Helper.Forms.startForm(suggestForm);
-
                 //barangSuggest.ShowDialog();
                 suggestForm.bindData(tBarcode.Text);
-
                 tBarcode.Focus();
             }
             else
             {
                 suggestForm.Hide();
+                tName.Text = "";
+                tPrice.Text = "";
             }
         }
 
@@ -94,6 +96,7 @@ namespace Sales.ui.transaction.incoming_item
         {
             TrxInvIncome trxInv = new TrxInvIncome();
             trxInv.Amount = amount;
+            trxInv.SupplierID = selectedSupplier.No;
             trxInv.New();
             for (int i = 0; i < selectedItem.Count; i++) 
             {
@@ -105,7 +108,8 @@ namespace Sales.ui.transaction.incoming_item
             {
                 String[] iparams = {"pStrTrxNo"};
                 String[] values = { trxInv.TrxNo };
-                DatabaseBuilder.usingStoredProcedure("SP_TRX_INV_INCOME_ITEM", iparams, values);
+                DatabaseBuilder.usingStoredProcedure("SP_TRX_INV_INCOME_ITEM", iparams, values,"Process Success.");
+                this.Dispose();
             }
             else 
             {
@@ -150,6 +154,18 @@ namespace Sales.ui.transaction.incoming_item
             }
 
             tTotal.Text = Helper.Data.rupiahParser(amount.ToString());
+        }
+
+        private void btnSup_Click(object sender, EventArgs e)
+        {
+            suggestSuppForm.Show();
+        }
+
+        public override void populateSupplier(Supplier supplier)
+        {
+            base.populateSupplier(supplier);
+            tSupplier.Text = supplier.Name;
+            selectedSupplier = supplier;
         }
     }
 }
