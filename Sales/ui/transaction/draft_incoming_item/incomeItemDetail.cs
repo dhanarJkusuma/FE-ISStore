@@ -37,6 +37,7 @@ namespace Sales.ui.transaction.draft_incoming_item
             InitializeComponent();
             suggestForm = new suggestItem(new Point(tBarcode.Location.X, tBarcode.Location.Y + tBarcode.Height + 40), this);
             this.home = home;
+            tTotal.Text = "Rp. 0,00";
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -110,9 +111,7 @@ namespace Sales.ui.transaction.draft_incoming_item
                 selectedItem.Add(cart);
 
                 itemGridList.Rows.Add(tBarcode.Text, tName.Text, tPrice.Text, tQty.Text, tBuy.Text, Convert.ToInt32(tQty.Text) * Convert.ToDouble(tBuy.Text) + ".00");
-                Double total = Convert.ToInt32(tQty.Text) * Convert.ToDouble(tBuy.Text);
-                amount += total;
-                tTotal.Text = Helper.Data.rupiahParser(amount.ToString());
+                setAmount();
             }
             else 
             {
@@ -128,9 +127,18 @@ namespace Sales.ui.transaction.draft_incoming_item
                 itemSelected.ItemBarcode = itemGridList.SelectedRows[0].Cells[0].Value.ToString();
                 itemSelected.ItemQuantity = Convert.ToInt32(itemGridList.SelectedRows[0].Cells[3].Value);
                 itemSelected.ItemPurchase = Convert.ToDouble(itemGridList.SelectedRows[0].Cells[4].Value);
-                selectedItem.Remove(itemSelected);
+                if (items.Find(item => item.ItemBarcode == itemGridList.SelectedRows[0].Cells[0].Value.ToString()) != null)
+                {
+                    TrxInvIncomeItem.Destroy(items.Find(item => item.ItemBarcode == itemGridList.SelectedRows[0].Cells[0].Value.ToString()).ItemNo);
+                    items.RemoveAll(item => item.ItemBarcode == itemGridList.SelectedRows[0].Cells[0].Value.ToString());
+                }
+                else 
+                {
+                    selectedItem.RemoveAll(item => item.ItemBarcode == itemGridList.SelectedRows[0].Cells[0].Value.ToString());
+                }
                 itemGridList.Rows.RemoveAt(itemGridList.SelectedRows[0].Index);
             }
+            setAmount();
         }
 
         private void tBarcode_TextChanged(object sender, EventArgs e)
@@ -163,10 +171,11 @@ namespace Sales.ui.transaction.draft_incoming_item
                     items.Find(item => item.ItemBarcode == barcode).ItemQuantity = newQty;
                     items.Find(item => item.ItemBarcode == barcode).Update();
                 }
-
+                /*
                 amount -= Convert.ToDouble(itemGridList.Rows[e.RowIndex].Cells[5].Value);
                 amount += Convert.ToDouble(itemGridList.Rows[e.RowIndex].Cells[4].Value) * newQty;
-                tTotal.Text = Helper.Data.rupiahParser(amount.ToString());
+                tTotal.Text = Helper.Data.rupiahParser(amount.ToString());*/
+                setAmount();
                 itemGridList.Rows[e.RowIndex].Cells[5].Value = Convert.ToDouble(itemGridList.Rows[e.RowIndex].Cells[4].Value) * newQty;
             }
             if (e.ColumnIndex == 4 && itemGridList.SelectedRows.Count > 0)
@@ -183,13 +192,27 @@ namespace Sales.ui.transaction.draft_incoming_item
                 }
                 
                 Double newPurchase = Convert.ToDouble(itemGridList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
-                amount -= Convert.ToDouble(itemGridList.Rows[e.RowIndex].Cells[5].Value);
+                /*amount -= Convert.ToDouble(itemGridList.Rows[e.RowIndex].Cells[5].Value);
                 amount += newPurchase * Convert.ToInt32(itemGridList.Rows[e.RowIndex].Cells[3].Value);
-                tTotal.Text = Helper.Data.rupiahParser(amount.ToString());
+                tTotal.Text = Helper.Data.rupiahParser(amount.ToString());*/
                 itemGridList.Rows[e.RowIndex].Cells[5].Value = newPurchase * Convert.ToInt32(itemGridList.Rows[e.RowIndex].Cells[3].Value);
+                setAmount();
             }
         }
 
+        private void setAmount()
+        {
+            amount = 0;
+            foreach (DataGridViewRow row in itemGridList.Rows)
+            {
+                if (row.Cells[5].Value != null)
+                {
+                    amount += Convert.ToDouble(row.Cells[5].Value.ToString());
+                }
+            }
+
+            tTotal.Text = Helper.Data.rupiahParser(amount.ToString());
+        }
 
     }
 }

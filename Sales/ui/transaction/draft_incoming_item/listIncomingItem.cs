@@ -23,6 +23,15 @@ namespace Sales.ui.transaction.draft_incoming_item
         {
             InitializeComponent();
             refreshData();
+            if (incomeList.Rows.Count > 0)
+            {
+                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+                incomeList.Columns.Add(btn);
+                btn.HeaderText = "Action";
+                btn.Text = "Details";
+                btn.Name = "btnDetails";
+                btn.UseColumnTextForButtonValue = true;
+            }
         }
 
         public override void refreshData()
@@ -42,15 +51,7 @@ namespace Sales.ui.transaction.draft_incoming_item
             incomeList.ReadOnly = true;
             incomeList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            if (incomeList.Rows.Count > 0)
-            {
-                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-                incomeList.Columns.Add(btn);
-                btn.HeaderText = "Action";
-                btn.Text = "Details";
-                btn.Name = "btnDetails";
-                btn.UseColumnTextForButtonValue = true;
-            }
+           
         }
 
         private void incomeList_CellContentClick(object sender, DataGridViewCellEventArgs e)

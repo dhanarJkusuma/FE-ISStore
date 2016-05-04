@@ -28,6 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tCashback = new System.Windows.Forms.TextBox();
+            this.tPayment = new System.Windows.Forms.TextBox();
+            this.tTotal = new System.Windows.Forms.TextBox();
             this.itemGrid = new System.Windows.Forms.DataGridView();
             this.cBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +61,76 @@
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(847, 124);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 15);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Cash Back";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(857, 88);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 15);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Payment";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(592, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 22);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Total";
+            // 
+            // tCashback
+            // 
+            this.tCashback.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tCashback.BackColor = System.Drawing.Color.White;
+            this.tCashback.Enabled = false;
+            this.tCashback.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tCashback.Location = new System.Drawing.Point(928, 114);
+            this.tCashback.Name = "tCashback";
+            this.tCashback.Size = new System.Drawing.Size(271, 30);
+            this.tCashback.TabIndex = 17;
+            // 
+            // tPayment
+            // 
+            this.tPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tPayment.BackColor = System.Drawing.Color.White;
+            this.tPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tPayment.Location = new System.Drawing.Point(928, 78);
+            this.tPayment.Name = "tPayment";
+            this.tPayment.Size = new System.Drawing.Size(271, 30);
+            this.tPayment.TabIndex = 17;
+            this.tPayment.TextChanged += new System.EventHandler(this.tPayment_TextChanged);
+            this.tPayment.Enter += new System.EventHandler(this.tPayment_Enter);
+            this.tPayment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tPayment_KeyPress);
+            this.tPayment.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tPayment_KeyUp);
+            // 
+            // tTotal
+            // 
+            this.tTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tTotal.BackColor = System.Drawing.Color.White;
+            this.tTotal.Enabled = false;
+            this.tTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tTotal.Location = new System.Drawing.Point(667, 19);
+            this.tTotal.Name = "tTotal";
+            this.tTotal.Size = new System.Drawing.Size(532, 53);
+            this.tTotal.TabIndex = 16;
+            this.tTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // itemGrid
             // 
             this.itemGrid.AllowUserToDeleteRows = false;
@@ -72,12 +148,12 @@
             this.cPrice,
             this.cDiscount,
             this.cTotal});
-            this.itemGrid.Location = new System.Drawing.Point(13, 144);
+            this.itemGrid.Location = new System.Drawing.Point(12, 187);
             this.itemGrid.MultiSelect = false;
             this.itemGrid.Name = "itemGrid";
             this.itemGrid.RowHeadersVisible = false;
             this.itemGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.itemGrid.Size = new System.Drawing.Size(779, 309);
+            this.itemGrid.Size = new System.Drawing.Size(1186, 347);
             this.itemGrid.TabIndex = 0;
             this.itemGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemGrid_CellValueChanged);
             this.itemGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.itemGrid_EditingControlShowing);
@@ -241,12 +317,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 546);
+            this.ClientSize = new System.Drawing.Size(1211, 546);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tCashback);
+            this.Controls.Add(this.tPayment);
+            this.Controls.Add(this.tTotal);
             this.Controls.Add(this.itemGrid);
             this.Controls.Add(this.groupBox1);
             this.Name = "paymentForm";
             this.Text = "paymentForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.paymentForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.itemGrid)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -257,6 +340,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -282,5 +366,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn cDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn cTotal;
+        private System.Windows.Forms.TextBox tTotal;
+        private System.Windows.Forms.TextBox tPayment;
+        private System.Windows.Forms.TextBox tCashback;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

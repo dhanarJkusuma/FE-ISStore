@@ -112,15 +112,23 @@ namespace Sales.libs
 
             public static String rupiahParser(String amount) 
             {
-                for (int i = amount.Length; i >= 1; i-=3)
+                if (amount != "") 
                 {
-                    if (i != 1 && i != amount.Length)
+                    for (int i = amount.Length; i >= 1; i -= 3)
                     {
-                        amount = amount.Substring(0, i) + "," + amount.Substring(i);
-                    }
+                        if (i != amount.Length)
+                        {
+                            amount = amount.Substring(0, i) + "," + amount.Substring(i);
+                        }
 
+                    }
                 }
-                return "Rp." + amount + ",00";
+                else 
+                {
+                    amount = "0";
+                }
+                
+                return "Rp. " + amount + ",00";
             }
         }
 

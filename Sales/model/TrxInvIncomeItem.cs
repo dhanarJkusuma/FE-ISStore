@@ -93,7 +93,7 @@ namespace Sales.model
             DatabaseBuilder.update(VariableBuilder.Table.TrxInvIncomeItem, selectedColumns.ToArray(), selectedColumns.ToArray(), values, Columns[0] + "=" + ItemNo.ToString());
         }
 
-        public static void Destroy(Int32 itemNo) 
+        public static void Destroy(Int64 itemNo) 
         {
             DatabaseBuilder.destory(VariableBuilder.Table.TrxInvIncomeItem, Columns[0], itemNo.ToString());
         }
