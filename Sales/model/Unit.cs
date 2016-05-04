@@ -74,6 +74,21 @@ namespace Sales.model
             return unit;
         }
 
+        public static String getUnitName(String code) 
+        {
+            String name="";
+            SqlConnection connection = DatabaseBuilder.getConnection();
+            connection.Open();
+            SqlDataReader reader = DatabaseBuilder.readData(VariableBuilder.Table.Unit,new String[]{ Columns[1] }, Columns[0] + "='" + code + "'", connection);
+            while (reader.Read())
+            {
+                name = reader.GetString(0);
+            }
+            connection.Close();
+            return name;
+        }
+
+
         public void Update() 
         {
             List<String> values = new List<String>(){ Code, Name };

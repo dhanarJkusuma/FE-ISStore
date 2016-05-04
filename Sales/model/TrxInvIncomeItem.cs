@@ -119,12 +119,7 @@ namespace Sales.model
         }
 
 
-        public static QueryBuilder query()
-        {
-            table = VariableBuilder.Table.TrxPayment;
-            return new QueryBuilder();
-        }
-
+ 
         
     }
 }

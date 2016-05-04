@@ -125,7 +125,7 @@ namespace Sales.model
             SqlDataReader reader = DatabaseBuilder.readData(VariableBuilder.Table.StockItem, new String[] { StockColumns[1] }, StockColumns[0] + "=" + barcode, connection);
             while (reader.Read())
             {
-                qty = (reader.IsDBNull(0)) ? 0 : reader.GetInt32(0);
+                qty = (reader.IsDBNull(0)) ? 0 : Convert.ToInt32(reader.GetValue(0));
             }
             connection.Close();
             return qty;
@@ -136,12 +136,12 @@ namespace Sales.model
             Item item = new Item();
             SqlConnection connection = DatabaseBuilder.getConnection();
             connection.Open();
-            SqlDataReader reader = DatabaseBuilder.readData(VariableBuilder.Table.Item,Columns,Columns[0] + "=" + barcode, connection);
+            SqlDataReader reader = DatabaseBuilder.readData(VariableBuilder.Table.Item,Columns,Columns[0] + "='" + barcode + "'", connection);
             while (reader.Read())
             {
                 if (reader.HasRows)
                 {
-                    item.Barcode = reader.GetValue(0).ToString();
+                    item.Barcode = (reader.IsDBNull(0)) ? null : reader.GetValue(0).ToString();
                     item.Name = reader.GetString(1);
                     item.Category = reader.GetString(2);
                     item.Unit = reader.GetString(3);

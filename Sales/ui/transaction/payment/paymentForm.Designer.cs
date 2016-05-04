@@ -73,12 +73,14 @@
             this.cDiscount,
             this.cTotal});
             this.itemGrid.Location = new System.Drawing.Point(13, 144);
+            this.itemGrid.MultiSelect = false;
             this.itemGrid.Name = "itemGrid";
             this.itemGrid.RowHeadersVisible = false;
-            this.itemGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.itemGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.itemGrid.Size = new System.Drawing.Size(779, 309);
-            this.itemGrid.TabIndex = 14;
+            this.itemGrid.TabIndex = 0;
             this.itemGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemGrid_CellValueChanged);
+            this.itemGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.itemGrid_EditingControlShowing);
             // 
             // cBarcode
             // 
@@ -146,7 +148,7 @@
             this.memberBtn.Location = new System.Drawing.Point(373, 77);
             this.memberBtn.Name = "memberBtn";
             this.memberBtn.Size = new System.Drawing.Size(46, 23);
-            this.memberBtn.TabIndex = 12;
+            this.memberBtn.TabIndex = 1;
             this.memberBtn.Text = "...";
             this.memberBtn.UseVisualStyleBackColor = true;
             this.memberBtn.Click += new System.EventHandler(this.memberBtn_Click);

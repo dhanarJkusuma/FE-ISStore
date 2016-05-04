@@ -15,6 +15,8 @@ namespace Sales.ui.transaction.payment
     {
         private suggestMember memberForm;
         private Member customer;
+        private List<TrxPaymentItem> items = new List<TrxPaymentItem>();
+        private List<Item> gridContainer = new List<Item>();
         
         public paymentForm()
         {
@@ -27,7 +29,11 @@ namespace Sales.ui.transaction.payment
             }
             setGrid();
             memberForm = new suggestMember(new Point(memberBtn.Location.X, memberBtn.Location.Y + memberBtn.Height + 5), this);
+            itemGrid.CurrentCell = itemGrid.Rows[0].Cells[0];
+            itemGrid.Focus();
+            itemGrid.BeginEdit(true);
         }
+
 
         private void memberBtn_Click(object sender, EventArgs e)
         {
@@ -56,39 +62,87 @@ namespace Sales.ui.transaction.payment
 
         private void itemGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0 && itemGrid.SelectedRows.Count > 0) 
+            if (e.ColumnIndex == 0 && itemGrid.SelectedCells.Count == 1) 
             {
-                Item item = Item.Find(itemGrid.SelectedRows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-                if (item != null) 
+                if (itemGrid.SelectedCells[0].Value != null)
                 {
-                    if (Item.getQty(item.Barcode) > Convert.ToInt32(item.StockAlert)) 
+                    if (itemGrid.SelectedCells[0].Value.ToString().Length > 0) 
                     {
-                        itemGrid.SelectedRows[e.RowIndex].Cells[2].Value = item.Name;
+                        Item item = Item.Find(itemGrid.SelectedCells[0].Value.ToString());
+                        if (item.Barcode != null)
+                        {
+                            if (Item.getQty(item.Barcode) > Convert.ToInt32(item.StockAlert))
+                            {
+                                itemGrid.Rows[e.RowIndex].Cells[2].Value = item.Name;
+                                itemGrid.Rows[e.RowIndex].Cells[3].Value = Unit.getUnitName(item.Unit);
+                                itemGrid.Rows[e.RowIndex].Cells[4].Value = item.Price;
+                                gridContainer.Add(item);
+                            }
+                            else if (Item.getQty(item.Barcode) == Convert.ToInt32(item.StockAlert))
+                            {
+                                itemGrid.Rows[e.RowIndex].Cells[2].Value = item.Name;
+                                itemGrid.Rows[e.RowIndex].Cells[3].Value = Unit.getUnitName(item.Unit);
+                                itemGrid.Rows[e.RowIndex].Cells[4].Value = item.Price;
+                                gridContainer.Add(item);
+                                MessageBox.Show("The item is on stock alert");
+                            }
+                            else
+                            {
+                                MessageBox.Show("The item is out of stock.");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("The item is not found. [404]");
+                            itemGrid.Rows[e.RowIndex].Cells[0].Value = "";
+                            itemGrid.Rows[e.RowIndex].Cells[2].Value = "";
+                            itemGrid.Rows[e.RowIndex].Cells[3].Value = "";
+                            itemGrid.Rows[e.RowIndex].Cells[4].Value = "";
+                        }
                     }
-                    else if (Item.getQty(item.Barcode) == Convert.ToInt32(item.StockAlert))
+                }
+                else 
+                {
+                    itemGrid.Rows[e.RowIndex].Cells[0].Value = "";
+                    itemGrid.Rows[e.RowIndex].Cells[2].Value = "";
+                    itemGrid.Rows[e.RowIndex].Cells[3].Value = "";
+                    itemGrid.Rows[e.RowIndex].Cells[4].Value = "";
+                }
+            }
+            else if (e.ColumnIndex == 1 && itemGrid.SelectedCells.Count > 0)
+            {
+                if (itemGrid.SelectedCells[0].Value != null) 
+                {
+                    String barcode = itemGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    Int32 itemCount = Item.getQty(barcode);
+                    if (Convert.ToInt32(itemGrid.Rows[e.RowIndex].Cells[1].Value) <= itemCount)
                     {
-                        itemGrid.SelectedRows[e.RowIndex].Cells[2].Value = item.Name;
-                        MessageBox.Show("The item is on stock alert");
+                        TrxPaymentItem item = new TrxPaymentItem();
+                        item.ItemBarcode = barcode;
+                        item.Qty = Convert.ToInt32(itemGrid.Rows[e.RowIndex].Cells[1].Value);
+                        items.Add(item);
+                        itemGrid.Rows[e.RowIndex].Cells[6].Value = Convert.ToDouble(itemGrid.Rows[e.RowIndex].Cells[4].Value) * Convert.ToInt32(itemGrid.Rows[e.RowIndex].Cells[1].Value);
                     }
                     else 
                     {
-                        MessageBox.Show("The item is out of stock.");
+                        MessageBox.Show("The item is out of stock. ");
+                        itemGrid.SelectedCells[0].Value = 0;
                     }
                 }
             }
-            else if(e.ColumnIndex == 1 && itemGrid.SelectedRows.Count > 0)
+        }
+
+        private void itemGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (itemGrid.CurrentCell.ColumnIndex == 1) 
             {
-                if (itemGrid.SelectedRows[e.RowIndex].Cells[0].Value != "" && itemGrid.SelectedRows[e.RowIndex].Cells[0].Value != null) 
-                {
-                    String barcode = itemGrid.SelectedRows[e.RowIndex].Cells[0].Value.ToString();
-                    Int32 itemCount = Item.getQty(barcode);
-                    if ( Convert.ToInt32(itemGrid.SelectedRows[e.RowIndex].Cells[1].Value) <= itemCount) 
-                    {
-                        
-                    }
-                
-                }
+                e.Control.KeyPress += Control_KeyPress;
             }
+        }
+
+        void Control_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Helper.Forms.justNumber(e);
         }
     }
 }

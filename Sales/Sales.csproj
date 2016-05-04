@@ -107,6 +107,8 @@
     <Compile Include="model\Supplier.cs" />
     <Compile Include="model\TrxInvIncome.cs" />
     <Compile Include="model\TrxInvIncomeItem.cs" />
+    <Compile Include="model\TrxPayment.cs" />
+    <Compile Include="model\TrxPaymentItem.cs" />
     <Compile Include="model\Unit.cs" />
     <Compile Include="model\User.cs" />
     <Compile Include="Program.cs" />
