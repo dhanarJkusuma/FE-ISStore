@@ -20,6 +20,8 @@ namespace Sales.libs
             public static String Category = "box_category";
             public static String Item = "box_master_item";
             public static String StockItem = "box_master_stock";
+            public static String Menu = "box_menu";
+            public static String Role = "box_role";
 
 
             /* TABLE LOCATION */

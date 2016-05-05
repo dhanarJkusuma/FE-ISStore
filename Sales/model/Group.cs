@@ -47,10 +47,9 @@ namespace Sales.model
 
         public void New() 
         {
-            List<String> insertedColumns = Columns.ToList();
-            insertedColumns.RemoveAt(0);
-            String[] values = { Name.ToString(), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") };
-            DatabaseBuilder.insert(VariableBuilder.Table.Group, insertedColumns.ToArray(), insertedColumns.ToArray(), values,"New Group has been added.");
+            String[] iparams = { "groupName" };
+            String[] values = { Name.ToString() };
+            DatabaseBuilder.usingStoredProcedure("SP_NEW_GROUP", iparams, values, "Group added successfully.");
         }
 
         public void Update() 

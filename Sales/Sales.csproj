@@ -109,6 +109,7 @@
     <Compile Include="model\Group.cs" />
     <Compile Include="model\Item.cs" />
     <Compile Include="model\Member.cs" />
+    <Compile Include="model\SalesMenu.cs" />
     <Compile Include="model\Region.cs" />
     <Compile Include="model\Supplier.cs" />
     <Compile Include="model\TrxInvIncome.cs" />
@@ -251,6 +252,12 @@
     <Compile Include="ui\transaction\payment\paymentForm.Designer.cs">
       <DependentUpon>paymentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ui\users\auth\authForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\users\auth\authForm.Designer.cs">
+      <DependentUpon>authForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\users\group\groupForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -375,6 +382,9 @@
     <EmbeddedResource Include="ui\transaction\payment\paymentForm.resx">
       <DependentUpon>paymentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ui\users\auth\authForm.resx">
+      <DependentUpon>authForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\users\group\groupForm.resx">
       <DependentUpon>groupForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -416,9 +426,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ui\users\auth\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
