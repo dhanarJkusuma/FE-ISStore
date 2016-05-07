@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.tDiscount = new System.Windows.Forms.TextBox();
+            this.btnPay = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -35,9 +38,18 @@
             this.tPayment = new System.Windows.Forms.TextBox();
             this.tTotal = new System.Windows.Forms.TextBox();
             this.itemGrid = new System.Windows.Forms.DataGridView();
+            this.cBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.memberBtn = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tTrxNo = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tCashier = new System.Windows.Forms.TextBox();
@@ -47,25 +59,46 @@
             this.tCustomer = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnPay = new System.Windows.Forms.Button();
-            this.tTrxNo = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tDiscount = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.itemGrid)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tDiscount
+            // 
+            this.tDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tDiscount.Location = new System.Drawing.Point(928, 150);
+            this.tDiscount.Name = "tDiscount";
+            this.tDiscount.Size = new System.Drawing.Size(271, 20);
+            this.tDiscount.TabIndex = 20;
+            this.tDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tDiscount.TextChanged += new System.EventHandler(this.tDiscount_TextChanged);
+            // 
+            // btnPay
+            // 
+            this.btnPay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPay.Location = new System.Drawing.Point(1028, 567);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(170, 46);
+            this.btnPay.TabIndex = 19;
+            this.btnPay.Text = "Pay";
+            this.btnPay.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnPay.UseVisualStyleBackColor = true;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(857, 151);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(55, 15);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Discount";
             // 
             // label7
             // 
@@ -166,6 +199,36 @@
             this.itemGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemGrid_CellValueChanged);
             this.itemGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.itemGrid_EditingControlShowing);
             // 
+            // cBarcode
+            // 
+            this.cBarcode.HeaderText = "Barcode";
+            this.cBarcode.Name = "cBarcode";
+            // 
+            // cQty
+            // 
+            this.cQty.HeaderText = "Qty";
+            this.cQty.Name = "cQty";
+            // 
+            // cName
+            // 
+            this.cName.HeaderText = "Item Name";
+            this.cName.Name = "cName";
+            // 
+            // cUnit
+            // 
+            this.cUnit.HeaderText = "Unit";
+            this.cUnit.Name = "cUnit";
+            // 
+            // cPrice
+            // 
+            this.cPrice.HeaderText = "Price";
+            this.cPrice.Name = "cPrice";
+            // 
+            // cTotal
+            // 
+            this.cTotal.HeaderText = "Sub Total";
+            this.cTotal.Name = "cTotal";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label4);
@@ -203,6 +266,34 @@
             this.memberBtn.Text = "...";
             this.memberBtn.UseVisualStyleBackColor = true;
             this.memberBtn.Click += new System.EventHandler(this.memberBtn_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Location = new System.Drawing.Point(6, 19);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(103, 23);
+            this.panel4.TabIndex = 10;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 3);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 17);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Trx No";
+            // 
+            // tTrxNo
+            // 
+            this.tTrxNo.Enabled = false;
+            this.tTrxNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tTrxNo.Location = new System.Drawing.Point(109, 19);
+            this.tTrxNo.Name = "tTrxNo";
+            this.tTrxNo.Size = new System.Drawing.Size(298, 23);
+            this.tTrxNo.TabIndex = 0;
             // 
             // panel2
             // 
@@ -288,97 +379,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Customer";
             // 
-            // btnPay
-            // 
-            this.btnPay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPay.Location = new System.Drawing.Point(1028, 567);
-            this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(170, 46);
-            this.btnPay.TabIndex = 19;
-            this.btnPay.Text = "Pay";
-            this.btnPay.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnPay.UseVisualStyleBackColor = true;
-            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
-            // 
-            // tTrxNo
-            // 
-            this.tTrxNo.Enabled = false;
-            this.tTrxNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tTrxNo.Location = new System.Drawing.Point(109, 19);
-            this.tTrxNo.Name = "tTrxNo";
-            this.tTrxNo.Size = new System.Drawing.Size(298, 23);
-            this.tTrxNo.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.label8);
-            this.panel4.Location = new System.Drawing.Point(6, 19);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(103, 23);
-            this.panel4.TabIndex = 10;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 3);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 17);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Trx No";
-            // 
-            // tDiscount
-            // 
-            this.tDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tDiscount.Location = new System.Drawing.Point(928, 150);
-            this.tDiscount.Name = "tDiscount";
-            this.tDiscount.Size = new System.Drawing.Size(271, 20);
-            this.tDiscount.TabIndex = 20;
-            this.tDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tDiscount.TextChanged += new System.EventHandler(this.tDiscount_TextChanged);
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(857, 151);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 15);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Discount";
-            // 
-            // cBarcode
-            // 
-            this.cBarcode.HeaderText = "Barcode";
-            this.cBarcode.Name = "cBarcode";
-            // 
-            // cQty
-            // 
-            this.cQty.HeaderText = "Qty";
-            this.cQty.Name = "cQty";
-            // 
-            // cName
-            // 
-            this.cName.HeaderText = "Item Name";
-            this.cName.Name = "cName";
-            // 
-            // cUnit
-            // 
-            this.cUnit.HeaderText = "Unit";
-            this.cUnit.Name = "cUnit";
-            // 
-            // cPrice
-            // 
-            this.cPrice.HeaderText = "Price";
-            this.cPrice.Name = "cPrice";
-            // 
-            // cTotal
-            // 
-            this.cTotal.HeaderText = "Sub Total";
-            this.cTotal.Name = "cTotal";
-            // 
             // paymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -395,21 +395,25 @@
             this.Controls.Add(this.tTotal);
             this.Controls.Add(this.itemGrid);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "paymentForm";
-            this.Text = "paymentForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
+            this.Text = "Sales :: Transaction :: Payment";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.paymentForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.itemGrid)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

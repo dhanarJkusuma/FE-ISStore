@@ -96,7 +96,11 @@ namespace Sales.ui.transaction.incoming_item
         {
             TrxInvIncome trxInv = new TrxInvIncome();
             trxInv.Amount = amount;
-            trxInv.SupplierID = selectedSupplier.No;
+            if (selectedSupplier != null) 
+            {
+                trxInv.SupplierID = selectedSupplier.No;
+            }
+            
             trxInv.New();
             for (int i = 0; i < selectedItem.Count; i++) 
             {

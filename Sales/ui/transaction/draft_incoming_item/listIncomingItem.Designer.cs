@@ -56,6 +56,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 485);
             this.Controls.Add(this.incomeList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "listIncomingItem";
             this.Text = "listIncomingItem";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

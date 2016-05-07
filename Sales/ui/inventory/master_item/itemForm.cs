@@ -79,6 +79,7 @@ namespace Sales.ui.inventory.master_item
             }
         }
 
+      
 
     }
 }

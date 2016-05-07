@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sales</RootNamespace>
     <AssemblyName>Sales</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
@@ -51,8 +51,19 @@
     <StartupObject>Sales.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Data.AdoDotNetInterop.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,6 +74,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dataset\Profit.cs">
+      <DependentUpon>Profit.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dataset\Profit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Profit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\StockItem.cs">
+      <DependentUpon>StockItem.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dataset\StockItem.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockItem.xsd</DependentUpon>
+    </Compile>
     <Compile Include="libs\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +149,20 @@
     <Compile Include="model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="report_model\ProfitRptModel.cs" />
+    <Compile Include="report_model\StockRptModel.cs" />
+    <Compile Include="report_template\RptProfit.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptProfit.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="report_template\RptStock.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptStock.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ui\data\member\memberForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +271,24 @@
     <Compile Include="ui\loginForm.Designer.cs">
       <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ui\report\profitReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\report\profitReport.Designer.cs">
+      <DependentUpon>profitReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\report\profit\profitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\report\profit\profitForm.Designer.cs">
+      <DependentUpon>profitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\report\stockReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\report\stockReport.Designer.cs">
+      <DependentUpon>stockReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\transaction\draft_incoming_item\incomeItemDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +377,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="report_template\RptProfit.resx">
+      <DependentUpon>RptProfit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report_template\RptProfit.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptProfit.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report_template\RptStock.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptStock.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\data\member\memberForm.resx">
       <DependentUpon>memberForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -370,6 +442,15 @@
     <EmbeddedResource Include="ui\loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ui\report\profitReport.resx">
+      <DependentUpon>profitReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\report\profit\profitForm.resx">
+      <DependentUpon>profitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\report\stockReport.resx">
+      <DependentUpon>stockReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\transaction\draft_incoming_item\incomeItemDetail.resx">
       <DependentUpon>incomeItemDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -404,6 +485,28 @@
       <DependentUpon>usersForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="dataset\Profit.xsc">
+      <DependentUpon>Profit.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\Profit.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Profit.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dataset\Profit.xss">
+      <DependentUpon>Profit.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\StockItem.xsc">
+      <DependentUpon>StockItem.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\StockItem.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StockItem.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dataset\StockItem.xss">
+      <DependentUpon>StockItem.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -427,6 +530,20 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

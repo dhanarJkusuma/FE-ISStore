@@ -119,9 +119,14 @@ namespace Sales.ui.transaction.payment
                 else 
                 {
                     itemGrid.Rows[e.RowIndex].Cells[0].Value = "";
+                    itemGrid.Rows[e.RowIndex].Cells[1].Value = null;
                     itemGrid.Rows[e.RowIndex].Cells[2].Value = "";
                     itemGrid.Rows[e.RowIndex].Cells[3].Value = "";
                     itemGrid.Rows[e.RowIndex].Cells[4].Value = "";
+                    itemGrid.Rows[e.RowIndex].Cells[5].Value = null;
+                    setAmount();
+                    cashBackStr = (Convert.ToDouble((paymentStr == "") ? "0" : paymentStr) - Convert.ToDouble(amount)).ToString();
+                    tCashback.Text = Helper.Data.rupiahParser(cashBackStr);
                 }
             }
             else if (e.ColumnIndex == 1 && itemGrid.SelectedCells.Count > 0)

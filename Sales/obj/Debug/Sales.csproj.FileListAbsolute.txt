@@ -39,3 +39,8 @@ C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\S
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.libs.suggestMember.resources
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.libs.suggestSupplier.resources
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.users.auth.authForm.resources
+C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.csproj.ResolveComReference.cache
+C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.report.stockReport.resources
+C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.report.profitReport.resources
+C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.report_template.RptProfit.resources
+C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.report.profit.profitForm.resources

@@ -193,6 +193,13 @@ namespace Sales.libs
             return dt;
         }
 
+        public static String queryString(String query, String[] columns)
+        {
+            query = query.Replace("*", generateStringColumns(columns));
+            return query;
+        }
+
+
         public static DataTable query(String query)
         {
             SqlConnection openCon = new SqlConnection(getConnectionString());
@@ -251,6 +258,7 @@ namespace Sales.libs
             return saReader;
 
         }
+
 
         public static void update(String table, String[] columns, String[] iparams, String[] value, String whereArgs)
         {

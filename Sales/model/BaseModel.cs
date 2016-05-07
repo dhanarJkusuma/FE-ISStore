@@ -105,6 +105,11 @@ namespace Sales.model
                     return _query;
                 }
 
+                public String Query(String[] columns) 
+                {
+                    return DatabaseBuilder.queryString(_query, columns);
+                }
+
                 public DataTable GetData() 
                 {
                     return DatabaseBuilder.query(_query);
