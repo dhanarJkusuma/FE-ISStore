@@ -47,10 +47,12 @@
             this.btnListIncome = new System.Windows.Forms.Button();
             this.btnPayment = new System.Windows.Forms.Button();
             this.btnIncomeItem = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.tabReport = new System.Windows.Forms.TabPage();
-            this.btnStockRep = new System.Windows.Forms.Button();
             this.btnProfitReport = new System.Windows.Forms.Button();
+            this.btnStockRep = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.tabUser.SuspendLayout();
             this.tabData.SuspendLayout();
@@ -78,6 +80,7 @@
             // 
             // tabUser
             // 
+            this.tabUser.Controls.Add(this.button1);
             this.tabUser.Controls.Add(this.btnAuth);
             this.tabUser.Controls.Add(this.btnUser);
             this.tabUser.Controls.Add(this.btnGroup);
@@ -274,19 +277,6 @@
             this.btnIncomeItem.UseVisualStyleBackColor = true;
             this.btnIncomeItem.Click += new System.EventHandler(this.btnIncomeItem_Click);
             // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(720, 13);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(62, 55);
-            this.btnExit.TabIndex = 1;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // tabReport
             // 
             this.tabReport.Controls.Add(this.btnProfitReport);
@@ -297,18 +287,6 @@
             this.tabReport.TabIndex = 4;
             this.tabReport.Text = "Report";
             this.tabReport.UseVisualStyleBackColor = true;
-            // 
-            // btnStockRep
-            // 
-            this.btnStockRep.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStockRep.Location = new System.Drawing.Point(7, 7);
-            this.btnStockRep.Name = "btnStockRep";
-            this.btnStockRep.Size = new System.Drawing.Size(110, 133);
-            this.btnStockRep.TabIndex = 1;
-            this.btnStockRep.Text = "Stock Report";
-            this.btnStockRep.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnStockRep.UseVisualStyleBackColor = true;
-            this.btnStockRep.Click += new System.EventHandler(this.btnStockRep_Click);
             // 
             // btnProfitReport
             // 
@@ -322,12 +300,62 @@
             this.btnProfitReport.UseVisualStyleBackColor = true;
             this.btnProfitReport.Click += new System.EventHandler(this.btnProfitReport_Click);
             // 
+            // btnStockRep
+            // 
+            this.btnStockRep.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStockRep.Location = new System.Drawing.Point(7, 7);
+            this.btnStockRep.Name = "btnStockRep";
+            this.btnStockRep.Size = new System.Drawing.Size(110, 133);
+            this.btnStockRep.TabIndex = 1;
+            this.btnStockRep.Text = "Stock Report";
+            this.btnStockRep.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnStockRep.UseVisualStyleBackColor = true;
+            this.btnStockRep.Click += new System.EventHandler(this.btnStockRep_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(720, 13);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(62, 55);
+            this.btnExit.TabIndex = 1;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(355, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 133);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Authorization";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnAuth_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(408, 104);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(110, 133);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Authorization";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnAuth_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 468);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.tabMenu);
             this.Font = new System.Drawing.Font("Meiryo UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -371,6 +399,8 @@
         private System.Windows.Forms.TabPage tabReport;
         private System.Windows.Forms.Button btnStockRep;
         private System.Windows.Forms.Button btnProfitReport;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
 
 
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Sales.libs
 {
     class Helper
     {
+
         public class Forms
         {
            
@@ -224,6 +226,28 @@ namespace Sales.libs
                 }
                 connection.Close();
                 return date;
+            }
+
+            public static String getMonthString(Int32 month) 
+            {
+                String[] monthDate = {
+                            "January",
+                            "February",
+                            "March",
+                            "April",
+                            "May",
+                            "June",
+                            "July",
+                            "August",
+                            "September",
+                            "October",
+                            "November",
+                            "December"
+                         };
+
+                return monthDate[month - 1];
+
+
             }
         }
     }

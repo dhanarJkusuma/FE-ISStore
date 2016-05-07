@@ -40,6 +40,7 @@ namespace Sales.ui.report
 
         private void getData() 
         {
+            cryRpt.Load(VariableBuilder.DirectoryLocation + "\\_REPORT\\RptProfit.rpt");
             var records = ProfitRptModel.getData(FirstDate,SecondDate);
             cryRpt.Database.Tables["Profit"].SetDataSource(records);
             profitReportViewer.ReportSource = cryRpt;

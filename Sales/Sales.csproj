@@ -83,6 +83,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Profit.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dataset\ProfitMonth.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProfitMonth.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dataset\StockItem.cs">
       <DependentUpon>StockItem.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -155,6 +160,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RptProfit.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="report_template\RptProfitMonth.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptProfitMonth.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="report_template\RptStock.cs">
@@ -271,10 +282,16 @@
     <Compile Include="ui\loginForm.Designer.cs">
       <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ui\report\profitReport.cs">
+    <Compile Include="ui\report\profit\profitMonthReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ui\report\profitReport.Designer.cs">
+    <Compile Include="ui\report\profit\profitMonthReport.Designer.cs">
+      <DependentUpon>profitMonthReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\report\profit\profitReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\report\profit\profitReport.Designer.cs">
       <DependentUpon>profitReport.cs</DependentUpon>
     </Compile>
     <Compile Include="ui\report\profit\profitForm.cs">
@@ -283,10 +300,10 @@
     <Compile Include="ui\report\profit\profitForm.Designer.cs">
       <DependentUpon>profitForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ui\report\stockReport.cs">
+    <Compile Include="ui\report\stock\stockReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ui\report\stockReport.Designer.cs">
+    <Compile Include="ui\report\stock\stockReport.Designer.cs">
       <DependentUpon>stockReport.cs</DependentUpon>
     </Compile>
     <Compile Include="ui\transaction\draft_incoming_item\incomeItemDetail.cs">
@@ -384,6 +401,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptProfit.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="report_template\RptProfitMonth.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptProfitMonth.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="report_template\RptStock.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptStock.cs</LastGenOutput>
@@ -442,13 +463,16 @@
     <EmbeddedResource Include="ui\loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ui\report\profitReport.resx">
+    <EmbeddedResource Include="ui\report\profit\profitMonthReport.resx">
+      <DependentUpon>profitMonthReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\report\profit\profitReport.resx">
       <DependentUpon>profitReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\report\profit\profitForm.resx">
       <DependentUpon>profitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ui\report\stockReport.resx">
+    <EmbeddedResource Include="ui\report\stock\stockReport.resx">
       <DependentUpon>stockReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\transaction\draft_incoming_item\incomeItemDetail.resx">
@@ -495,6 +519,17 @@
     </None>
     <None Include="dataset\Profit.xss">
       <DependentUpon>Profit.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\ProfitMonth.xsc">
+      <DependentUpon>ProfitMonth.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\ProfitMonth.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProfitMonth.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dataset\ProfitMonth.xss">
+      <DependentUpon>ProfitMonth.xsd</DependentUpon>
     </None>
     <None Include="dataset\StockItem.xsc">
       <DependentUpon>StockItem.xsd</DependentUpon>

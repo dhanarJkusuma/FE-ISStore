@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ProfitMonth" targetNamespace="http://tempuri.org/ProfitMonth.xsd" xmlns:mstns="http://tempuri.org/ProfitMonth.xsd" xmlns="http://tempuri.org/ProfitMonth.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ProfitMonth" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ProfitMonth" msprop:Generator_UserDSName="ProfitMonth">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="profitMonth" msprop:Generator_TableClassName="profitMonthDataTable" msprop:Generator_TableVarName="tableprofitMonth" msprop:Generator_TablePropName="profitMonth" msprop:Generator_RowDeletingName="profitMonthRowDeleting" msprop:Generator_RowChangingName="profitMonthRowChanging" msprop:Generator_RowEvHandlerName="profitMonthRowChangeEventHandler" msprop:Generator_RowDeletedName="profitMonthRowDeleted" msprop:Generator_UserTableName="profitMonth" msprop:Generator_RowChangedName="profitMonthRowChanged" msprop:Generator_RowEvArgName="profitMonthRowChangeEvent" msprop:Generator_RowClassName="profitMonthRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="dateMonth" msprop:Generator_ColumnVarNameInTable="columndateMonth" msprop:Generator_ColumnPropNameInRow="dateMonth" msprop:Generator_ColumnPropNameInTable="dateMonthColumn" msprop:Generator_UserColumnName="dateMonth" type="xs:string" minOccurs="0" />
+              <xs:element name="profit" msprop:Generator_ColumnVarNameInTable="columnprofit" msprop:Generator_ColumnPropNameInRow="profit" msprop:Generator_ColumnPropNameInTable="profitColumn" msprop:Generator_UserColumnName="profit" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
