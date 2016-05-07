@@ -31,6 +31,8 @@
             this.incomingList = new System.Windows.Forms.DataGridView();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnOpen = new System.Windows.Forms.Button();
+            this.secondDate = new System.Windows.Forms.DateTimePicker();
+            this.firstDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.incomingList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,13 +47,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.incomingList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.incomingList.Location = new System.Drawing.Point(12, 32);
+            this.incomingList.Location = new System.Drawing.Point(12, 64);
             this.incomingList.MultiSelect = false;
             this.incomingList.Name = "incomingList";
             this.incomingList.ReadOnly = true;
             this.incomingList.RowHeadersVisible = false;
             this.incomingList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.incomingList.Size = new System.Drawing.Size(671, 370);
+            this.incomingList.Size = new System.Drawing.Size(671, 338);
             this.incomingList.TabIndex = 0;
             // 
             // btnPrint
@@ -78,11 +80,30 @@
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
+            // secondDate
+            // 
+            this.secondDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.secondDate.Location = new System.Drawing.Point(483, 38);
+            this.secondDate.Name = "secondDate";
+            this.secondDate.Size = new System.Drawing.Size(200, 20);
+            this.secondDate.TabIndex = 5;
+            this.secondDate.ValueChanged += new System.EventHandler(this.secondDate_ValueChanged);
+            // 
+            // firstDate
+            // 
+            this.firstDate.Location = new System.Drawing.Point(12, 38);
+            this.firstDate.Name = "firstDate";
+            this.firstDate.Size = new System.Drawing.Size(200, 20);
+            this.firstDate.TabIndex = 6;
+            this.firstDate.ValueChanged += new System.EventHandler(this.firstDate_ValueChanged);
+            // 
             // incomingRpt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 495);
+            this.Controls.Add(this.secondDate);
+            this.Controls.Add(this.firstDate);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.incomingList);
@@ -102,5 +123,7 @@
         private System.Windows.Forms.DataGridView incomingList;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.DateTimePicker secondDate;
+        private System.Windows.Forms.DateTimePicker firstDate;
     }
 }

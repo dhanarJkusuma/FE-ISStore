@@ -26,23 +26,9 @@ namespace Sales.ui.report.payment
         public paymentList()
         {
             InitializeComponent();
-            paymentGrid.DataSource = TrxPayment.query()
-                                                .innerJoin(VariableBuilder.Table.User)
-                                                .on(
-                                                    VariableBuilder.Table.TrxPayment + "." + TrxInvIncome.Columns[1]
-                                                    + "=" +
-                                                    VariableBuilder.Table.User + "." + User.Columns[0]
-                                                )
-                                                .leftJoin(VariableBuilder.Table.Member)
-                                                .on(
-                                                    VariableBuilder.Table.TrxPayment + "." + TrxPayment.Columns[2]
-                                                    + "=" +
-                                                    VariableBuilder.Table.Member + "." + Member.Columns[1] 
-                                                )
-                                                .where(VariableBuilder.Table.TrxPayment + "." + TrxPayment.Columns[8] + "=1")
-                                                .GetData(selectedColumns);
-            paymentGrid.ReadOnly = true;
-            paymentGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            firstDate.Value = DateTime.Now;
+            secondDate.Value = DateTime.Now;
+            
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
@@ -59,6 +45,48 @@ namespace Sales.ui.report.payment
             reportPayment report = new reportPayment(paymentGrid.SelectedRows[0].Cells[0].Value.ToString());
             Helper.Forms.startForm(report);
             
+        }
+
+        private void reloadView() 
+        {
+            paymentGrid.DataSource = TrxPayment.query()
+                                                .innerJoin(VariableBuilder.Table.User)
+                                                .on(
+                                                    VariableBuilder.Table.TrxPayment + "." + TrxInvIncome.Columns[1]
+                                                    + "=" +
+                                                    VariableBuilder.Table.User + "." + User.Columns[0]
+                                                )
+                                                .leftJoin(VariableBuilder.Table.Member)
+                                                .on(
+                                                    VariableBuilder.Table.TrxPayment + "." + TrxPayment.Columns[2]
+                                                    + "=" +
+                                                    VariableBuilder.Table.Member + "." + Member.Columns[1]
+                                                )
+                                                .where(VariableBuilder.Table.TrxPayment + "." + TrxPayment.Columns[8] + "=1")
+                                                .and(
+                                                    VariableBuilder.Table.TrxPayment
+                                                    + ".created_at BETWEEN '" +
+                                                    firstDate.Value.ToString("yyyy-MM-dd") + " 00:00:00"
+                                                    + "' and '" +
+                                                    secondDate.Value.ToString("yyyy-MM-dd") + " 23:59:59'")
+                                                .GetData(selectedColumns);
+            paymentGrid.ReadOnly = true;
+            paymentGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void paymentList_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void firstDate_ValueChanged(object sender, EventArgs e)
+        {
+            reloadView();
+        }
+
+        private void secondDate_ValueChanged(object sender, EventArgs e)
+        {
+            reloadView();
         }
     }
 }

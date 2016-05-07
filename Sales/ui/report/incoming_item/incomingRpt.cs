@@ -24,6 +24,8 @@ namespace Sales.ui.report.incoming_item
         public incomingRpt()
         {
             InitializeComponent();
+            firstDate.Value = DateTime.Now;
+            secondDate.Value = DateTime.Now;
             loadData();
         }
 
@@ -37,6 +39,12 @@ namespace Sales.ui.report.incoming_item
                                                     VariableBuilder.Table.User + "." + User.Columns[0]
                                                 )
                                                 .where(VariableBuilder.Table.TrxInvIncome + "." + TrxInvIncome.Columns[5] + "=1")
+                                                .and(
+                                                    VariableBuilder.Table.TrxInvIncome
+                                                    + ".created_at BETWEEN '" +
+                                                    firstDate.Value.ToString("yyyy-MM-dd") + " 00:00:00"
+                                                    + "' and '" +
+                                                    secondDate.Value.ToString("yyyy-MM-dd") + " 23:59:59'")
                                                 .GetData(selectedColumns);
             incomingList.ReadOnly = true;
             incomingList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -55,6 +63,16 @@ namespace Sales.ui.report.incoming_item
         {
             rptIncoming rpt = new rptIncoming(incomingList.SelectedRows[0].Cells[0].Value.ToString());
             Helper.Forms.startForm(rpt);
+        }
+
+        private void firstDate_ValueChanged(object sender, EventArgs e)
+        {
+            loadData();
+        }
+
+        private void secondDate_ValueChanged(object sender, EventArgs e)
+        {
+            loadData();
         }
     }
 }
