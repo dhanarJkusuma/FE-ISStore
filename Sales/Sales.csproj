@@ -74,6 +74,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dataset\IncomeTrxItems.cs">
+      <DependentUpon>IncomeTrxItems.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dataset\IncomeTrxItems.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncomeTrxItems.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\MostItem.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MostItem.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataset\PaymentItem.cs">
+      <DependentUpon>PaymentItem.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dataset\PaymentItem.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaymentItem.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dataset\Profit.cs">
       <DependentUpon>Profit.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -154,8 +177,23 @@
     <Compile Include="model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="report_model\IncomeItemRptModel.cs" />
+    <Compile Include="report_model\ItemMostRptModel.cs" />
+    <Compile Include="report_model\ItemPaymentRptModel.cs" />
     <Compile Include="report_model\ProfitRptModel.cs" />
     <Compile Include="report_model\StockRptModel.cs" />
+    <Compile Include="report_template\RptIncomeItem.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptIncomeItem.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="report_template\RptMostItem.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptMostItem.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="report_template\RptProfit.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -172,6 +210,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RptStock.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="report_template\RptTrxPayment.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptTrxPayment.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ui\data\member\memberForm.cs">
@@ -282,6 +326,36 @@
     <Compile Include="ui\loginForm.Designer.cs">
       <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ui\report\down10\downItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\report\down10\downItemForm.Designer.cs">
+      <DependentUpon>downItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\report\incoming_item\detail\detailIncomeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\report\incoming_item\detail\detailIncomeList.Designer.cs">
+      <DependentUpon>detailIncomeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\report\incoming_item\incomingRpt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\report\incoming_item\incomingRpt.Designer.cs">
+      <DependentUpon>incomingRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\report\incoming_item\reportForm\rptIncoming.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\report\incoming_item\reportForm\rptIncoming.Designer.cs">
+      <DependentUpon>rptIncoming.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\report\mostItemReport\mostItemReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\report\mostItemReport\mostItemReport.Designer.cs">
+      <DependentUpon>mostItemReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\report\profit\profitMonthReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,6 +380,12 @@
     <Compile Include="ui\report\stock\stockReport.Designer.cs">
       <DependentUpon>stockReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="ui\report\top10\topItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\report\top10\topItemForm.Designer.cs">
+      <DependentUpon>topItemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\transaction\draft_incoming_item\incomeItemDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -329,6 +409,12 @@
     </Compile>
     <Compile Include="ui\transaction\payment\paymentForm.Designer.cs">
       <DependentUpon>paymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\transaction\payment\report_payment\paymentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\transaction\payment\report_payment\paymentReport.Designer.cs">
+      <DependentUpon>paymentReport.cs</DependentUpon>
     </Compile>
     <Compile Include="ui\users\auth\authForm.cs">
       <SubType>Form</SubType>
@@ -394,6 +480,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="report_template\RptIncomeItem.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptIncomeItem.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report_template\RptMostItem.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptMostItem.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="report_template\RptProfit.resx">
       <DependentUpon>RptProfit.cs</DependentUpon>
     </EmbeddedResource>
@@ -408,6 +502,10 @@
     <EmbeddedResource Include="report_template\RptStock.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptStock.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report_template\RptTrxPayment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptTrxPayment.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\data\member\memberForm.resx">
       <DependentUpon>memberForm.cs</DependentUpon>
@@ -463,6 +561,21 @@
     <EmbeddedResource Include="ui\loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ui\report\down10\downItemForm.resx">
+      <DependentUpon>downItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\report\incoming_item\detail\detailIncomeList.resx">
+      <DependentUpon>detailIncomeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\report\incoming_item\incomingRpt.resx">
+      <DependentUpon>incomingRpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\report\incoming_item\reportForm\rptIncoming.resx">
+      <DependentUpon>rptIncoming.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\report\mostItemReport\mostItemReport.resx">
+      <DependentUpon>mostItemReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\report\profit\profitMonthReport.resx">
       <DependentUpon>profitMonthReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -475,6 +588,9 @@
     <EmbeddedResource Include="ui\report\stock\stockReport.resx">
       <DependentUpon>stockReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ui\report\top10\topItemForm.resx">
+      <DependentUpon>topItemForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\transaction\draft_incoming_item\incomeItemDetail.resx">
       <DependentUpon>incomeItemDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -486,6 +602,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ui\transaction\payment\paymentForm.resx">
       <DependentUpon>paymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\transaction\payment\report_payment\paymentReport.resx">
+      <DependentUpon>paymentReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\users\auth\authForm.resx">
       <DependentUpon>authForm.cs</DependentUpon>
@@ -509,6 +628,39 @@
       <DependentUpon>usersForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="dataset\IncomeTrxItems.xsc">
+      <DependentUpon>IncomeTrxItems.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\IncomeTrxItems.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IncomeTrxItems.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dataset\IncomeTrxItems.xss">
+      <DependentUpon>IncomeTrxItems.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\MostItem.xsc">
+      <DependentUpon>MostItem.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\MostItem.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MostItem.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dataset\MostItem.xss">
+      <DependentUpon>MostItem.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\PaymentItem.xsc">
+      <DependentUpon>PaymentItem.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\PaymentItem.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PaymentItem.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dataset\PaymentItem.xss">
+      <DependentUpon>PaymentItem.xsd</DependentUpon>
+    </None>
     <None Include="dataset\Profit.xsc">
       <DependentUpon>Profit.xsd</DependentUpon>
     </None>

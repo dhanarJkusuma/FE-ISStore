@@ -31,8 +31,7 @@ namespace Sales.ui.report.profit
             InitializeComponent();
             
             fillComboBox();
-            rTrans.Checked = true;
-            monthGroup.Enabled = false;
+            
         }
 
 
@@ -92,22 +91,26 @@ namespace Sales.ui.report.profit
                 cFirstYear.Items.Add(i);
                 cEndYear.Items.Add(i);
             }
-
-            cFirstDate.SelectedIndex = Convert.ToInt32(DateTime.Now.ToString("MM"))-1;
-            cSecondDate.SelectedIndex = Convert.ToInt32(DateTime.Now.ToString("MM"))-1;
-            cFirstYear.SelectedItem = DateTime.Now.ToString("yyyy");
-            cEndYear.SelectedItem = DateTime.Now.ToString("yyyy");
         }
 
         private void getProfitMonth_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("asu");
             profitMonthReport monthRep = new profitMonthReport();
             monthRep.FirstMonth = cFirstDate.SelectedIndex + 1;
             monthRep.SecondMonth = cSecondDate.SelectedIndex + 1;
             monthRep.FirstYear = Convert.ToInt32(cFirstYear.SelectedItem);
             monthRep.SecondYear = Convert.ToInt32(cEndYear.SelectedItem);
             Helper.Forms.startForm(monthRep);
+        }
+
+        private void profitForm_Load(object sender, EventArgs e)
+        {
+            cFirstDate.SelectedIndex = Convert.ToInt32(DateTime.Now.ToString("MM")) - 1;
+            cSecondDate.SelectedIndex = Convert.ToInt32(DateTime.Now.ToString("MM")) - 1;
+            cFirstYear.SelectedItem = Convert.ToInt32(DateTime.Now.ToString("yyyy"));
+            cEndYear.SelectedItem = Convert.ToInt32(DateTime.Now.ToString("yyyy"));
+            rTrans.Checked = true;
+            monthGroup.Enabled = false;
         }
     }
 }

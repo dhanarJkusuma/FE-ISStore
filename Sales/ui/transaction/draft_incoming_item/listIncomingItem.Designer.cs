@@ -62,6 +62,7 @@
             this.Name = "listIncomingItem";
             this.Text = "listIncomingItem";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.listIncomingItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.incomeList)).EndInit();
             this.ResumeLayout(false);
 

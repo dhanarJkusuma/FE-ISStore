@@ -1,5 +1,7 @@
 ﻿using Sales.libs;
 using Sales.model;
+using Sales.report_model;
+using Sales.ui.transaction.payment.report_payment;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +21,7 @@ namespace Sales.ui.transaction.payment
         String cashBackStr = "";
         private List<TrxPaymentItem> items = new List<TrxPaymentItem>();
         private List<Item> gridContainer = new List<Item>();
+        private List<ItemPaymentRptModel> itemsRpt = new List<ItemPaymentRptModel>();
         private Double amount=0;
         private Double payment = 0;
         
@@ -76,9 +79,10 @@ namespace Sales.ui.transaction.payment
                     if (itemGrid.SelectedCells[0].Value.ToString().Length > 0) 
                     {
                         Item item = Item.Find(itemGrid.SelectedCells[0].Value.ToString());
+                        Int32 qty = Item.getQty(item.Barcode);
                         if (item.Barcode != null)
                         {
-                            if (Item.getQty(item.Barcode) > Convert.ToInt32(item.StockAlert))
+                            if (qty > Convert.ToInt32(item.StockAlert))
                             {
                                 itemGrid.Rows[e.RowIndex].Cells[2].Value = item.Name;
                                 itemGrid.Rows[e.RowIndex].Cells[3].Value = Unit.getUnitName(item.Unit);
@@ -94,14 +98,14 @@ namespace Sales.ui.transaction.payment
                                     }
                                 }
                             }
-                            else if (Item.getQty(item.Barcode) == Convert.ToInt32(item.StockAlert))
+                            else if (qty <= Convert.ToInt32(item.StockAlert) && qty > 0)
                             {
                                 itemGrid.Rows[e.RowIndex].Cells[2].Value = item.Name;
                                 itemGrid.Rows[e.RowIndex].Cells[3].Value = Unit.getUnitName(item.Unit);
                                 itemGrid.Rows[e.RowIndex].Cells[4].Value = item.Price;
                                 MessageBox.Show("The item is on stock alert");
                             }
-                            else
+                            else if (qty == 0)
                             {
                                 MessageBox.Show("The item is out of stock.");
                             }
@@ -270,6 +274,7 @@ namespace Sales.ui.transaction.payment
                     String[] iparams = { "pStrTrxNo" };
                     String[] values = { vpayment.TrxNo };
                     DatabaseBuilder.usingStoredProcedure("SP_TRX_PAYMENT", iparams, values, "Process Success.");
+                    printTrx();
                     paymentForm paymentForm = new paymentForm();
                     Helper.Forms.startForm(paymentForm);
                     this.Dispose();
@@ -299,8 +304,23 @@ namespace Sales.ui.transaction.payment
                     newItem.ItemBarcode = row.Cells[0].Value.ToString();
                     newItem.Qty = Convert.ToInt32(row.Cells[1].Value);
                     newItem.New();
+
+                    ItemPaymentRptModel modelItem = new ItemPaymentRptModel();
+                    modelItem.Barcode = row.Cells[0].Value.ToString();
+                    modelItem.Item_name = row.Cells[2].Value.ToString();
+                    modelItem.Qty = Convert.ToInt32(row.Cells[1].Value);
+                    modelItem.Price = Helper.Data.rupiahParser(Convert.ToDouble(row.Cells[4].Value).ToString());
+                    modelItem.Sub_total = Helper.Data.rupiahParser(Convert.ToDouble(row.Cells[5].Value).ToString());
+                    itemsRpt.Add(modelItem);
                 }                                
             }
+        }
+
+        private void printTrx() 
+        {
+            paymentReport rpt = new paymentReport();
+            rpt.Items = itemsRpt;
+            Helper.Forms.startForm(rpt);
         }
 
 

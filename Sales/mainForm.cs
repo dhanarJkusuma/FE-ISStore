@@ -8,7 +8,10 @@ using Sales.ui.inventory.master_stock;
 using Sales.ui.inventory.stock_alert;
 using Sales.ui.inventory.unit;
 using Sales.ui.report;
+using Sales.ui.report.down10;
+using Sales.ui.report.incoming_item;
 using Sales.ui.report.profit;
+using Sales.ui.report.top10;
 using Sales.ui.transaction.draft_incoming_item;
 using Sales.ui.transaction.incoming_item;
 using Sales.ui.transaction.payment;
@@ -376,6 +379,24 @@ namespace Sales
         {
             profitForm profitRep = new profitForm();
             Helper.Forms.startForm(profitRep);
+        }
+
+        private void btnTop_Click(object sender, EventArgs e)
+        {
+            topItemForm topItem = new topItemForm();
+            Helper.Forms.startForm(topItem);
+        }
+
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+            downItemForm downItem = new downItemForm();
+            Helper.Forms.startForm(downItem);
+        }
+
+        private void btnIncome_Click(object sender, EventArgs e)
+        {
+            incomingRpt incomeRp = new incomingRpt();
+            Helper.Forms.startForm(incomeRp);
         }
     }
 }

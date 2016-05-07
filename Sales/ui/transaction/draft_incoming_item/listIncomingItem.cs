@@ -65,5 +65,10 @@ namespace Sales.ui.transaction.draft_incoming_item
                 Helper.Forms.startForm(detail);
             }
         }
+
+        private void listIncomingItem_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

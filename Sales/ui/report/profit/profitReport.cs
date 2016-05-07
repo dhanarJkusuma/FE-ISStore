@@ -34,7 +34,6 @@ namespace Sales.ui.report
         public profitReport()
         {
             InitializeComponent();
-            cryRpt.Load(VariableBuilder.DirectoryLocation + "\\_REPORT\\RptProfit.rpt");
             
         }
 

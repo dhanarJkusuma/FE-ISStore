@@ -227,6 +227,7 @@
             this.Name = "profitForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales :: Report :: Profit";
+            this.Load += new System.EventHandler(this.profitForm_Load);
             this.transGroup.ResumeLayout(false);
             this.transGroup.PerformLayout();
             this.monthGroup.ResumeLayout(false);

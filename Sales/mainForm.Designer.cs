@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.tabMenu = new System.Windows.Forms.TabControl();
             this.tabUser = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnAuth = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
             this.btnGroup = new System.Windows.Forms.Button();
@@ -52,7 +51,9 @@
             this.btnProfitReport = new System.Windows.Forms.Button();
             this.btnStockRep = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnTop = new System.Windows.Forms.Button();
+            this.btnDown = new System.Windows.Forms.Button();
+            this.btnIncome = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.tabUser.SuspendLayout();
             this.tabData.SuspendLayout();
@@ -80,7 +81,6 @@
             // 
             // tabUser
             // 
-            this.tabUser.Controls.Add(this.button1);
             this.tabUser.Controls.Add(this.btnAuth);
             this.tabUser.Controls.Add(this.btnUser);
             this.tabUser.Controls.Add(this.btnGroup);
@@ -91,18 +91,6 @@
             this.tabUser.TabIndex = 0;
             this.tabUser.Text = "Users";
             this.tabUser.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(355, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 133);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Authorization";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnAuth_Click);
             // 
             // btnAuth
             // 
@@ -291,6 +279,9 @@
             // 
             // tabReport
             // 
+            this.tabReport.Controls.Add(this.btnIncome);
+            this.tabReport.Controls.Add(this.btnDown);
+            this.tabReport.Controls.Add(this.btnTop);
             this.tabReport.Controls.Add(this.btnProfitReport);
             this.tabReport.Controls.Add(this.btnStockRep);
             this.tabReport.Location = new System.Drawing.Point(4, 26);
@@ -337,17 +328,41 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // button2
+            // btnTop
             // 
-            this.button2.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(95, 67);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 133);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Authorization";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.btnAuth_Click);
+            this.btnTop.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTop.Location = new System.Drawing.Point(239, 7);
+            this.btnTop.Name = "btnTop";
+            this.btnTop.Size = new System.Drawing.Size(110, 133);
+            this.btnTop.TabIndex = 1;
+            this.btnTop.Text = "Top Item";
+            this.btnTop.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnTop.UseVisualStyleBackColor = true;
+            this.btnTop.Click += new System.EventHandler(this.btnTop_Click);
+            // 
+            // btnDown
+            // 
+            this.btnDown.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDown.Location = new System.Drawing.Point(355, 7);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(110, 133);
+            this.btnDown.TabIndex = 1;
+            this.btnDown.Text = "Down Item";
+            this.btnDown.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnDown.UseVisualStyleBackColor = true;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+            // 
+            // btnIncome
+            // 
+            this.btnIncome.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIncome.Location = new System.Drawing.Point(471, 7);
+            this.btnIncome.Name = "btnIncome";
+            this.btnIncome.Size = new System.Drawing.Size(110, 133);
+            this.btnIncome.TabIndex = 1;
+            this.btnIncome.Text = "Incoming Item Transaction";
+            this.btnIncome.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnIncome.UseVisualStyleBackColor = true;
+            this.btnIncome.Click += new System.EventHandler(this.btnIncome_Click);
             // 
             // mainForm
             // 
@@ -355,7 +370,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 468);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.tabMenu);
             this.Font = new System.Drawing.Font("Meiryo UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -399,8 +413,9 @@
         private System.Windows.Forms.TabPage tabReport;
         private System.Windows.Forms.Button btnStockRep;
         private System.Windows.Forms.Button btnProfitReport;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDown;
+        private System.Windows.Forms.Button btnTop;
+        private System.Windows.Forms.Button btnIncome;
 
 
     }
