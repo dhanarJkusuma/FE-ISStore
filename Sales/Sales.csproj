@@ -97,6 +97,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PaymentItem.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dataset\PaymentTrxItem.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaymentTrxItem.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dataset\Profit.cs">
       <DependentUpon>Profit.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -180,6 +185,7 @@
     <Compile Include="report_model\IncomeItemRptModel.cs" />
     <Compile Include="report_model\ItemMostRptModel.cs" />
     <Compile Include="report_model\ItemPaymentRptModel.cs" />
+    <Compile Include="report_model\PaymentItemRptModel.cs" />
     <Compile Include="report_model\ProfitRptModel.cs" />
     <Compile Include="report_model\StockRptModel.cs" />
     <Compile Include="report_template\RptIncomeItem.cs">
@@ -355,6 +361,24 @@
     </Compile>
     <Compile Include="ui\report\mostItemReport\mostItemReport.Designer.cs">
       <DependentUpon>mostItemReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\report\payment\detail\detailPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\report\payment\detail\detailPayment.Designer.cs">
+      <DependentUpon>detailPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\report\payment\paymentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\report\payment\paymentList.Designer.cs">
+      <DependentUpon>paymentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\report\payment\reportForm\reportPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\report\payment\reportForm\reportPayment.Designer.cs">
+      <DependentUpon>reportPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="ui\report\profit\profitMonthReport.cs">
       <SubType>Form</SubType>
@@ -576,6 +600,15 @@
     <EmbeddedResource Include="ui\report\mostItemReport\mostItemReport.resx">
       <DependentUpon>mostItemReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ui\report\payment\detail\detailPayment.resx">
+      <DependentUpon>detailPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\report\payment\paymentList.resx">
+      <DependentUpon>paymentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\report\payment\reportForm\reportPayment.resx">
+      <DependentUpon>reportPayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\report\profit\profitMonthReport.resx">
       <DependentUpon>profitMonthReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -660,6 +693,17 @@
     </None>
     <None Include="dataset\PaymentItem.xss">
       <DependentUpon>PaymentItem.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\PaymentTrxItem.xsc">
+      <DependentUpon>PaymentTrxItem.xsd</DependentUpon>
+    </None>
+    <None Include="dataset\PaymentTrxItem.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PaymentTrxItem.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dataset\PaymentTrxItem.xss">
+      <DependentUpon>PaymentTrxItem.xsd</DependentUpon>
     </None>
     <None Include="dataset\Profit.xsc">
       <DependentUpon>Profit.xsd</DependentUpon>

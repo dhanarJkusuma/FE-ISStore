@@ -54,6 +54,7 @@
             this.btnTop = new System.Windows.Forms.Button();
             this.btnDown = new System.Windows.Forms.Button();
             this.btnIncome = new System.Windows.Forms.Button();
+            this.btnPaymentRpt = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.tabUser.SuspendLayout();
             this.tabData.SuspendLayout();
@@ -279,6 +280,7 @@
             // 
             // tabReport
             // 
+            this.tabReport.Controls.Add(this.btnPaymentRpt);
             this.tabReport.Controls.Add(this.btnIncome);
             this.tabReport.Controls.Add(this.btnDown);
             this.tabReport.Controls.Add(this.btnTop);
@@ -364,6 +366,18 @@
             this.btnIncome.UseVisualStyleBackColor = true;
             this.btnIncome.Click += new System.EventHandler(this.btnIncome_Click);
             // 
+            // btnPaymentRpt
+            // 
+            this.btnPaymentRpt.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPaymentRpt.Location = new System.Drawing.Point(587, 7);
+            this.btnPaymentRpt.Name = "btnPaymentRpt";
+            this.btnPaymentRpt.Size = new System.Drawing.Size(110, 133);
+            this.btnPaymentRpt.TabIndex = 1;
+            this.btnPaymentRpt.Text = "Payment Transaction";
+            this.btnPaymentRpt.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnPaymentRpt.UseVisualStyleBackColor = true;
+            this.btnPaymentRpt.Click += new System.EventHandler(this.btnPaymentRpt_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -416,6 +430,7 @@
         private System.Windows.Forms.Button btnDown;
         private System.Windows.Forms.Button btnTop;
         private System.Windows.Forms.Button btnIncome;
+        private System.Windows.Forms.Button btnPaymentRpt;
 
 
     }

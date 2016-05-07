@@ -10,6 +10,7 @@ using Sales.ui.inventory.unit;
 using Sales.ui.report;
 using Sales.ui.report.down10;
 using Sales.ui.report.incoming_item;
+using Sales.ui.report.payment;
 using Sales.ui.report.profit;
 using Sales.ui.report.top10;
 using Sales.ui.transaction.draft_incoming_item;
@@ -397,6 +398,12 @@ namespace Sales
         {
             incomingRpt incomeRp = new incomingRpt();
             Helper.Forms.startForm(incomeRp);
+        }
+
+        private void btnPaymentRpt_Click(object sender, EventArgs e)
+        {
+            paymentList paymentRp = new paymentList();
+            Helper.Forms.startForm(paymentRp);
         }
     }
 }

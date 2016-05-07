@@ -78,6 +78,12 @@ namespace Sales.model
             set { _created_at = value; }
         }
 
+        public static QueryBuilder query()
+        {
+            table = VariableBuilder.Table.TrxPayment;
+            return new QueryBuilder();
+        }
+
         public void New() 
         {
             String[] selectedColumns = {
