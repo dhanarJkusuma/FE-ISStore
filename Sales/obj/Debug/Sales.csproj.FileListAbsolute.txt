@@ -1,6 +1,5 @@
 c:\users\vlovavera\documents\visual studio 2013\Projects\Sales\Sales\bin\Debug\Sales.exe
 c:\users\vlovavera\documents\visual studio 2013\Projects\Sales\Sales\bin\Debug\Sales.pdb
-c:\users\vlovavera\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.csprojResolveAssemblyReference.cache
 c:\users\vlovavera\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.mainForm.resources
 c:\users\vlovavera\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.Properties.Resources.resources
 c:\users\vlovavera\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.csproj.GenerateResource.Cache

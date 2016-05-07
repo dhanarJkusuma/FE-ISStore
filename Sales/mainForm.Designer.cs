@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.tabMenu = new System.Windows.Forms.TabControl();
             this.tabUser = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnAuth = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
             this.btnGroup = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@
             this.btnProfitReport = new System.Windows.Forms.Button();
             this.btnStockRep = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.tabUser.SuspendLayout();
@@ -91,6 +91,18 @@
             this.tabUser.TabIndex = 0;
             this.tabUser.Text = "Users";
             this.tabUser.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(355, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 133);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Authorization";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnAuth_Click);
             // 
             // btnAuth
             // 
@@ -325,22 +337,10 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(355, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 133);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Authorization";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnAuth_Click);
-            // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(408, 104);
+            this.button2.Location = new System.Drawing.Point(95, 67);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 133);
             this.button2.TabIndex = 1;
