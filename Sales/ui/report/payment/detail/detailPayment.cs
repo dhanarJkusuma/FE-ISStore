@@ -48,6 +48,10 @@ namespace Sales.ui.report.payment.detail
             tMember.Text = Member.Find(Payment.MemberID).Name;
             tDate.Text = Payment.CreatedAt;
             tModi.Text = Modi;
+            amount.Text = "TOTAL\t : " + Helper.Data.rupiahParser(Payment.TotalAmount.ToString());
+            pay.Text = "PAY\t : "  + Helper.Data.rupiahParser(Payment.TotalPay.ToString());
+            cashBack.Text = "CASHBACK\t : " + Helper.Data.rupiahParser(Convert.ToDouble(Payment.TotalPay - Payment.TotalAmount).ToString());
+            profit.Text = "PROFIT\t : " + Helper.Data.rupiahParser(TrxPayment.getProfit(Payment.TrxNo).ToString());
         }
 
         private void loadItems() 
@@ -60,10 +64,12 @@ namespace Sales.ui.report.payment.detail
                         items[i].ItemBarcode,
                         item.Name,
                         items[i].Qty,
-                        Helper.Data.rupiahParser(item.Price),
+                        Helper.Data.rupiahParser(Convert.ToDouble(item.Price).ToString()),
                         Helper.Data.rupiahParser(sub.ToString())
                        );
             }
+            itemGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            itemGrid.ReadOnly = true;
         }
 
         private void detailPayment_Load(object sender, EventArgs e)

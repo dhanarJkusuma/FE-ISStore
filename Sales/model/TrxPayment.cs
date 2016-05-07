@@ -170,7 +170,19 @@ namespace Sales.model
             connection.Close();
             return trxPayment;
         }
-        
+
+        public static Double getProfit(String TrxNo) 
+        {
+            Double profit = 0;
+            SqlConnection connection = DatabaseBuilder.getConnection();
+            connection.Open();
+            SqlDataReader reader = DatabaseBuilder.readDataQuery("SELECT * FROM V_PROFIT_TRX WHERE trx_no='" + TrxNo + "'",connection);
+            while (reader.Read()) 
+            {
+                profit = Convert.ToDouble(reader.GetValue(2));
+            }
+            return profit;
+        }
 
         
     }

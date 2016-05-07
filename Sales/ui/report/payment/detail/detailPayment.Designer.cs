@@ -38,6 +38,10 @@
             this.cQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.Label();
+            this.pay = new System.Windows.Forms.Label();
+            this.cashBack = new System.Windows.Forms.Label();
+            this.profit = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.itemGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,11 +131,60 @@
             this.cSubTotal.Name = "cSubTotal";
             this.cSubTotal.ReadOnly = true;
             // 
+            // amount
+            // 
+            this.amount.AutoSize = true;
+            this.amount.Location = new System.Drawing.Point(12, 520);
+            this.amount.Name = "amount";
+            this.amount.Size = new System.Drawing.Size(31, 13);
+            this.amount.TabIndex = 8;
+            this.amount.Text = "Total";
+            this.amount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pay
+            // 
+            this.pay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pay.AutoSize = true;
+            this.pay.Location = new System.Drawing.Point(12, 544);
+            this.pay.Name = "pay";
+            this.pay.Size = new System.Drawing.Size(25, 13);
+            this.pay.TabIndex = 8;
+            this.pay.Text = "Pay";
+            this.pay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cashBack
+            // 
+            this.cashBack.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cashBack.AutoSize = true;
+            this.cashBack.Location = new System.Drawing.Point(12, 569);
+            this.cashBack.Name = "cashBack";
+            this.cashBack.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cashBack.Size = new System.Drawing.Size(56, 13);
+            this.cashBack.TabIndex = 8;
+            this.cashBack.Text = "CashBack";
+            this.cashBack.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // profit
+            // 
+            this.profit.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.profit.AutoSize = true;
+            this.profit.Location = new System.Drawing.Point(12, 592);
+            this.profit.Name = "profit";
+            this.profit.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.profit.Size = new System.Drawing.Size(31, 13);
+            this.profit.TabIndex = 8;
+            this.profit.Text = "Profit";
+            this.profit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // detailPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 507);
+            this.ClientSize = new System.Drawing.Size(646, 612);
+            this.Controls.Add(this.profit);
+            this.Controls.Add(this.cashBack);
+            this.Controls.Add(this.pay);
+            this.Controls.Add(this.amount);
             this.Controls.Add(this.tDate);
             this.Controls.Add(this.tModi);
             this.Controls.Add(this.tMember);
@@ -162,5 +215,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn cSubTotal;
+        private System.Windows.Forms.Label amount;
+        private System.Windows.Forms.Label pay;
+        private System.Windows.Forms.Label cashBack;
+        private System.Windows.Forms.Label profit;
     }
 }
