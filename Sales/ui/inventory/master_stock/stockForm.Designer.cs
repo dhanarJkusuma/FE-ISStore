@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(stockForm));
             this.stockGrid = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.stockGrid)).BeginInit();
@@ -47,18 +48,20 @@
             this.stockGrid.Name = "stockGrid";
             this.stockGrid.RowHeadersVisible = false;
             this.stockGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.stockGrid.Size = new System.Drawing.Size(693, 345);
+            this.stockGrid.Size = new System.Drawing.Size(693, 302);
             this.stockGrid.TabIndex = 0;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(13, 392);
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(13, 349);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(135, 55);
+            this.btnClose.Size = new System.Drawing.Size(84, 98);
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Close";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // stockForm
             // 

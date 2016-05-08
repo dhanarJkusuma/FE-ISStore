@@ -1,5 +1,6 @@
 ﻿using Sales.libs;
 using Sales.model;
+using Sales.report_model;
 using Sales.ui.data.member;
 using Sales.ui.data.supplier;
 using Sales.ui.inventory.category;
@@ -43,7 +44,8 @@ namespace Sales
             
             settingMenu();
             settingBtn();
-
+            timer.Start();
+            setChart();
 
         }
 
@@ -404,6 +406,27 @@ namespace Sales
         {
             paymentList paymentRp = new paymentList();
             Helper.Forms.startForm(paymentRp);
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            ltime.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void setChart() 
+        {
+            int SecondMonth = Convert.ToInt32(DateTime.Now.ToString("MM"));
+            int FirstMonth = Convert.ToInt32(DateTime.Now.ToString("MM"))-10;
+            if (SecondMonth < FirstMonth) 
+            {
+                FirstMonth = FirstMonth * -1;
+            }
+            int FirstYear = Convert.ToInt32(DateTime.Now.ToString("yyyy"));
+            int SecondYear = (SecondMonth < FirstMonth) ? FirstYear - 1 : FirstYear;
+
+            profitChart.DataSource = Profit.getData(FirstMonth, SecondMonth, FirstYear, SecondYear);
+            profitChart.Series["profit"].XValueMember = "dateMonth";
+            profitChart.Series["profit"].YValueMembers = "dprofit";
         }
     }
 }

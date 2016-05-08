@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(newSupplier));
             this.cancelBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
             this.cVill = new System.Windows.Forms.ComboBox();
@@ -70,9 +71,10 @@
             // 
             // cancelBtn
             // 
+            this.cancelBtn.Image = ((System.Drawing.Image)(resources.GetObject("cancelBtn.Image")));
             this.cancelBtn.Location = new System.Drawing.Point(118, 413);
             this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(100, 69);
+            this.cancelBtn.Size = new System.Drawing.Size(100, 96);
             this.cancelBtn.TabIndex = 29;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -80,9 +82,10 @@
             // 
             // saveBtn
             // 
+            this.saveBtn.Image = ((System.Drawing.Image)(resources.GetObject("saveBtn.Image")));
             this.saveBtn.Location = new System.Drawing.Point(12, 413);
             this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(100, 69);
+            this.saveBtn.Size = new System.Drawing.Size(100, 96);
             this.saveBtn.TabIndex = 28;
             this.saveBtn.Text = "Save";
             this.saveBtn.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -350,7 +353,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 494);
+            this.ClientSize = new System.Drawing.Size(444, 521);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.cVill);
@@ -376,7 +379,7 @@
             this.MinimizeBox = false;
             this.Name = "newSupplier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "newSupplier";
+            this.Text = "Sales :: Data :: Supplier :: New";
             this.Load += new System.EventHandler(this.newSupplier_Load);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();

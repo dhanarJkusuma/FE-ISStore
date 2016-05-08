@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(editSupplier));
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -150,9 +151,10 @@
             // 
             // cancelBtn
             // 
+            this.cancelBtn.Image = ((System.Drawing.Image)(resources.GetObject("cancelBtn.Image")));
             this.cancelBtn.Location = new System.Drawing.Point(118, 413);
             this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(100, 69);
+            this.cancelBtn.Size = new System.Drawing.Size(100, 105);
             this.cancelBtn.TabIndex = 49;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -160,9 +162,10 @@
             // 
             // saveBtn
             // 
+            this.saveBtn.Image = ((System.Drawing.Image)(resources.GetObject("saveBtn.Image")));
             this.saveBtn.Location = new System.Drawing.Point(12, 413);
             this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(100, 69);
+            this.saveBtn.Size = new System.Drawing.Size(100, 105);
             this.saveBtn.TabIndex = 48;
             this.saveBtn.Text = "Save";
             this.saveBtn.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -350,7 +353,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 492);
+            this.ClientSize = new System.Drawing.Size(426, 544);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.cVill);
@@ -376,7 +379,7 @@
             this.MinimizeBox = false;
             this.Name = "editSupplier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "editSuppliercs";
+            this.Text = "Sales :: Data :: Supplier :: Edit";
             this.Load += new System.EventHandler(this.editSuppliercs_Load);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();

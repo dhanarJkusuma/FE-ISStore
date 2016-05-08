@@ -54,7 +54,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "mostItemReport";
-            this.Text = "mostItemReport";
+            this.Text = "Sales :: Report :: [ DOWN | TOP ] 10 Item  :: Print";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 

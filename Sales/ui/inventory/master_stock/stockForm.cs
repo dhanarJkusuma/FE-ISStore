@@ -45,5 +45,10 @@ namespace Sales.ui.inventory.master_stock
             stockGrid.ReadOnly = true;
             stockGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

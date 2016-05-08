@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.itemGrid = new System.Windows.Forms.DataGridView();
-            this.trxNo = new System.Windows.Forms.TextBox();
-            this.tSupplier = new System.Windows.Forms.TextBox();
-            this.tDate = new System.Windows.Forms.TextBox();
-            this.tModi = new System.Windows.Forms.TextBox();
             this.cBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPurchase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trxNo = new System.Windows.Forms.TextBox();
+            this.tSupplier = new System.Windows.Forms.TextBox();
+            this.tDate = new System.Windows.Forms.TextBox();
+            this.tModi = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.itemGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +59,30 @@
             this.itemGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.itemGrid.Size = new System.Drawing.Size(482, 394);
             this.itemGrid.TabIndex = 0;
+            // 
+            // cBarcode
+            // 
+            this.cBarcode.HeaderText = "Barcode";
+            this.cBarcode.Name = "cBarcode";
+            this.cBarcode.ReadOnly = true;
+            // 
+            // cQty
+            // 
+            this.cQty.HeaderText = "Qty";
+            this.cQty.Name = "cQty";
+            this.cQty.ReadOnly = true;
+            // 
+            // cPurchase
+            // 
+            this.cPurchase.HeaderText = "Purchase";
+            this.cPurchase.Name = "cPurchase";
+            this.cPurchase.ReadOnly = true;
+            // 
+            // cSubTotal
+            // 
+            this.cSubTotal.HeaderText = "Sub Total";
+            this.cSubTotal.Name = "cSubTotal";
+            this.cSubTotal.ReadOnly = true;
             // 
             // trxNo
             // 
@@ -95,30 +119,6 @@
             this.tModi.TabIndex = 1;
             this.tModi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // cBarcode
-            // 
-            this.cBarcode.HeaderText = "Barcode";
-            this.cBarcode.Name = "cBarcode";
-            this.cBarcode.ReadOnly = true;
-            // 
-            // cQty
-            // 
-            this.cQty.HeaderText = "Qty";
-            this.cQty.Name = "cQty";
-            this.cQty.ReadOnly = true;
-            // 
-            // cPurchase
-            // 
-            this.cPurchase.HeaderText = "Purchase";
-            this.cPurchase.Name = "cPurchase";
-            this.cPurchase.ReadOnly = true;
-            // 
-            // cSubTotal
-            // 
-            this.cSubTotal.HeaderText = "Sub Total";
-            this.cSubTotal.Name = "cSubTotal";
-            this.cSubTotal.ReadOnly = true;
-            // 
             // detailIncomeList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -134,7 +134,7 @@
             this.MinimizeBox = false;
             this.Name = "detailIncomeList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "detailIncomeList";
+            this.Text = "Sales :: Report :: Incoming Item :: Detail";
             this.Load += new System.EventHandler(this.detailIncomeList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.itemGrid)).EndInit();
             this.ResumeLayout(false);

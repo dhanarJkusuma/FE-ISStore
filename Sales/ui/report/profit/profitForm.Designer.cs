@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(profitForm));
             this.rTrans = new System.Windows.Forms.RadioButton();
             this.rMonth = new System.Windows.Forms.RadioButton();
             this.secondDate = new System.Windows.Forms.DateTimePicker();
@@ -95,12 +96,13 @@
             // 
             // getProfitTrans
             // 
+            this.getProfitTrans.Image = ((System.Drawing.Image)(resources.GetObject("getProfitTrans.Image")));
             this.getProfitTrans.Location = new System.Drawing.Point(276, 49);
             this.getProfitTrans.Name = "getProfitTrans";
             this.getProfitTrans.Size = new System.Drawing.Size(95, 95);
             this.getProfitTrans.TabIndex = 2;
             this.getProfitTrans.Text = "Get Data";
-            this.getProfitTrans.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.getProfitTrans.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.getProfitTrans.UseVisualStyleBackColor = true;
             this.getProfitTrans.Click += new System.EventHandler(this.getProfitTrans_Click);
             // 
@@ -138,12 +140,13 @@
             // 
             // getProfitMonth
             // 
+            this.getProfitMonth.Image = ((System.Drawing.Image)(resources.GetObject("getProfitMonth.Image")));
             this.getProfitMonth.Location = new System.Drawing.Point(273, 45);
             this.getProfitMonth.Name = "getProfitMonth";
             this.getProfitMonth.Size = new System.Drawing.Size(95, 95);
             this.getProfitMonth.TabIndex = 2;
             this.getProfitMonth.Text = "Get Data";
-            this.getProfitMonth.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.getProfitMonth.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.getProfitMonth.UseVisualStyleBackColor = true;
             this.getProfitMonth.Click += new System.EventHandler(this.getProfitMonth_Click);
             // 

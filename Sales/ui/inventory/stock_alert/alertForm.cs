@@ -51,5 +51,10 @@ namespace Sales.ui.inventory.stock_alert
             alertGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

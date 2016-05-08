@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(memberForm));
             this.btnNew = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -37,9 +38,10 @@
             // 
             // btnNew
             // 
+            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.Location = new System.Drawing.Point(12, 12);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(112, 72);
+            this.btnNew.Size = new System.Drawing.Size(112, 89);
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "New Member";
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -48,9 +50,10 @@
             // 
             // editBtn
             // 
+            this.editBtn.Image = ((System.Drawing.Image)(resources.GetObject("editBtn.Image")));
             this.editBtn.Location = new System.Drawing.Point(130, 12);
             this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(112, 72);
+            this.editBtn.Size = new System.Drawing.Size(112, 89);
             this.editBtn.TabIndex = 0;
             this.editBtn.Text = "Edit Member";
             this.editBtn.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -59,9 +62,10 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.Location = new System.Drawing.Point(248, 12);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(112, 72);
+            this.btnDelete.Size = new System.Drawing.Size(112, 89);
             this.btnDelete.TabIndex = 0;
             this.btnDelete.Text = "Delete Member";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomRight;

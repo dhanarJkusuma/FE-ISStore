@@ -195,7 +195,7 @@
             this.MinimizeBox = false;
             this.Name = "detailPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "detailPayment";
+            this.Text = "Sales :: Report :: Payment :: Detail";
             this.Load += new System.EventHandler(this.detailPayment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.itemGrid)).EndInit();
             this.ResumeLayout(false);

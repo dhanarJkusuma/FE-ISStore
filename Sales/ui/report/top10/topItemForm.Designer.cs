@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(topItemForm));
             this.topItemGrid = new System.Windows.Forms.DataGridView();
             this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.topItemGrid)).BeginInit();
@@ -45,17 +46,18 @@
             this.topItemGrid.ReadOnly = true;
             this.topItemGrid.RowHeadersVisible = false;
             this.topItemGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.topItemGrid.Size = new System.Drawing.Size(621, 400);
+            this.topItemGrid.Size = new System.Drawing.Size(621, 375);
             this.topItemGrid.TabIndex = 0;
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(13, 421);
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.Location = new System.Drawing.Point(13, 394);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(107, 75);
+            this.btnPrint.Size = new System.Drawing.Size(107, 102);
             this.btnPrint.TabIndex = 1;
             this.btnPrint.Text = "Print";
-            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
@@ -71,7 +73,7 @@
             this.MinimizeBox = false;
             this.Name = "topItemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "topItemForm";
+            this.Text = "Sales :: Report :: Top 10 Item";
             ((System.ComponentModel.ISupportInitialize)(this.topItemGrid)).EndInit();
             this.ResumeLayout(false);
 

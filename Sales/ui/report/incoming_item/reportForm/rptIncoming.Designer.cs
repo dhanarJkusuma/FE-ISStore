@@ -55,7 +55,7 @@
             this.MinimizeBox = false;
             this.Name = "rptIncoming";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "rptIncoming";
+            this.Text = "Sales :: Report :: Incoming Item :: Print";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 

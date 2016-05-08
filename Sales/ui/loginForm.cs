@@ -49,5 +49,20 @@ namespace Sales.ui
                 MessageBox.Show("Wrong Credentials .");
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loginForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

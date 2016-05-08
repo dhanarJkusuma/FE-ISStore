@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabMenu = new System.Windows.Forms.TabControl();
             this.tabUser = new System.Windows.Forms.TabPage();
             this.btnAuth = new System.Windows.Forms.Button();
-            this.btnUser = new System.Windows.Forms.Button();
-            this.btnGroup = new System.Windows.Forms.Button();
             this.tabData = new System.Windows.Forms.TabPage();
             this.btnSupplier = new System.Windows.Forms.Button();
             this.btnMember = new System.Windows.Forms.Button();
@@ -48,19 +50,25 @@
             this.btnPayment = new System.Windows.Forms.Button();
             this.btnIncomeItem = new System.Windows.Forms.Button();
             this.tabReport = new System.Windows.Forms.TabPage();
+            this.btnPaymentRpt = new System.Windows.Forms.Button();
+            this.btnIncome = new System.Windows.Forms.Button();
+            this.btnDown = new System.Windows.Forms.Button();
+            this.btnTop = new System.Windows.Forms.Button();
             this.btnProfitReport = new System.Windows.Forms.Button();
             this.btnStockRep = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.ltime = new System.Windows.Forms.TextBox();
+            this.profitChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnTop = new System.Windows.Forms.Button();
-            this.btnDown = new System.Windows.Forms.Button();
-            this.btnIncome = new System.Windows.Forms.Button();
-            this.btnPaymentRpt = new System.Windows.Forms.Button();
+            this.btnUser = new System.Windows.Forms.Button();
+            this.btnGroup = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.tabUser.SuspendLayout();
             this.tabData.SuspendLayout();
             this.tabInventory.SuspendLayout();
             this.tabTransaction.SuspendLayout();
             this.tabReport.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profitChart)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMenu
@@ -73,7 +81,7 @@
             this.tabMenu.Controls.Add(this.tabTransaction);
             this.tabMenu.Controls.Add(this.tabReport);
             this.tabMenu.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabMenu.Location = new System.Drawing.Point(14, 280);
+            this.tabMenu.Location = new System.Drawing.Point(13, 280);
             this.tabMenu.Name = "tabMenu";
             this.tabMenu.SelectedIndex = 0;
             this.tabMenu.Size = new System.Drawing.Size(772, 175);
@@ -96,6 +104,7 @@
             // btnAuth
             // 
             this.btnAuth.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAuth.Image = ((System.Drawing.Image)(resources.GetObject("btnAuth.Image")));
             this.btnAuth.Location = new System.Drawing.Point(239, 7);
             this.btnAuth.Name = "btnAuth";
             this.btnAuth.Size = new System.Drawing.Size(110, 133);
@@ -104,30 +113,6 @@
             this.btnAuth.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnAuth.UseVisualStyleBackColor = true;
             this.btnAuth.Click += new System.EventHandler(this.btnAuth_Click);
-            // 
-            // btnUser
-            // 
-            this.btnUser.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUser.Location = new System.Drawing.Point(123, 7);
-            this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(110, 133);
-            this.btnUser.TabIndex = 1;
-            this.btnUser.Text = "Users";
-            this.btnUser.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnUser.UseVisualStyleBackColor = true;
-            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
-            // 
-            // btnGroup
-            // 
-            this.btnGroup.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGroup.Location = new System.Drawing.Point(7, 7);
-            this.btnGroup.Name = "btnGroup";
-            this.btnGroup.Size = new System.Drawing.Size(110, 133);
-            this.btnGroup.TabIndex = 0;
-            this.btnGroup.Text = "Groups";
-            this.btnGroup.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnGroup.UseVisualStyleBackColor = true;
-            this.btnGroup.Click += new System.EventHandler(this.btnGroup_Click);
             // 
             // tabData
             // 
@@ -142,9 +127,10 @@
             // 
             // btnSupplier
             // 
-            this.btnSupplier.Location = new System.Drawing.Point(134, 7);
+            this.btnSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btnSupplier.Image")));
+            this.btnSupplier.Location = new System.Drawing.Point(124, 7);
             this.btnSupplier.Name = "btnSupplier";
-            this.btnSupplier.Size = new System.Drawing.Size(120, 133);
+            this.btnSupplier.Size = new System.Drawing.Size(110, 133);
             this.btnSupplier.TabIndex = 1;
             this.btnSupplier.Text = "Supplier";
             this.btnSupplier.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -154,9 +140,10 @@
             // btnMember
             // 
             this.btnMember.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMember.Location = new System.Drawing.Point(7, 7);
+            this.btnMember.Image = ((System.Drawing.Image)(resources.GetObject("btnMember.Image")));
+            this.btnMember.Location = new System.Drawing.Point(8, 7);
             this.btnMember.Name = "btnMember";
-            this.btnMember.Size = new System.Drawing.Size(120, 133);
+            this.btnMember.Size = new System.Drawing.Size(110, 133);
             this.btnMember.TabIndex = 1;
             this.btnMember.Text = "Member";
             this.btnMember.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -180,6 +167,7 @@
             // 
             // btnAlert
             // 
+            this.btnAlert.Image = ((System.Drawing.Image)(resources.GetObject("btnAlert.Image")));
             this.btnAlert.Location = new System.Drawing.Point(516, 7);
             this.btnAlert.Name = "btnAlert";
             this.btnAlert.Size = new System.Drawing.Size(120, 133);
@@ -191,6 +179,7 @@
             // 
             // btnStock
             // 
+            this.btnStock.Image = ((System.Drawing.Image)(resources.GetObject("btnStock.Image")));
             this.btnStock.Location = new System.Drawing.Point(388, 7);
             this.btnStock.Name = "btnStock";
             this.btnStock.Size = new System.Drawing.Size(120, 133);
@@ -202,6 +191,7 @@
             // 
             // btnItem
             // 
+            this.btnItem.Image = ((System.Drawing.Image)(resources.GetObject("btnItem.Image")));
             this.btnItem.Location = new System.Drawing.Point(261, 7);
             this.btnItem.Name = "btnItem";
             this.btnItem.Size = new System.Drawing.Size(120, 133);
@@ -213,6 +203,7 @@
             // 
             // btnCategory
             // 
+            this.btnCategory.Image = ((System.Drawing.Image)(resources.GetObject("btnCategory.Image")));
             this.btnCategory.Location = new System.Drawing.Point(134, 7);
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.Size = new System.Drawing.Size(120, 133);
@@ -224,6 +215,7 @@
             // 
             // btnUnit
             // 
+            this.btnUnit.Image = ((System.Drawing.Image)(resources.GetObject("btnUnit.Image")));
             this.btnUnit.Location = new System.Drawing.Point(7, 7);
             this.btnUnit.Name = "btnUnit";
             this.btnUnit.Size = new System.Drawing.Size(120, 133);
@@ -247,6 +239,7 @@
             // 
             // btnListIncome
             // 
+            this.btnListIncome.Image = ((System.Drawing.Image)(resources.GetObject("btnListIncome.Image")));
             this.btnListIncome.Location = new System.Drawing.Point(134, 7);
             this.btnListIncome.Name = "btnListIncome";
             this.btnListIncome.Size = new System.Drawing.Size(120, 133);
@@ -258,6 +251,7 @@
             // 
             // btnPayment
             // 
+            this.btnPayment.Image = ((System.Drawing.Image)(resources.GetObject("btnPayment.Image")));
             this.btnPayment.Location = new System.Drawing.Point(261, 7);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.Size = new System.Drawing.Size(120, 133);
@@ -269,6 +263,7 @@
             // 
             // btnIncomeItem
             // 
+            this.btnIncomeItem.Image = ((System.Drawing.Image)(resources.GetObject("btnIncomeItem.Image")));
             this.btnIncomeItem.Location = new System.Drawing.Point(7, 7);
             this.btnIncomeItem.Name = "btnIncomeItem";
             this.btnIncomeItem.Size = new System.Drawing.Size(120, 133);
@@ -293,9 +288,62 @@
             this.tabReport.Text = "Report";
             this.tabReport.UseVisualStyleBackColor = true;
             // 
+            // btnPaymentRpt
+            // 
+            this.btnPaymentRpt.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPaymentRpt.Image = ((System.Drawing.Image)(resources.GetObject("btnPaymentRpt.Image")));
+            this.btnPaymentRpt.Location = new System.Drawing.Point(587, 7);
+            this.btnPaymentRpt.Name = "btnPaymentRpt";
+            this.btnPaymentRpt.Size = new System.Drawing.Size(110, 133);
+            this.btnPaymentRpt.TabIndex = 1;
+            this.btnPaymentRpt.Text = "Payment Transaction";
+            this.btnPaymentRpt.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnPaymentRpt.UseVisualStyleBackColor = true;
+            this.btnPaymentRpt.Click += new System.EventHandler(this.btnPaymentRpt_Click);
+            // 
+            // btnIncome
+            // 
+            this.btnIncome.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIncome.Image = ((System.Drawing.Image)(resources.GetObject("btnIncome.Image")));
+            this.btnIncome.Location = new System.Drawing.Point(471, 7);
+            this.btnIncome.Name = "btnIncome";
+            this.btnIncome.Size = new System.Drawing.Size(110, 133);
+            this.btnIncome.TabIndex = 1;
+            this.btnIncome.Text = "Incoming Item Transaction";
+            this.btnIncome.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnIncome.UseVisualStyleBackColor = true;
+            this.btnIncome.Click += new System.EventHandler(this.btnIncome_Click);
+            // 
+            // btnDown
+            // 
+            this.btnDown.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDown.Image = ((System.Drawing.Image)(resources.GetObject("btnDown.Image")));
+            this.btnDown.Location = new System.Drawing.Point(355, 7);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(110, 133);
+            this.btnDown.TabIndex = 1;
+            this.btnDown.Text = "Down Item";
+            this.btnDown.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnDown.UseVisualStyleBackColor = true;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+            // 
+            // btnTop
+            // 
+            this.btnTop.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTop.Image = ((System.Drawing.Image)(resources.GetObject("btnTop.Image")));
+            this.btnTop.Location = new System.Drawing.Point(239, 7);
+            this.btnTop.Name = "btnTop";
+            this.btnTop.Size = new System.Drawing.Size(110, 133);
+            this.btnTop.TabIndex = 1;
+            this.btnTop.Text = "Top Item";
+            this.btnTop.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnTop.UseVisualStyleBackColor = true;
+            this.btnTop.Click += new System.EventHandler(this.btnTop_Click);
+            // 
             // btnProfitReport
             // 
             this.btnProfitReport.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProfitReport.Image = ((System.Drawing.Image)(resources.GetObject("btnProfitReport.Image")));
             this.btnProfitReport.Location = new System.Drawing.Point(123, 7);
             this.btnProfitReport.Name = "btnProfitReport";
             this.btnProfitReport.Size = new System.Drawing.Size(110, 133);
@@ -308,6 +356,7 @@
             // btnStockRep
             // 
             this.btnStockRep.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStockRep.Image = ((System.Drawing.Image)(resources.GetObject("btnStockRep.Image")));
             this.btnStockRep.Location = new System.Drawing.Point(7, 7);
             this.btnStockRep.Name = "btnStockRep";
             this.btnStockRep.Size = new System.Drawing.Size(110, 133);
@@ -316,6 +365,37 @@
             this.btnStockRep.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnStockRep.UseVisualStyleBackColor = true;
             this.btnStockRep.Click += new System.EventHandler(this.btnStockRep_Click);
+            // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // ltime
+            // 
+            this.ltime.Enabled = false;
+            this.ltime.Font = new System.Drawing.Font("Meiryo UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ltime.Location = new System.Drawing.Point(18, 13);
+            this.ltime.Name = "ltime";
+            this.ltime.Size = new System.Drawing.Size(146, 33);
+            this.ltime.TabIndex = 2;
+            // 
+            // profitChart
+            // 
+            this.profitChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea2.Name = "ChartArea1";
+            this.profitChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.profitChart.Legends.Add(legend2);
+            this.profitChart.Location = new System.Drawing.Point(18, 131);
+            this.profitChart.Name = "profitChart";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "profit";
+            this.profitChart.Series.Add(series2);
+            this.profitChart.Size = new System.Drawing.Size(657, 143);
+            this.profitChart.TabIndex = 3;
+            this.profitChart.Text = "profitChart";
             // 
             // btnExit
             // 
@@ -330,53 +410,31 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnTop
+            // btnUser
             // 
-            this.btnTop.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTop.Location = new System.Drawing.Point(239, 7);
-            this.btnTop.Name = "btnTop";
-            this.btnTop.Size = new System.Drawing.Size(110, 133);
-            this.btnTop.TabIndex = 1;
-            this.btnTop.Text = "Top Item";
-            this.btnTop.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnTop.UseVisualStyleBackColor = true;
-            this.btnTop.Click += new System.EventHandler(this.btnTop_Click);
+            this.btnUser.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUser.Image = ((System.Drawing.Image)(resources.GetObject("btnUser.Image")));
+            this.btnUser.Location = new System.Drawing.Point(123, 7);
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Size = new System.Drawing.Size(110, 133);
+            this.btnUser.TabIndex = 1;
+            this.btnUser.Text = "Users";
+            this.btnUser.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnUser.UseVisualStyleBackColor = true;
+            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
-            // btnDown
+            // btnGroup
             // 
-            this.btnDown.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDown.Location = new System.Drawing.Point(355, 7);
-            this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(110, 133);
-            this.btnDown.TabIndex = 1;
-            this.btnDown.Text = "Down Item";
-            this.btnDown.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnDown.UseVisualStyleBackColor = true;
-            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
-            // 
-            // btnIncome
-            // 
-            this.btnIncome.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIncome.Location = new System.Drawing.Point(471, 7);
-            this.btnIncome.Name = "btnIncome";
-            this.btnIncome.Size = new System.Drawing.Size(110, 133);
-            this.btnIncome.TabIndex = 1;
-            this.btnIncome.Text = "Incoming Item Transaction";
-            this.btnIncome.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnIncome.UseVisualStyleBackColor = true;
-            this.btnIncome.Click += new System.EventHandler(this.btnIncome_Click);
-            // 
-            // btnPaymentRpt
-            // 
-            this.btnPaymentRpt.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPaymentRpt.Location = new System.Drawing.Point(587, 7);
-            this.btnPaymentRpt.Name = "btnPaymentRpt";
-            this.btnPaymentRpt.Size = new System.Drawing.Size(110, 133);
-            this.btnPaymentRpt.TabIndex = 1;
-            this.btnPaymentRpt.Text = "Payment Transaction";
-            this.btnPaymentRpt.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnPaymentRpt.UseVisualStyleBackColor = true;
-            this.btnPaymentRpt.Click += new System.EventHandler(this.btnPaymentRpt_Click);
+            this.btnGroup.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGroup.Image = ((System.Drawing.Image)(resources.GetObject("btnGroup.Image")));
+            this.btnGroup.Location = new System.Drawing.Point(7, 7);
+            this.btnGroup.Name = "btnGroup";
+            this.btnGroup.Size = new System.Drawing.Size(110, 133);
+            this.btnGroup.TabIndex = 0;
+            this.btnGroup.Text = "Groups";
+            this.btnGroup.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnGroup.UseVisualStyleBackColor = true;
+            this.btnGroup.Click += new System.EventHandler(this.btnGroup_Click);
             // 
             // mainForm
             // 
@@ -384,6 +442,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 468);
+            this.Controls.Add(this.profitChart);
+            this.Controls.Add(this.ltime);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.tabMenu);
             this.Font = new System.Drawing.Font("Meiryo UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -399,7 +459,9 @@
             this.tabInventory.ResumeLayout(false);
             this.tabTransaction.ResumeLayout(false);
             this.tabReport.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.profitChart)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -431,6 +493,9 @@
         private System.Windows.Forms.Button btnTop;
         private System.Windows.Forms.Button btnIncome;
         private System.Windows.Forms.Button btnPaymentRpt;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.TextBox ltime;
+        private System.Windows.Forms.DataVisualization.Charting.Chart profitChart;
 
 
     }

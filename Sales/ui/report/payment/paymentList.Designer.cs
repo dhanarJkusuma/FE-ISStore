@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(paymentList));
             this.paymentGrid = new System.Windows.Forms.DataGridView();
             this.btnOpen = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -42,7 +43,8 @@
             this.paymentGrid.AllowUserToDeleteRows = false;
             this.paymentGrid.AllowUserToResizeColumns = false;
             this.paymentGrid.AllowUserToResizeRows = false;
-            this.paymentGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.paymentGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.paymentGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.paymentGrid.Location = new System.Drawing.Point(13, 56);
@@ -51,15 +53,16 @@
             this.paymentGrid.ReadOnly = true;
             this.paymentGrid.RowHeadersVisible = false;
             this.paymentGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.paymentGrid.Size = new System.Drawing.Size(595, 358);
+            this.paymentGrid.Size = new System.Drawing.Size(595, 334);
             this.paymentGrid.TabIndex = 0;
             // 
             // btnOpen
             // 
             this.btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOpen.Location = new System.Drawing.Point(122, 420);
+            this.btnOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnOpen.Image")));
+            this.btnOpen.Location = new System.Drawing.Point(122, 396);
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(101, 75);
+            this.btnOpen.Size = new System.Drawing.Size(101, 99);
             this.btnOpen.TabIndex = 2;
             this.btnOpen.Text = "Open";
             this.btnOpen.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -69,9 +72,10 @@
             // btnPrint
             // 
             this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPrint.Location = new System.Drawing.Point(15, 420);
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.Location = new System.Drawing.Point(15, 396);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(101, 75);
+            this.btnPrint.Size = new System.Drawing.Size(101, 99);
             this.btnPrint.TabIndex = 3;
             this.btnPrint.Text = "Print";
             this.btnPrint.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -109,7 +113,8 @@
             this.MinimizeBox = false;
             this.Name = "paymentList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "paymentList";
+            this.Text = "Sales :: Report :: Payment :: List";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.paymentList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.paymentGrid)).EndInit();
             this.ResumeLayout(false);

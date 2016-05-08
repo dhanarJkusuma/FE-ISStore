@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(downItemForm));
             this.downItemGrid = new System.Windows.Forms.DataGridView();
             this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.downItemGrid)).BeginInit();
@@ -50,12 +51,13 @@
             // 
             // btnPrint
             // 
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.Location = new System.Drawing.Point(12, 455);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(107, 75);
             this.btnPrint.TabIndex = 2;
             this.btnPrint.Text = "Print";
-            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
@@ -71,7 +73,7 @@
             this.MinimizeBox = false;
             this.Name = "downItemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "downItemForm";
+            this.Text = "Sales :: Report :: Down 10 Item";
             ((System.ComponentModel.ISupportInitialize)(this.downItemGrid)).EndInit();
             this.ResumeLayout(false);
 

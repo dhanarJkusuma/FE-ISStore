@@ -54,7 +54,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "reportPayment";
-            this.Text = "reportPayment";
+            this.Text = "Sales :: Report :: Payment :: Print";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
