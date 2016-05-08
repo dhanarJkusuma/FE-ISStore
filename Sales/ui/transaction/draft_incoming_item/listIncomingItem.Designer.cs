@@ -60,7 +60,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "listIncomingItem";
-            this.Text = "listIncomingItem";
+            this.Text = "Sales :: Transaction :: Draft Income Item";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.listIncomingItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.incomeList)).EndInit();

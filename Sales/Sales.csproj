@@ -175,6 +175,7 @@
     <Compile Include="model\Profit.cs" />
     <Compile Include="model\SalesMenu.cs" />
     <Compile Include="model\Region.cs" />
+    <Compile Include="model\Store.cs" />
     <Compile Include="model\Supplier.cs" />
     <Compile Include="model\TrxInvIncome.cs" />
     <Compile Include="model\TrxInvIncomeItem.cs" />
@@ -412,6 +413,12 @@
     <Compile Include="ui\report\top10\topItemForm.Designer.cs">
       <DependentUpon>topItemForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ui\setting\Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\setting\Setting.Designer.cs">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\transaction\draft_incoming_item\incomeItemDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -625,6 +632,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ui\report\top10\topItemForm.resx">
       <DependentUpon>topItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\setting\Setting.resx">
+      <DependentUpon>Setting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\transaction\draft_incoming_item\incomeItemDetail.resx">
       <DependentUpon>incomeItemDetail.cs</DependentUpon>

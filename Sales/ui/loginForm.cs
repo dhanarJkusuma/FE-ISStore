@@ -27,6 +27,7 @@ namespace Sales.ui
         public loginForm()
         {
             InitializeComponent();
+            VariableBuilder.PermanentVar.storeIndentity = Store.getInformation();
         }
 
 

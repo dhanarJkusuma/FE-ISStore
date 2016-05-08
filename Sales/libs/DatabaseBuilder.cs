@@ -260,6 +260,28 @@ namespace Sales.libs
         }
 
 
+        public static void update(String table, String[] columns, String[] iparams, String[] value)
+        {
+
+            SqlConnection openCon = new SqlConnection(getConnectionString());
+            try
+            {
+                string query = "UPDATE " + table + " SET  " + generateSetValueParams(columns, iparams);
+                SqlCommand updateCommand = new SqlCommand(query, openCon);
+                for (int i = 0; i < iparams.Length; i++)
+                {
+                    updateCommand.Parameters.AddWithValue("@" + iparams[i], value[i]);
+                }
+                openCon.Open();
+                updateCommand.ExecuteNonQuery();
+                openCon.Close();
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
         public static void update(String table, String[] columns, String[] iparams, String[] value, String whereArgs)
         {
 

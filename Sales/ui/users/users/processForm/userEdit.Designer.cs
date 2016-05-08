@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(userEdit));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.cGroup = new System.Windows.Forms.ComboBox();
@@ -46,9 +47,10 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.Location = new System.Drawing.Point(306, 101);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(103, 62);
+            this.btnCancel.Size = new System.Drawing.Size(103, 81);
             this.btnCancel.TabIndex = 22;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -56,9 +58,10 @@
             // 
             // btnSave
             // 
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.Location = new System.Drawing.Point(12, 101);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(103, 62);
+            this.btnSave.Size = new System.Drawing.Size(103, 81);
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "Save";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -153,7 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 178);
+            this.ClientSize = new System.Drawing.Size(422, 194);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cGroup);
@@ -167,7 +170,7 @@
             this.MinimizeBox = false;
             this.Name = "userEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "userEdit";
+            this.Text = "Sales :: Users :: Users :: Edit";
             this.Load += new System.EventHandler(this.userEdit_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

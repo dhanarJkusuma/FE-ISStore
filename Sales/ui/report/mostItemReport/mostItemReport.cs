@@ -24,17 +24,26 @@ namespace Sales.ui.report.mostItemReport
 
         private void loadData(int typeValue)
         {
+            String title="";
+            cyRpt.Load(VariableBuilder.DirectoryLocation + "\\_REPORT\\RptMostItem.rpt");
             var records = new List<ItemMostRptModel>();
             if (typeValue == ItemMostRptModel.TYPE_TOP) 
             {
                 records = ItemMostRptModel.getTop();
+                title = "TOP 10 BEST SELLING";
             }
             else if(typeValue == ItemMostRptModel.TYPE_DOWN)
             {
                 records = ItemMostRptModel.getDown();
+                title = "DOWN 10 SELLING";
             }
-            cyRpt.Load(VariableBuilder.DirectoryLocation + "\\_REPORT\\RptMostItem.rpt");
+            
             cyRpt.Database.Tables["mostItem"].SetDataSource(records);
+            cyRpt.SetParameterValue("store_name", VariableBuilder.PermanentVar.storeIndentity.Name);
+            cyRpt.SetParameterValue("store_address", VariableBuilder.PermanentVar.storeIndentity.Address);
+            cyRpt.SetParameterValue("store_phone", "Telp.  " + VariableBuilder.PermanentVar.storeIndentity.Phone);
+            cyRpt.SetParameterValue("print_date", DateTime.Now.ToString("yyyy MMMM dd HH:mm:ss"));
+            cyRpt.SetParameterValue("title", title);
             mostReportViewer.ReportSource = cyRpt;
         }
     }

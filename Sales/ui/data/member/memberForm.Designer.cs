@@ -29,48 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(memberForm));
-            this.btnNew = new System.Windows.Forms.Button();
-            this.editBtn = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.memberGrid = new System.Windows.Forms.DataGridView();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.editBtn = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.memberGrid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnNew
-            // 
-            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
-            this.btnNew.Location = new System.Drawing.Point(12, 12);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(112, 89);
-            this.btnNew.TabIndex = 0;
-            this.btnNew.Text = "New Member";
-            this.btnNew.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // editBtn
-            // 
-            this.editBtn.Image = ((System.Drawing.Image)(resources.GetObject("editBtn.Image")));
-            this.editBtn.Location = new System.Drawing.Point(130, 12);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(112, 89);
-            this.editBtn.TabIndex = 0;
-            this.editBtn.Text = "Edit Member";
-            this.editBtn.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.editBtn.UseVisualStyleBackColor = true;
-            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(248, 12);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(112, 89);
-            this.btnDelete.TabIndex = 0;
-            this.btnDelete.Text = "Delete Member";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // memberGrid
             // 
@@ -88,6 +52,42 @@
             this.memberGrid.Size = new System.Drawing.Size(696, 384);
             this.memberGrid.TabIndex = 1;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.Location = new System.Drawing.Point(248, 12);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(112, 89);
+            this.btnDelete.TabIndex = 0;
+            this.btnDelete.Text = "Delete Member";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // editBtn
+            // 
+            this.editBtn.Image = ((System.Drawing.Image)(resources.GetObject("editBtn.Image")));
+            this.editBtn.Location = new System.Drawing.Point(130, 12);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(112, 89);
+            this.editBtn.TabIndex = 0;
+            this.editBtn.Text = "Edit Member";
+            this.editBtn.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
+            // 
+            // btnNew
+            // 
+            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
+            this.btnNew.Location = new System.Drawing.Point(12, 12);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(112, 89);
+            this.btnNew.TabIndex = 0;
+            this.btnNew.Text = "New Member";
+            this.btnNew.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // memberForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -97,7 +97,11 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.btnNew);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "memberForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Sales :: Data :: Member";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.memberGrid)).EndInit();

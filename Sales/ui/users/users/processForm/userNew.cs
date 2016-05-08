@@ -25,13 +25,21 @@ namespace Sales.ui.users.users.processForm
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            User user = new User();
-            user.Name = tUserName.Text;
-            user.Password = EncryptBuilder.EncryptString(tPassword.Text);
-            user.Group = groupValue[cGroup.SelectedIndex].Id;
-            user.New();
-            this.Dispose();
-            home.refreshData();
+            if (tPassword.Text.Equals(tConfirm.Text))
+            {
+                User user = new User();
+                user.Name = tUserName.Text;
+                user.Password = EncryptBuilder.EncryptString(tPassword.Text);
+                user.Group = groupValue[cGroup.SelectedIndex].Id;
+                user.New();
+                this.Dispose();
+                home.refreshData();
+            }
+            else 
+            {
+                MessageBox.Show("Invalid Password Confirmation");
+            }
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

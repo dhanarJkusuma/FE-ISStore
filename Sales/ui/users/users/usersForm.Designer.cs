@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usersForm));
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -38,9 +39,10 @@
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDelete.Location = new System.Drawing.Point(238, 342);
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.Location = new System.Drawing.Point(238, 321);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(107, 90);
+            this.btnDelete.Size = new System.Drawing.Size(107, 111);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete User";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -50,9 +52,10 @@
             // btnEdit
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEdit.Location = new System.Drawing.Point(125, 343);
+            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
+            this.btnEdit.Location = new System.Drawing.Point(125, 322);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(107, 90);
+            this.btnEdit.Size = new System.Drawing.Size(107, 111);
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "Edit User";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -62,9 +65,10 @@
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAdd.Location = new System.Drawing.Point(12, 343);
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.Location = new System.Drawing.Point(12, 322);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(107, 90);
+            this.btnAdd.Size = new System.Drawing.Size(107, 111);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "New User";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -86,7 +90,7 @@
             this.userGrid.RowHeadersVisible = false;
             this.userGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.userGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.userGrid.Size = new System.Drawing.Size(637, 324);
+            this.userGrid.Size = new System.Drawing.Size(637, 304);
             this.userGrid.TabIndex = 2;
             // 
             // usersForm
@@ -103,7 +107,7 @@
             this.MinimizeBox = false;
             this.Name = "usersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "usersForm";
+            this.Text = "Sales :: Users :: Users";
             ((System.ComponentModel.ISupportInitialize)(this.userGrid)).EndInit();
             this.ResumeLayout(false);
 

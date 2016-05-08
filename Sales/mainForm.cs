@@ -14,6 +14,7 @@ using Sales.ui.report.incoming_item;
 using Sales.ui.report.payment;
 using Sales.ui.report.profit;
 using Sales.ui.report.top10;
+using Sales.ui.setting;
 using Sales.ui.transaction.draft_incoming_item;
 using Sales.ui.transaction.incoming_item;
 using Sales.ui.transaction.payment;
@@ -39,7 +40,7 @@ namespace Sales
         public mainForm()
         {
             InitializeComponent();
-
+            tName.Text = VariableBuilder.Session.userLogged.Name;
             role = SalesMenu.getAuth(VariableBuilder.Session.userLogged.Group, 0);
             
             settingMenu();
@@ -427,6 +428,12 @@ namespace Sales
             profitChart.DataSource = Profit.getData(FirstMonth, SecondMonth, FirstYear, SecondYear);
             profitChart.Series["profit"].XValueMember = "dateMonth";
             profitChart.Series["profit"].YValueMembers = "dprofit";
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            Setting setting = new Setting();
+            Helper.Forms.startForm(setting);
         }
     }
 }

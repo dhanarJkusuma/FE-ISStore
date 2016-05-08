@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(paymentForm));
             this.tDiscount = new System.Windows.Forms.TextBox();
             this.btnPay = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -70,7 +71,7 @@
             // tDiscount
             // 
             this.tDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tDiscount.Location = new System.Drawing.Point(928, 150);
+            this.tDiscount.Location = new System.Drawing.Point(802, 150);
             this.tDiscount.Name = "tDiscount";
             this.tDiscount.Size = new System.Drawing.Size(271, 20);
             this.tDiscount.TabIndex = 20;
@@ -80,12 +81,14 @@
             // btnPay
             // 
             this.btnPay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPay.Location = new System.Drawing.Point(1028, 567);
+            this.btnPay.Image = ((System.Drawing.Image)(resources.GetObject("btnPay.Image")));
+            this.btnPay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPay.Location = new System.Drawing.Point(1079, 78);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(170, 46);
+            this.btnPay.Size = new System.Drawing.Size(119, 92);
             this.btnPay.TabIndex = 19;
             this.btnPay.Text = "Pay";
-            this.btnPay.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnPay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPay.UseVisualStyleBackColor = true;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
@@ -94,7 +97,7 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(857, 151);
+            this.label9.Location = new System.Drawing.Point(731, 151);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(55, 15);
             this.label9.TabIndex = 18;
@@ -105,7 +108,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(847, 124);
+            this.label7.Location = new System.Drawing.Point(721, 124);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 15);
             this.label7.TabIndex = 18;
@@ -116,7 +119,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(857, 88);
+            this.label6.Location = new System.Drawing.Point(731, 88);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 15);
             this.label6.TabIndex = 18;
@@ -139,7 +142,7 @@
             this.tCashback.BackColor = System.Drawing.Color.White;
             this.tCashback.Enabled = false;
             this.tCashback.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tCashback.Location = new System.Drawing.Point(928, 114);
+            this.tCashback.Location = new System.Drawing.Point(802, 114);
             this.tCashback.Name = "tCashback";
             this.tCashback.Size = new System.Drawing.Size(271, 30);
             this.tCashback.TabIndex = 17;
@@ -150,7 +153,7 @@
             this.tPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tPayment.BackColor = System.Drawing.Color.White;
             this.tPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tPayment.Location = new System.Drawing.Point(928, 78);
+            this.tPayment.Location = new System.Drawing.Point(802, 78);
             this.tPayment.Name = "tPayment";
             this.tPayment.Size = new System.Drawing.Size(271, 30);
             this.tPayment.TabIndex = 17;
@@ -189,12 +192,12 @@
             this.cUnit,
             this.cPrice,
             this.cTotal});
-            this.itemGrid.Location = new System.Drawing.Point(12, 187);
+            this.itemGrid.Location = new System.Drawing.Point(12, 176);
             this.itemGrid.MultiSelect = false;
             this.itemGrid.Name = "itemGrid";
             this.itemGrid.RowHeadersVisible = false;
             this.itemGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.itemGrid.Size = new System.Drawing.Size(1186, 374);
+            this.itemGrid.Size = new System.Drawing.Size(1186, 437);
             this.itemGrid.TabIndex = 0;
             this.itemGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemGrid_CellValueChanged);
             this.itemGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.itemGrid_EditingControlShowing);

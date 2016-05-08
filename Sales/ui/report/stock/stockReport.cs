@@ -35,6 +35,10 @@ namespace Sales.ui.report
 
             
             cryRpt.Database.Tables["StockData"].SetDataSource(records);
+            cryRpt.SetParameterValue("store_name", VariableBuilder.PermanentVar.storeIndentity.Name);
+            cryRpt.SetParameterValue("store_address", VariableBuilder.PermanentVar.storeIndentity.Address);
+            cryRpt.SetParameterValue("store_phone","Telp.  " + VariableBuilder.PermanentVar.storeIndentity.Phone);
+            cryRpt.SetParameterValue("print_date", DateTime.Now.ToString("yyyy MMMM dd HH:mm:ss"));
             crystalReportViewer1.ReportSource = cryRpt;
         }
     }

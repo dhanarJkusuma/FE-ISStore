@@ -27,6 +27,12 @@ namespace Sales.ui.report.payment.reportForm
             cryRpt.Load(VariableBuilder.DirectoryLocation + "\\_REPORT\\RptTrxPayment.rpt");
             var records = PaymentItemRptModel.getAll(TrxNo);
             cryRpt.Database.Tables["ItemsPayment"].SetDataSource(records);
+            cryRpt.SetParameterValue("store_name", VariableBuilder.PermanentVar.storeIndentity.Name);
+            cryRpt.SetParameterValue("store_address", VariableBuilder.PermanentVar.storeIndentity.Address);
+            cryRpt.SetParameterValue("store_phone", "Telp.  " + VariableBuilder.PermanentVar.storeIndentity.Phone);
+            cryRpt.SetParameterValue("print_date", DateTime.Now.ToString("yyyy MMMM dd HH:mm:ss"));
+            cryRpt.SetParameterValue("TrxNo", TrxNo);
+
             paymentReportViewer.ReportSource = cryRpt;
         }
     }

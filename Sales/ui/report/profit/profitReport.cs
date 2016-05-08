@@ -42,6 +42,10 @@ namespace Sales.ui.report
             cryRpt.Load(VariableBuilder.DirectoryLocation + "\\_REPORT\\RptProfit.rpt");
             var records = ProfitRptModel.getData(FirstDate,SecondDate);
             cryRpt.Database.Tables["Profit"].SetDataSource(records);
+            cryRpt.SetParameterValue("store_name", VariableBuilder.PermanentVar.storeIndentity.Name);
+            cryRpt.SetParameterValue("store_address", VariableBuilder.PermanentVar.storeIndentity.Address);
+            cryRpt.SetParameterValue("store_phone", "Telp.  " + VariableBuilder.PermanentVar.storeIndentity.Phone);
+            cryRpt.SetParameterValue("print_date", DateTime.Now.ToString("yyyy MMMM dd HH:mm:ss"));
             profitReportViewer.ReportSource = cryRpt;
         }
 

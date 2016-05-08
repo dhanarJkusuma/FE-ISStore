@@ -70,8 +70,12 @@
             this.Controls.Add(this.cGroup);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.authTree);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "authForm";
-            this.Text = "authForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Sales :: Users :: Auth";
             this.Load += new System.EventHandler(this.authForm_Load);
             this.ResumeLayout(false);
 

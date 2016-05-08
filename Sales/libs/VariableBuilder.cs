@@ -22,6 +22,7 @@ namespace Sales.libs
             public static String StockItem = "box_master_stock";
             public static String Menu = "box_menu";
             public static String Role = "box_role";
+            public static String Store = "box_store";
 
 
             /* TABLE LOCATION */
@@ -44,6 +45,11 @@ namespace Sales.libs
         public class Session 
         {
             public static User userLogged;
+        }
+
+        public class PermanentVar 
+        {
+            public static Store storeIndentity;
         }
         
 

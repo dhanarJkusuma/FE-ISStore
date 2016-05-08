@@ -80,6 +80,13 @@ namespace Sales.model
             DatabaseBuilder.update(VariableBuilder.Table.User, editedColumns, editedColumns, values, Columns[0] + "=" + Id,"Selected User has been edited.");
         }
 
+        public void UpdateNonMessage()
+        {
+            String[] editedColumns = { Columns[1], Columns[2], Columns[3] };
+            String[] values = { Name, EncryptBuilder.EncryptString(Password), Group.ToString() };
+            DatabaseBuilder.update(VariableBuilder.Table.User, editedColumns, editedColumns, values, Columns[0] + "=" + Id);
+        }
+
         public static void Destroy(String id)
         {
             DatabaseBuilder.destory(VariableBuilder.Table.User, Columns[0], id);
@@ -106,14 +113,15 @@ namespace Sales.model
         public static bool Login(String username,String password) 
         {
             bool isLoggedIn = false;
-            DataTable dt = DatabaseBuilder.read(VariableBuilder.Table.User,new String[] { Columns[0],Columns[1],Columns[3],Columns[4]} ,Columns[1] + "='" + username + "' and " + Columns[2] + "='" + password + "'");
+            DataTable dt = DatabaseBuilder.read(VariableBuilder.Table.User,new String[] { Columns[0],Columns[1],Columns[2],Columns[3],Columns[4]} ,Columns[1] + "='" + username + "' and " + Columns[2] + "='" + password + "'");
             if (dt.Rows.Count > 0) 
             {
                 User user = new User();
                 user.Id = Convert.ToInt32(dt.Rows[0][0]);
                 user.Name = dt.Rows[0][1].ToString();
-                user.Group = Convert.ToInt32(dt.Rows[0][2]);
-                user.CreatedAt = dt.Rows[0][3].ToString();
+                user.Password = dt.Rows[0][2].ToString();
+                user.Group = Convert.ToInt32(dt.Rows[0][3]);
+                user.CreatedAt = dt.Rows[0][4].ToString();
                 VariableBuilder.Session.userLogged = user;
                 isLoggedIn = true;
             }

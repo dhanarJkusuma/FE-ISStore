@@ -55,6 +55,10 @@ namespace Sales.ui.report.profit
             cyRpt.Load(VariableBuilder.DirectoryLocation + "\\_REPORT\\RptProfitMonth.rpt");
             var records = ProfitRptModel.getData(FirstMonth, SecondMonth, FirstYear, SecondYear); ;
             cyRpt.Database.Tables["profitMonth"].SetDataSource(records);
+            cyRpt.SetParameterValue("store_name", VariableBuilder.PermanentVar.storeIndentity.Name);
+            cyRpt.SetParameterValue("store_address", VariableBuilder.PermanentVar.storeIndentity.Address);
+            cyRpt.SetParameterValue("store_phone", "Telp.  " + VariableBuilder.PermanentVar.storeIndentity.Phone);
+            cyRpt.SetParameterValue("print_date", DateTime.Now.ToString("yyyy MMMM dd HH:mm:ss"));
             profitViewer.ReportSource = cyRpt;
         
         }
