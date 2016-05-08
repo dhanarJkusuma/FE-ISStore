@@ -26,10 +26,13 @@ namespace Sales.ui.data.member
                                             VariableBuilder.Table.Districts + ".dis_name as District",
                                             VariableBuilder.Table.Villages + ".vill_name as Village"
                                            };
+        private List<Sales.model.SalesMenu.CompareRole> role;
         public memberForm()
         {
             InitializeComponent();
             refreshData();
+            role = SalesMenu.getAuth(VariableBuilder.Session.userLogged.Group, 2, "T002B1");
+            setMenu();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -37,6 +40,39 @@ namespace Sales.ui.data.member
             newMember newForm = new newMember(this);
             Helper.Forms.startForm(newForm);
             
+        }
+
+        private void setMenu() 
+        {
+            Sales.model.SalesMenu.CompareRole rlv = role.Find(rl => rl.MenuID == "T002B1P1");
+            if (rlv.isActived == 1)
+            {
+                btnNew.Enabled = true;
+            }
+            else
+            {
+                btnNew.Enabled = false;
+            }
+
+            rlv = role.Find(rl => rl.MenuID == "T002B1P2");
+            if (rlv.isActived == 1)
+            {
+                editBtn.Enabled = true;
+            }
+            else
+            {
+                editBtn.Enabled = false;
+            }
+
+            rlv = role.Find(rl => rl.MenuID == "T002B1P3");
+            if (rlv.isActived == 1)
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+            {
+                btnDelete.Enabled = false;
+            }
         }
 
         public override void refreshData()

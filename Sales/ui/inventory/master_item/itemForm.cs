@@ -26,6 +26,7 @@ namespace Sales.ui.inventory.master_item
         {
             InitializeComponent();
             refreshData();
+            setMenu();
         }
 
         public void refreshData() 
@@ -79,7 +80,39 @@ namespace Sales.ui.inventory.master_item
             }
         }
 
-      
+        private void setMenu()
+        {
+            List<Sales.model.SalesMenu.CompareRole> role = SalesMenu.getAuth(VariableBuilder.Session.userLogged.Group, 2, "T003B3");
+            Sales.model.SalesMenu.CompareRole rlv = role.Find(rl => rl.MenuID == "T003B3P1");
+            if (rlv.isActived == 1)
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+            {
+                btnAdd.Enabled = false;
+            }
+
+            rlv = role.Find(rl => rl.MenuID == "T003B3P2");
+            if (rlv.isActived == 1)
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+            {
+                btnUpdate.Enabled = false;
+            }
+
+            rlv = role.Find(rl => rl.MenuID == "T003B3P3");
+            if (rlv.isActived == 1)
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+            {
+                btnDelete.Enabled = false;
+            }
+        }
 
     }
 }

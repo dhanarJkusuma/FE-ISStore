@@ -25,6 +25,7 @@ namespace Sales.ui.users.users
         {
             InitializeComponent();
             refreshData();
+            setMenu();
         }
 
         public void refreshData() 
@@ -71,5 +72,40 @@ namespace Sales.ui.users.users
                 refreshData();
             }
         }
+
+        private void setMenu()
+        {
+            List<Sales.model.SalesMenu.CompareRole> role = SalesMenu.getAuth(VariableBuilder.Session.userLogged.Group, 2, "T001B2");
+            Sales.model.SalesMenu.CompareRole rlv = role.Find(rl => rl.MenuID == "T001B2P1");
+            if (rlv.isActived == 1)
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+            {
+                btnAdd.Enabled = false;
+            }
+
+            rlv = role.Find(rl => rl.MenuID == "T001B2P2");
+            if (rlv.isActived == 1)
+            {
+                btnEdit.Enabled = true;
+            }
+            else
+            {
+                btnEdit.Enabled = false;
+            }
+
+            rlv = role.Find(rl => rl.MenuID == "T001B2P3");
+            if (rlv.isActived == 1)
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+            {
+                btnDelete.Enabled = false;
+            }
+        }
+
     }
 }

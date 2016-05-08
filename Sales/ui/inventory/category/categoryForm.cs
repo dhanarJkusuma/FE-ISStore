@@ -18,6 +18,7 @@ namespace Sales.ui.inventory.category
         {
             InitializeComponent();
             refreshData();
+            setMenu();
         }
 
         public void refreshData() 
@@ -25,6 +26,40 @@ namespace Sales.ui.inventory.category
             categoryGrid.DataSource = Category.All();
             categoryGrid.ReadOnly = true;
             categoryGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void setMenu() 
+        {
+            List<Sales.model.SalesMenu.CompareRole> role = SalesMenu.getAuth(VariableBuilder.Session.userLogged.Group, 2, "T003B2");
+            Sales.model.SalesMenu.CompareRole rlv = role.Find(rl => rl.MenuID == "T003B2P1");
+            if (rlv.isActived == 1)
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+            {
+                btnAdd.Enabled = false;
+            }
+
+            rlv = role.Find(rl => rl.MenuID == "T003B2P2");
+            if (rlv.isActived == 1)
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+            {
+                btnUpdate.Enabled = false;
+            }
+
+            rlv = role.Find(rl => rl.MenuID == "T003B2P3");
+            if (rlv.isActived == 1)
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+            {
+                btnDelete.Enabled = false;
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

@@ -36,14 +36,14 @@ namespace Sales
     {
         private List<Sales.model.SalesMenu.CompareRole> role;
         private List<Sales.model.SalesMenu.CompareRole> roleLv2;
-        
+
         public mainForm()
         {
             InitializeComponent();
-            tName.Text = VariableBuilder.Session.userLogged.Name;
-            role = SalesMenu.getAuth(VariableBuilder.Session.userLogged.Group, 0);
             
-            settingMenu();
+            role = SalesMenu.getAuth(VariableBuilder.Session.userLogged.Group, 0);
+            tName.Text = VariableBuilder.Session.userLogged.Name;
+            tStore.Text = VariableBuilder.PermanentVar.storeIndentity.Name;
             settingBtn();
             timer.Start();
             setChart();
@@ -259,6 +259,7 @@ namespace Sales
             {
                 btnListIncome.Enabled = false;
             }
+            
             rlz = roleLv2.Find(rl => rl.MenuID == "T004B3");
             if (rlz.isActived == 1)
             {
@@ -269,89 +270,64 @@ namespace Sales
                 btnPayment.Enabled = false;
             }
 
-        }
-
-        private void settingMenu() 
-        {
-            
-            foreach (TabPage page in tabMenu.TabPages)
+            setValueMenu("T005");
+            rlz = roleLv2.Find(rl => rl.MenuID == "T005B1");
+            if (rlz.isActived == 1)
             {
-                switch (page.Name)
-                {
-                    case "tabUser":
-                        if (role.Find(r => r.MenuID == "T001").isActived == 1)
-                        {
-                            foreach (Control ctl in page.Controls)
-                            {
-                                ctl.Enabled = true;
-                            }
-                        }
-                        else
-                        {
-                            foreach (Control ctl in page.Controls)
-                            {
-                                ctl.Enabled = false;
-                            }
-                        }
-                        break;
+                btnStockRep.Enabled = true;
+            }
+            else
+            {
+                btnStockRep.Enabled = false;
+            }
+            rlz = roleLv2.Find(rl => rl.MenuID == "T005B2");
+            if (rlz.isActived == 1)
+            {
+                btnProfitReport.Enabled = true;
+            }
+            else
+            {
+                btnProfitReport.Enabled = false;
+            }
+            rlz = roleLv2.Find(rl => rl.MenuID == "T005B3");
+            if (rlz.isActived == 1)
+            {
+                btnTop.Enabled = true;
+            }
+            else
+            {
+                btnTop.Enabled = false;
+            }
+            rlz = roleLv2.Find(rl => rl.MenuID == "T005B4");
+            if (rlz.isActived == 1)
+            {
+                btnDown.Enabled = true;
+            }
+            else
+            {
+                btnDown.Enabled = false;
+            }
+            rlz = roleLv2.Find(rl => rl.MenuID == "T005B5");
+            if (rlz.isActived == 1)
+            {
+                btnIncome.Enabled = true;
+            }
+            else
+            {
+                btnIncome.Enabled = false;
+            }
+            rlz = roleLv2.Find(rl => rl.MenuID == "T005B6");
+            if (rlz.isActived == 1)
+            {
+                btnPaymentRpt.Enabled = true;
+            }
+            else
+            {
+                btnPaymentRpt.Enabled = false;
+            }
 
-                    case "tabData":
-                        if (role.Find(r => r.MenuID == "T002").isActived == 1)
-                        {
-                            foreach (Control ctl in page.Controls)
-                            {
-                                ctl.Enabled = true;
-                            }
-                        }
-                        else
-                        {
-                            foreach (Control ctl in page.Controls)
-                            {
-                                ctl.Enabled = false;
-                            }
-                        }
-                        break;
-                    case "tabInventory":
-                        if (role.Find(r => r.MenuID == "T003").isActived == 1)
-                        {
-                            foreach (Control ctl in page.Controls)
-                            {
-                                ctl.Enabled = true;
-                            }
-                        }
-                        else
-                        {
-                            foreach (Control ctl in page.Controls)
-                            {
-                                ctl.Enabled = false;
-                            }
-                        }
-                        break;
-                    case "tabTransaction":
-                        if (role.Find(r => r.MenuID == "T004").isActived == 1)
-                        {
-                            foreach (Control ctl in page.Controls)
-                            {
-                                ctl.Enabled = true;
-                            }
-                        }
-                        else
-                        {
-                            foreach (Control ctl in page.Controls)
-                            {
-                                ctl.Enabled = false;
-                            }
-                        }
-                        break;
-                }
-            }                
-                    
-            
-            
-                
-                
-            
         }
+
 
         private void btnAuth_Click(object sender, EventArgs e)
         {
@@ -411,7 +387,7 @@ namespace Sales
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            ltime.Text = DateTime.Now.ToString("HH:mm:ss");
+            ltime.Text = DateTime.Now.ToString("yyyy MMMM dd  -  HH:mm:ss");
         }
 
         private void setChart() 
@@ -432,8 +408,14 @@ namespace Sales
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
-            Setting setting = new Setting();
+            Setting setting = new Setting(this);
             Helper.Forms.startForm(setting);
         }
+
+        public void reloadInfo() 
+        {
+            tName.Text = VariableBuilder.Session.userLogged.Name;
+            tStore.Text = VariableBuilder.PermanentVar.storeIndentity.Name;
+       }
     }
 }

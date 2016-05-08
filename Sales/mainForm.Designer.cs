@@ -29,41 +29,42 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabMenu = new System.Windows.Forms.TabControl();
             this.tabUser = new System.Windows.Forms.TabPage();
-            this.tabData = new System.Windows.Forms.TabPage();
-            this.tabInventory = new System.Windows.Forms.TabPage();
-            this.tabTransaction = new System.Windows.Forms.TabPage();
-            this.tabReport = new System.Windows.Forms.TabPage();
-            this.timer = new System.Windows.Forms.Timer(this.components);
-            this.ltime = new System.Windows.Forms.TextBox();
-            this.profitChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.btnSetting = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.btnAuth = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
             this.btnGroup = new System.Windows.Forms.Button();
+            this.tabData = new System.Windows.Forms.TabPage();
             this.btnSupplier = new System.Windows.Forms.Button();
             this.btnMember = new System.Windows.Forms.Button();
+            this.tabInventory = new System.Windows.Forms.TabPage();
             this.btnAlert = new System.Windows.Forms.Button();
             this.btnStock = new System.Windows.Forms.Button();
             this.btnItem = new System.Windows.Forms.Button();
             this.btnCategory = new System.Windows.Forms.Button();
             this.btnUnit = new System.Windows.Forms.Button();
+            this.tabTransaction = new System.Windows.Forms.TabPage();
             this.btnListIncome = new System.Windows.Forms.Button();
             this.btnPayment = new System.Windows.Forms.Button();
             this.btnIncomeItem = new System.Windows.Forms.Button();
+            this.tabReport = new System.Windows.Forms.TabPage();
             this.btnPaymentRpt = new System.Windows.Forms.Button();
             this.btnIncome = new System.Windows.Forms.Button();
             this.btnDown = new System.Windows.Forms.Button();
             this.btnTop = new System.Windows.Forms.Button();
             this.btnProfitReport = new System.Windows.Forms.Button();
             this.btnStockRep = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.ltime = new System.Windows.Forms.TextBox();
+            this.profitChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnSetting = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.tName = new System.Windows.Forms.TextBox();
+            this.tStore = new System.Windows.Forms.TextBox();
             this.tabMenu.SuspendLayout();
             this.tabUser.SuspendLayout();
             this.tabData.SuspendLayout();
@@ -83,10 +84,10 @@
             this.tabMenu.Controls.Add(this.tabTransaction);
             this.tabMenu.Controls.Add(this.tabReport);
             this.tabMenu.Font = new System.Drawing.Font("Leelawadee UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabMenu.Location = new System.Drawing.Point(13, 280);
+            this.tabMenu.Location = new System.Drawing.Point(13, 393);
             this.tabMenu.Name = "tabMenu";
             this.tabMenu.SelectedIndex = 0;
-            this.tabMenu.Size = new System.Drawing.Size(772, 175);
+            this.tabMenu.Size = new System.Drawing.Size(886, 175);
             this.tabMenu.TabIndex = 0;
             this.tabMenu.SelectedIndexChanged += new System.EventHandler(this.tabMenu_SelectedIndexChanged);
             // 
@@ -98,120 +99,10 @@
             this.tabUser.Location = new System.Drawing.Point(4, 26);
             this.tabUser.Name = "tabUser";
             this.tabUser.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUser.Size = new System.Drawing.Size(764, 145);
+            this.tabUser.Size = new System.Drawing.Size(878, 145);
             this.tabUser.TabIndex = 0;
             this.tabUser.Text = "Users";
             this.tabUser.UseVisualStyleBackColor = true;
-            // 
-            // tabData
-            // 
-            this.tabData.Controls.Add(this.btnSupplier);
-            this.tabData.Controls.Add(this.btnMember);
-            this.tabData.Location = new System.Drawing.Point(4, 26);
-            this.tabData.Name = "tabData";
-            this.tabData.Size = new System.Drawing.Size(764, 145);
-            this.tabData.TabIndex = 3;
-            this.tabData.Text = "Data";
-            this.tabData.UseVisualStyleBackColor = true;
-            // 
-            // tabInventory
-            // 
-            this.tabInventory.Controls.Add(this.btnAlert);
-            this.tabInventory.Controls.Add(this.btnStock);
-            this.tabInventory.Controls.Add(this.btnItem);
-            this.tabInventory.Controls.Add(this.btnCategory);
-            this.tabInventory.Controls.Add(this.btnUnit);
-            this.tabInventory.Location = new System.Drawing.Point(4, 26);
-            this.tabInventory.Name = "tabInventory";
-            this.tabInventory.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInventory.Size = new System.Drawing.Size(764, 145);
-            this.tabInventory.TabIndex = 1;
-            this.tabInventory.Text = "Inventory";
-            this.tabInventory.UseVisualStyleBackColor = true;
-            // 
-            // tabTransaction
-            // 
-            this.tabTransaction.Controls.Add(this.btnListIncome);
-            this.tabTransaction.Controls.Add(this.btnPayment);
-            this.tabTransaction.Controls.Add(this.btnIncomeItem);
-            this.tabTransaction.Location = new System.Drawing.Point(4, 26);
-            this.tabTransaction.Name = "tabTransaction";
-            this.tabTransaction.Size = new System.Drawing.Size(764, 145);
-            this.tabTransaction.TabIndex = 2;
-            this.tabTransaction.Text = "Transaction";
-            this.tabTransaction.UseVisualStyleBackColor = true;
-            // 
-            // tabReport
-            // 
-            this.tabReport.Controls.Add(this.btnPaymentRpt);
-            this.tabReport.Controls.Add(this.btnIncome);
-            this.tabReport.Controls.Add(this.btnDown);
-            this.tabReport.Controls.Add(this.btnTop);
-            this.tabReport.Controls.Add(this.btnProfitReport);
-            this.tabReport.Controls.Add(this.btnStockRep);
-            this.tabReport.Location = new System.Drawing.Point(4, 26);
-            this.tabReport.Name = "tabReport";
-            this.tabReport.Size = new System.Drawing.Size(764, 145);
-            this.tabReport.TabIndex = 4;
-            this.tabReport.Text = "Report";
-            this.tabReport.UseVisualStyleBackColor = true;
-            // 
-            // timer
-            // 
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // ltime
-            // 
-            this.ltime.Enabled = false;
-            this.ltime.Font = new System.Drawing.Font("Meiryo UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ltime.Location = new System.Drawing.Point(12, 40);
-            this.ltime.Name = "ltime";
-            this.ltime.Size = new System.Drawing.Size(116, 33);
-            this.ltime.TabIndex = 2;
-            // 
-            // profitChart
-            // 
-            this.profitChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea4.Name = "ChartArea1";
-            this.profitChart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.profitChart.Legends.Add(legend4);
-            this.profitChart.Location = new System.Drawing.Point(18, 131);
-            this.profitChart.Name = "profitChart";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "profit";
-            this.profitChart.Series.Add(series4);
-            this.profitChart.Size = new System.Drawing.Size(657, 143);
-            this.profitChart.TabIndex = 3;
-            this.profitChart.Text = "profitChart";
-            // 
-            // btnSetting
-            // 
-            this.btnSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetting.ForeColor = System.Drawing.Color.White;
-            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
-            this.btnSetting.Location = new System.Drawing.Point(652, 13);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(62, 55);
-            this.btnSetting.TabIndex = 1;
-            this.btnSetting.UseVisualStyleBackColor = true;
-            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(720, 13);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(62, 55);
-            this.btnExit.TabIndex = 1;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnAuth
             // 
@@ -252,6 +143,17 @@
             this.btnGroup.UseVisualStyleBackColor = true;
             this.btnGroup.Click += new System.EventHandler(this.btnGroup_Click);
             // 
+            // tabData
+            // 
+            this.tabData.Controls.Add(this.btnSupplier);
+            this.tabData.Controls.Add(this.btnMember);
+            this.tabData.Location = new System.Drawing.Point(4, 26);
+            this.tabData.Name = "tabData";
+            this.tabData.Size = new System.Drawing.Size(878, 145);
+            this.tabData.TabIndex = 3;
+            this.tabData.Text = "Data";
+            this.tabData.UseVisualStyleBackColor = true;
+            // 
             // btnSupplier
             // 
             this.btnSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btnSupplier.Image")));
@@ -277,12 +179,27 @@
             this.btnMember.UseVisualStyleBackColor = true;
             this.btnMember.Click += new System.EventHandler(this.btnMember_Click);
             // 
+            // tabInventory
+            // 
+            this.tabInventory.Controls.Add(this.btnAlert);
+            this.tabInventory.Controls.Add(this.btnStock);
+            this.tabInventory.Controls.Add(this.btnItem);
+            this.tabInventory.Controls.Add(this.btnCategory);
+            this.tabInventory.Controls.Add(this.btnUnit);
+            this.tabInventory.Location = new System.Drawing.Point(4, 26);
+            this.tabInventory.Name = "tabInventory";
+            this.tabInventory.Padding = new System.Windows.Forms.Padding(3);
+            this.tabInventory.Size = new System.Drawing.Size(878, 145);
+            this.tabInventory.TabIndex = 1;
+            this.tabInventory.Text = "Inventory";
+            this.tabInventory.UseVisualStyleBackColor = true;
+            // 
             // btnAlert
             // 
             this.btnAlert.Image = ((System.Drawing.Image)(resources.GetObject("btnAlert.Image")));
-            this.btnAlert.Location = new System.Drawing.Point(516, 7);
+            this.btnAlert.Location = new System.Drawing.Point(471, 7);
             this.btnAlert.Name = "btnAlert";
-            this.btnAlert.Size = new System.Drawing.Size(120, 133);
+            this.btnAlert.Size = new System.Drawing.Size(110, 133);
             this.btnAlert.TabIndex = 4;
             this.btnAlert.Text = "Stock Alert";
             this.btnAlert.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -292,9 +209,9 @@
             // btnStock
             // 
             this.btnStock.Image = ((System.Drawing.Image)(resources.GetObject("btnStock.Image")));
-            this.btnStock.Location = new System.Drawing.Point(388, 7);
+            this.btnStock.Location = new System.Drawing.Point(355, 7);
             this.btnStock.Name = "btnStock";
-            this.btnStock.Size = new System.Drawing.Size(120, 133);
+            this.btnStock.Size = new System.Drawing.Size(110, 133);
             this.btnStock.TabIndex = 3;
             this.btnStock.Text = "Master Stock";
             this.btnStock.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -304,9 +221,9 @@
             // btnItem
             // 
             this.btnItem.Image = ((System.Drawing.Image)(resources.GetObject("btnItem.Image")));
-            this.btnItem.Location = new System.Drawing.Point(261, 7);
+            this.btnItem.Location = new System.Drawing.Point(239, 7);
             this.btnItem.Name = "btnItem";
-            this.btnItem.Size = new System.Drawing.Size(120, 133);
+            this.btnItem.Size = new System.Drawing.Size(110, 133);
             this.btnItem.TabIndex = 2;
             this.btnItem.Text = "Master Item";
             this.btnItem.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -316,9 +233,9 @@
             // btnCategory
             // 
             this.btnCategory.Image = ((System.Drawing.Image)(resources.GetObject("btnCategory.Image")));
-            this.btnCategory.Location = new System.Drawing.Point(134, 7);
+            this.btnCategory.Location = new System.Drawing.Point(123, 7);
             this.btnCategory.Name = "btnCategory";
-            this.btnCategory.Size = new System.Drawing.Size(120, 133);
+            this.btnCategory.Size = new System.Drawing.Size(110, 133);
             this.btnCategory.TabIndex = 1;
             this.btnCategory.Text = "Category";
             this.btnCategory.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -330,19 +247,31 @@
             this.btnUnit.Image = ((System.Drawing.Image)(resources.GetObject("btnUnit.Image")));
             this.btnUnit.Location = new System.Drawing.Point(7, 7);
             this.btnUnit.Name = "btnUnit";
-            this.btnUnit.Size = new System.Drawing.Size(120, 133);
+            this.btnUnit.Size = new System.Drawing.Size(110, 133);
             this.btnUnit.TabIndex = 0;
             this.btnUnit.Text = "Unit";
             this.btnUnit.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnUnit.UseVisualStyleBackColor = true;
             this.btnUnit.Click += new System.EventHandler(this.btnUnit_Click);
             // 
+            // tabTransaction
+            // 
+            this.tabTransaction.Controls.Add(this.btnListIncome);
+            this.tabTransaction.Controls.Add(this.btnPayment);
+            this.tabTransaction.Controls.Add(this.btnIncomeItem);
+            this.tabTransaction.Location = new System.Drawing.Point(4, 26);
+            this.tabTransaction.Name = "tabTransaction";
+            this.tabTransaction.Size = new System.Drawing.Size(878, 145);
+            this.tabTransaction.TabIndex = 2;
+            this.tabTransaction.Text = "Transaction";
+            this.tabTransaction.UseVisualStyleBackColor = true;
+            // 
             // btnListIncome
             // 
             this.btnListIncome.Image = ((System.Drawing.Image)(resources.GetObject("btnListIncome.Image")));
-            this.btnListIncome.Location = new System.Drawing.Point(134, 7);
+            this.btnListIncome.Location = new System.Drawing.Point(123, 7);
             this.btnListIncome.Name = "btnListIncome";
-            this.btnListIncome.Size = new System.Drawing.Size(120, 133);
+            this.btnListIncome.Size = new System.Drawing.Size(110, 133);
             this.btnListIncome.TabIndex = 1;
             this.btnListIncome.Text = "Draft Incoming Item";
             this.btnListIncome.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -352,9 +281,9 @@
             // btnPayment
             // 
             this.btnPayment.Image = ((System.Drawing.Image)(resources.GetObject("btnPayment.Image")));
-            this.btnPayment.Location = new System.Drawing.Point(261, 7);
+            this.btnPayment.Location = new System.Drawing.Point(239, 7);
             this.btnPayment.Name = "btnPayment";
-            this.btnPayment.Size = new System.Drawing.Size(120, 133);
+            this.btnPayment.Size = new System.Drawing.Size(110, 133);
             this.btnPayment.TabIndex = 1;
             this.btnPayment.Text = "Payment";
             this.btnPayment.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -366,12 +295,27 @@
             this.btnIncomeItem.Image = ((System.Drawing.Image)(resources.GetObject("btnIncomeItem.Image")));
             this.btnIncomeItem.Location = new System.Drawing.Point(7, 7);
             this.btnIncomeItem.Name = "btnIncomeItem";
-            this.btnIncomeItem.Size = new System.Drawing.Size(120, 133);
+            this.btnIncomeItem.Size = new System.Drawing.Size(110, 133);
             this.btnIncomeItem.TabIndex = 1;
             this.btnIncomeItem.Text = "New Incoming Item";
             this.btnIncomeItem.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnIncomeItem.UseVisualStyleBackColor = true;
             this.btnIncomeItem.Click += new System.EventHandler(this.btnIncomeItem_Click);
+            // 
+            // tabReport
+            // 
+            this.tabReport.Controls.Add(this.btnPaymentRpt);
+            this.tabReport.Controls.Add(this.btnIncome);
+            this.tabReport.Controls.Add(this.btnDown);
+            this.tabReport.Controls.Add(this.btnTop);
+            this.tabReport.Controls.Add(this.btnProfitReport);
+            this.tabReport.Controls.Add(this.btnStockRep);
+            this.tabReport.Location = new System.Drawing.Point(4, 26);
+            this.tabReport.Name = "tabReport";
+            this.tabReport.Size = new System.Drawing.Size(878, 145);
+            this.tabReport.TabIndex = 4;
+            this.tabReport.Text = "Report";
+            this.tabReport.UseVisualStyleBackColor = true;
             // 
             // btnPaymentRpt
             // 
@@ -451,20 +395,91 @@
             this.btnStockRep.UseVisualStyleBackColor = true;
             this.btnStockRep.Click += new System.EventHandler(this.btnStockRep_Click);
             // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // ltime
+            // 
+            this.ltime.Enabled = false;
+            this.ltime.Font = new System.Drawing.Font("Meiryo UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ltime.Location = new System.Drawing.Point(12, 107);
+            this.ltime.Name = "ltime";
+            this.ltime.Size = new System.Drawing.Size(303, 33);
+            this.ltime.TabIndex = 2;
+            // 
+            // profitChart
+            // 
+            this.profitChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.Name = "ChartArea1";
+            this.profitChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.profitChart.Legends.Add(legend1);
+            this.profitChart.Location = new System.Drawing.Point(18, 244);
+            this.profitChart.Name = "profitChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "profit";
+            this.profitChart.Series.Add(series1);
+            this.profitChart.Size = new System.Drawing.Size(771, 143);
+            this.profitChart.TabIndex = 3;
+            this.profitChart.Text = "profitChart";
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetting.ForeColor = System.Drawing.Color.White;
+            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
+            this.btnSetting.Location = new System.Drawing.Point(766, 13);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(62, 55);
+            this.btnSetting.TabIndex = 1;
+            this.btnSetting.UseVisualStyleBackColor = true;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(834, 13);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(62, 55);
+            this.btnExit.TabIndex = 1;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // tName
             // 
+            this.tName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tName.Enabled = false;
-            this.tName.Location = new System.Drawing.Point(12, 13);
+            this.tName.Location = new System.Drawing.Point(12, 80);
             this.tName.Name = "tName";
             this.tName.Size = new System.Drawing.Size(492, 21);
             this.tName.TabIndex = 4;
+            // 
+            // tStore
+            // 
+            this.tStore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tStore.Enabled = false;
+            this.tStore.Font = new System.Drawing.Font("Meiryo UI", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tStore.Location = new System.Drawing.Point(12, 12);
+            this.tStore.Name = "tStore";
+            this.tStore.Size = new System.Drawing.Size(492, 62);
+            this.tStore.TabIndex = 6;
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 468);
+            this.ClientSize = new System.Drawing.Size(914, 581);
+            this.Controls.Add(this.tStore);
             this.Controls.Add(this.tName);
             this.Controls.Add(this.profitChart);
             this.Controls.Add(this.ltime);
@@ -523,6 +538,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart profitChart;
         private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.TextBox tName;
+        private System.Windows.Forms.TextBox tStore;
 
 
     }

@@ -55,3 +55,4 @@ C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\S
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.report.payment.detail.detailPayment.resources
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.report.payment.reportForm.reportPayment.resources
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.setting.Setting.resources
+C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.csprojResolveAssemblyReference.cache

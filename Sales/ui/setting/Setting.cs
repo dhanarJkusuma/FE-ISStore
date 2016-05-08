@@ -13,9 +13,11 @@ namespace Sales.ui.setting
 {
     public partial class Setting : Form
     {
-        public Setting()
+        private mainForm home;
+        public Setting(mainForm home)
         {
             InitializeComponent();
+            this.home = home;
             tName.Text = VariableBuilder.Session.userLogged.Name;
             tStore.Text = VariableBuilder.PermanentVar.storeIndentity.Name;
             tPhone.Text = VariableBuilder.PermanentVar.storeIndentity.Phone;
@@ -23,7 +25,23 @@ namespace Sales.ui.setting
             gName.Enabled = false;
             gPassword.Enabled = false;
             gSystem.Enabled = false;
-            
+            setMenu();
+           
+        }
+
+        private void setMenu() 
+        {
+            List<Sales.model.SalesMenu.CompareRole> role = SalesMenu.getAuth(VariableBuilder.Session.userLogged.Group, 0, "0");
+            Sales.model.SalesMenu.CompareRole rlv = role.Find(rl => rl.MenuID == "T0");
+            if (rlv.isActived == 1)
+            {
+                cSystem.Enabled = true;
+            }
+            else
+            {
+                cSystem.Enabled = false;
+                gSystem.Enabled = false;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -47,7 +65,7 @@ namespace Sales.ui.setting
                 changeSystem();
             }
             MessageBox.Show("Configuration saved.");
-
+            home.reloadInfo();
         }
 
         private void changeSystem() 
