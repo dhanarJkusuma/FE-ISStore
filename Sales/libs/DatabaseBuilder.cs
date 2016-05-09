@@ -253,6 +253,7 @@ namespace Sales.libs
 
 
             string query = "SELECT " + generateStringColumns(columns) + " FROM " + table + " WHERE " + condition;
+            
             SqlCommand cmd = new SqlCommand(query, openCon);
             SqlDataReader saReader = cmd.ExecuteReader();
             return saReader;
@@ -344,7 +345,7 @@ namespace Sales.libs
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error : " + e.StackTrace);
+                MessageBox.Show("Cannot delete this item. ");
             }
         }
 

@@ -22,6 +22,7 @@ namespace Sales.ui.setting
             tStore.Text = VariableBuilder.PermanentVar.storeIndentity.Name;
             tPhone.Text = VariableBuilder.PermanentVar.storeIndentity.Phone;
             tAddress.Text = VariableBuilder.PermanentVar.storeIndentity.Address;
+            tIncrement.Text = VariableBuilder.PermanentVar.storeIndentity.IncrementPoint.ToString();
             gName.Enabled = false;
             gPassword.Enabled = false;
             gSystem.Enabled = false;
@@ -73,6 +74,7 @@ namespace Sales.ui.setting
             VariableBuilder.PermanentVar.storeIndentity.Name = tStore.Text;
             VariableBuilder.PermanentVar.storeIndentity.Phone = tPhone.Text;
             VariableBuilder.PermanentVar.storeIndentity.Address = tAddress.Text;
+            VariableBuilder.PermanentVar.storeIndentity.IncrementPoint = Convert.ToDouble(tIncrement.Text);
             VariableBuilder.PermanentVar.storeIndentity.Update();
 
         }
@@ -157,7 +159,13 @@ namespace Sales.ui.setting
                 tStore.Text = VariableBuilder.PermanentVar.storeIndentity.Name;
                 tPhone.Text = VariableBuilder.PermanentVar.storeIndentity.Phone;
                 tAddress.Text = VariableBuilder.PermanentVar.storeIndentity.Address;
+                tIncrement.Text = VariableBuilder.PermanentVar.storeIndentity.IncrementPoint.ToString();
             }
+        }
+
+        private void tIncrement_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Helper.Forms.justNumber(e);
         }
     }
 }

@@ -8,7 +8,7 @@ AS
 BEGIN
 	DECLARE @status INT
 	DECLARE @item_no BIGINT
-	DECLARE @item_barcode BIGINT
+	DECLARE @item_barcode VARCHAR(255)
 	DECLARE @item_quantity INT
 	DECLARE @item_quantity_old INT
 	DECLARE @is_processed_item INT
@@ -51,7 +51,7 @@ AS
 BEGIN
 	DECLARE @status INT
 	DECLARE @item_no BIGINT
-	DECLARE @item_barcode BIGINT
+	DECLARE @item_barcode VARCHAR(255)
 	DECLARE @item_quantity INT
 	DECLARE @item_quantity_old INT
 	DECLARE @is_processed_item INT
@@ -159,11 +159,11 @@ if exists (select * from sysobjects where id = object_id('dbo.SP_DELETE_ITEM') a
 	drop procedure dbo.SP_DELETE_ITEM
 GO
 CREATE PROCEDURE [dbo].[SP_DELETE_ITEM]
-	@item_barcode		BIGINT
+	@item_barcode		VARCHAR(255)
 AS
 BEGIN
 	DECLARE @selected_item INT
-	SET @selected_item = (SELECT item_barcode FROM box_master_item WHERE item_barcode=@item_barcode)
+	SET @selected_item = (SELECT COUNT(item_barcode) FROM box_master_item WHERE item_barcode=@item_barcode)
 	IF @selected_item > 0
 		BEGIN
 			DELETE FROM box_master_item WHERE item_barcode=@item_barcode

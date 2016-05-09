@@ -15,7 +15,8 @@ namespace Sales.model
                                     "user_name",
                                     "user_password",
                                     "user_group",
-                                    "created_at"
+                                    "created_at",
+                                    "is_active"
                                   };
 
         private Int32 _id;
@@ -53,6 +54,15 @@ namespace Sales.model
             get { return _createdAt; }
             set { _createdAt = value; }
         }
+
+        private Int32 isActive;
+
+        public Int32 IsActive
+        {
+            get { return isActive; }
+            set { isActive = value; }
+        }
+
 
         public static QueryBuilder query()
         {
@@ -92,6 +102,11 @@ namespace Sales.model
             DatabaseBuilder.destory(VariableBuilder.Table.User, Columns[0], id);
         }
 
+        public void ChangeStatus(Int32 status) 
+        {
+            DatabaseBuilder.update(VariableBuilder.Table.User, new String[] { Columns[5] }, new String[] { Columns[5] }, new String[] { status.ToString() },Columns[0] + "=" + Id);
+        }
+
 
         public static User Find(String id)
         {
@@ -103,8 +118,10 @@ namespace Sales.model
             {
                 user.Id = Convert.ToInt32(reader.GetValue(0));
                 user.Name = reader.GetString(1);
+                user.Password = EncryptBuilder.DecryptString(reader.GetString(2));
                 user.Group = Convert.ToInt32(reader.GetValue(3));
                 user.CreatedAt = reader.GetDateTime(4).ToString();
+                user.IsActive = Convert.ToInt32(reader.GetValue(5));
             }
             connection.Close();
             return user;
@@ -113,7 +130,7 @@ namespace Sales.model
         public static bool Login(String username,String password) 
         {
             bool isLoggedIn = false;
-            DataTable dt = DatabaseBuilder.read(VariableBuilder.Table.User,new String[] { Columns[0],Columns[1],Columns[2],Columns[3],Columns[4]} ,Columns[1] + "='" + username + "' and " + Columns[2] + "='" + password + "'");
+            DataTable dt = DatabaseBuilder.read(VariableBuilder.Table.User,new String[] { Columns[0],Columns[1],Columns[2],Columns[3],Columns[4],Columns[5]} ,Columns[1] + "='" + username + "' and " + Columns[2] + "='" + password + "'");
             if (dt.Rows.Count > 0) 
             {
                 User user = new User();
@@ -122,8 +139,10 @@ namespace Sales.model
                 user.Password = dt.Rows[0][2].ToString();
                 user.Group = Convert.ToInt32(dt.Rows[0][3]);
                 user.CreatedAt = dt.Rows[0][4].ToString();
+                user.IsActive = Convert.ToInt32(dt.Rows[0][5]);
+                
                 VariableBuilder.Session.userLogged = user;
-                isLoggedIn = true;
+                isLoggedIn = (user.IsActive == 1) ? true : false;
             }
             return isLoggedIn;
         }

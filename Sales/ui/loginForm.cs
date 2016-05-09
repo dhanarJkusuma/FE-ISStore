@@ -47,7 +47,7 @@ namespace Sales.ui
             }
             else 
             {
-                MessageBox.Show("Wrong Credentials .");
+                MessageBox.Show("Invalid Login. ");
             }
         }
 

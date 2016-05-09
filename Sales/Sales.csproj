@@ -473,6 +473,12 @@
     <Compile Include="ui\users\group\processForm\groupNew.Designer.cs">
       <DependentUpon>groupNew.cs</DependentUpon>
     </Compile>
+    <Compile Include="ui\users\users\processForm\userChPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\users\users\processForm\userChPass.Designer.cs">
+      <DependentUpon>userChPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\users\users\processForm\userEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -662,6 +668,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ui\users\group\processForm\groupNew.resx">
       <DependentUpon>groupNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\users\users\processForm\userChPass.resx">
+      <DependentUpon>userChPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\users\users\processForm\userEdit.resx">
       <DependentUpon>userEdit.cs</DependentUpon>

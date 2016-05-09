@@ -38,7 +38,6 @@ namespace Sales.ui.users.users.processForm
         private void btnSave_Click(object sender, EventArgs e)
         {
             CurrentUser.Name = tUserName.Text;
-            CurrentUser.Password = EncryptBuilder.EncryptString(tPassword.Text);
             CurrentUser.Group = groupValue[cGroup.SelectedIndex].Id;
             CurrentUser.Update();
             this.Dispose();

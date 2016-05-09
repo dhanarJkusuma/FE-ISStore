@@ -106,6 +106,11 @@ namespace Sales.model
             DatabaseBuilder.insert(VariableBuilder.Table.Member, selectedColumns, selectedColumns, values,"New member has been added successfully.");
         }
 
+        public void setPoint(Int64 point) 
+        {
+            DatabaseBuilder.update(VariableBuilder.Table.Member, new String[] { Columns[4] }, new String[] { Columns[4] },new String[]{ point.ToString() }, Columns[0] + "=" + Id.ToString());
+        }
+
         public static DataTable All() 
         {
             return DatabaseBuilder.read(VariableBuilder.Table.Member);

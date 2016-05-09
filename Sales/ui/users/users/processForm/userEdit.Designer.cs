@@ -34,14 +34,10 @@
             this.cGroup = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tPassword = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tUserName = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +69,7 @@
             this.cGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cGroup.FormattingEnabled = true;
-            this.cGroup.Location = new System.Drawing.Point(114, 70);
+            this.cGroup.Location = new System.Drawing.Point(114, 51);
             this.cGroup.Name = "cGroup";
             this.cGroup.Size = new System.Drawing.Size(292, 24);
             this.cGroup.TabIndex = 18;
@@ -82,7 +78,7 @@
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(12, 70);
+            this.panel3.Location = new System.Drawing.Point(12, 51);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(103, 24);
             this.panel3.TabIndex = 19;
@@ -96,34 +92,6 @@
             this.label3.Size = new System.Drawing.Size(48, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "Group";
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 41);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(103, 23);
-            this.panel1.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Password";
-            // 
-            // tPassword
-            // 
-            this.tPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tPassword.Location = new System.Drawing.Point(114, 41);
-            this.tPassword.Name = "tPassword";
-            this.tPassword.PasswordChar = '*';
-            this.tPassword.Size = new System.Drawing.Size(292, 23);
-            this.tPassword.TabIndex = 17;
             // 
             // panel2
             // 
@@ -161,8 +129,6 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cGroup);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.tPassword);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tUserName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -174,8 +140,6 @@
             this.Load += new System.EventHandler(this.userEdit_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -190,9 +154,6 @@
         private System.Windows.Forms.ComboBox cGroup;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tPassword;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tUserName;

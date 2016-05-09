@@ -29,12 +29,72 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usersForm));
+            this.userGrid = new System.Windows.Forms.DataGridView();
+            this.btnUnlock = new System.Windows.Forms.Button();
+            this.btnLock = new System.Windows.Forms.Button();
+            this.btnChPassword = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.userGrid = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.userGrid)).BeginInit();
             this.SuspendLayout();
+            // 
+            // userGrid
+            // 
+            this.userGrid.AllowUserToAddRows = false;
+            this.userGrid.AllowUserToDeleteRows = false;
+            this.userGrid.AllowUserToResizeColumns = false;
+            this.userGrid.AllowUserToResizeRows = false;
+            this.userGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userGrid.Location = new System.Drawing.Point(12, 12);
+            this.userGrid.Name = "userGrid";
+            this.userGrid.RowHeadersVisible = false;
+            this.userGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.userGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.userGrid.Size = new System.Drawing.Size(671, 304);
+            this.userGrid.TabIndex = 2;
+            // 
+            // btnUnlock
+            // 
+            this.btnUnlock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnUnlock.Image = ((System.Drawing.Image)(resources.GetObject("btnUnlock.Image")));
+            this.btnUnlock.Location = new System.Drawing.Point(577, 321);
+            this.btnUnlock.Name = "btnUnlock";
+            this.btnUnlock.Size = new System.Drawing.Size(107, 111);
+            this.btnUnlock.TabIndex = 3;
+            this.btnUnlock.Text = "Unlock";
+            this.btnUnlock.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnUnlock.UseVisualStyleBackColor = true;
+            this.btnUnlock.Click += new System.EventHandler(this.btnUnlock_Click);
+            // 
+            // btnLock
+            // 
+            this.btnLock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLock.Image = ((System.Drawing.Image)(resources.GetObject("btnLock.Image")));
+            this.btnLock.Location = new System.Drawing.Point(464, 321);
+            this.btnLock.Name = "btnLock";
+            this.btnLock.Size = new System.Drawing.Size(107, 111);
+            this.btnLock.TabIndex = 3;
+            this.btnLock.Text = "Lock";
+            this.btnLock.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnLock.UseVisualStyleBackColor = true;
+            this.btnLock.Click += new System.EventHandler(this.btnLock_Click);
+            // 
+            // btnChPassword
+            // 
+            this.btnChPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnChPassword.Image = ((System.Drawing.Image)(resources.GetObject("btnChPassword.Image")));
+            this.btnChPassword.Location = new System.Drawing.Point(351, 321);
+            this.btnChPassword.Name = "btnChPassword";
+            this.btnChPassword.Size = new System.Drawing.Size(107, 111);
+            this.btnChPassword.TabIndex = 3;
+            this.btnChPassword.Text = "Change Password";
+            this.btnChPassword.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnChPassword.UseVisualStyleBackColor = true;
+            this.btnChPassword.Click += new System.EventHandler(this.btnChPassword_Click);
             // 
             // btnDelete
             // 
@@ -75,29 +135,14 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // userGrid
-            // 
-            this.userGrid.AllowUserToAddRows = false;
-            this.userGrid.AllowUserToDeleteRows = false;
-            this.userGrid.AllowUserToResizeColumns = false;
-            this.userGrid.AllowUserToResizeRows = false;
-            this.userGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.userGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.userGrid.Location = new System.Drawing.Point(12, 12);
-            this.userGrid.Name = "userGrid";
-            this.userGrid.RowHeadersVisible = false;
-            this.userGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.userGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.userGrid.Size = new System.Drawing.Size(637, 304);
-            this.userGrid.TabIndex = 2;
-            // 
             // usersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 445);
+            this.ClientSize = new System.Drawing.Size(695, 445);
+            this.Controls.Add(this.btnUnlock);
+            this.Controls.Add(this.btnLock);
+            this.Controls.Add(this.btnChPassword);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
@@ -119,5 +164,8 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView userGrid;
+        private System.Windows.Forms.Button btnChPassword;
+        private System.Windows.Forms.Button btnLock;
+        private System.Windows.Forms.Button btnUnlock;
     }
 }

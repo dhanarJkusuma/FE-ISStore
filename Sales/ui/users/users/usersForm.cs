@@ -19,6 +19,7 @@ namespace Sales.ui.users.users
                                                 VariableBuilder.Table.User + "." + User.Columns[0] + " as ID",
                                                 VariableBuilder.Table.User + "." + User.Columns[1] + " as UserName",
                                                 VariableBuilder.Table.Group + "." + Group.Columns[1] + " as UserGroup",
+                                                VariableBuilder.Table.User + "." + User.Columns[5] + " as Status",
                                                 VariableBuilder.Table.User + "." + User.Columns[4] + " as CreatedAt"
                                            };
         public usersForm()
@@ -41,6 +42,7 @@ namespace Sales.ui.users.users
             userGrid.ReadOnly = true;
             userGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             userGrid.Columns[0].Visible = false;
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -67,7 +69,15 @@ namespace Sales.ui.users.users
             {
                 foreach (DataGridViewRow row in userGrid.SelectedRows)
                 {
-                    User.Destroy(row.Cells[0].Value.ToString());
+                    if (Convert.ToInt32(row.Cells[0].Value) != VariableBuilder.Session.userLogged.Id)
+                    {
+                        User.Destroy(row.Cells[0].Value.ToString());
+                    }
+                    else 
+                    {
+                        MessageBox.Show("Cannot delete yourself. ");
+                    }
+                    
                 }
                 refreshData();
             }
@@ -104,6 +114,38 @@ namespace Sales.ui.users.users
             else
             {
                 btnDelete.Enabled = false;
+            }
+        }
+
+        private void btnChPassword_Click(object sender, EventArgs e)
+        {
+            if (userGrid.SelectedRows.Count == 1)
+            {
+                userChPass pass = new userChPass();
+                pass.CurrentUser = User.Find(userGrid.SelectedRows[0].Cells[0].Value.ToString());
+                Helper.Forms.startForm(pass);
+            }
+        }
+
+        private void btnLock_Click(object sender, EventArgs e)
+        {
+            if (userGrid.SelectedRows.Count == 1) 
+            {
+                User user = User.Find(userGrid.SelectedRows[0].Cells[0].Value.ToString());
+                user.ChangeStatus(0);
+                MessageBox.Show("Selected user has been locked successfully.");
+                refreshData();
+            }
+        }
+
+        private void btnUnlock_Click(object sender, EventArgs e)
+        {
+            if (userGrid.SelectedRows.Count == 1)
+            {
+                User user = User.Find(userGrid.SelectedRows[0].Cells[0].Value.ToString());
+                user.ChangeStatus(1);
+                MessageBox.Show("Selected user has been unlocked successfully.");
+                refreshData();
             }
         }
 

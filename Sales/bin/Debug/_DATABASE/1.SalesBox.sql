@@ -81,7 +81,7 @@ ALTER TABLE box_category
 go
 
 CREATE TABLE box_master_item(
-	item_barcode BIGINT NOT NULL,
+	item_barcode VARCHAR(255) NOT NULL,
 	item_name VARCHAR(255) NOT NULL,
 	category_code VARCHAR(100) REFERENCES box_category(category_code) 
 								ON DELETE SET NULL
@@ -103,7 +103,7 @@ go
 
 
 CREATE TABLE box_master_stock(
-	item_barcode BIGINT UNIQUE NOT NULL REFERENCES box_master_item(item_barcode)
+	item_barcode VARCHAR(255) UNIQUE NOT NULL REFERENCES box_master_item(item_barcode)
 								ON DELETE CASCADE
 								ON UPDATE CASCADE,
 	item_qty INT NOT NULL,
@@ -224,7 +224,7 @@ go
 CREATE TABLE trx_inv_income_item(
 	item_no BIGINT IDENTITY(1,1) NOT NULL,
 	trx_no VARCHAR(40) NOT NULL REFERENCES trx_inv_income(trx_no),
-	item_barcode BIGINT NOT NULL REFERENCES box_master_item(item_barcode)
+	item_barcode VARCHAR(255) NOT NULL REFERENCES box_master_item(item_barcode)
 								ON DELETE CASCADE
 								ON UPDATE CASCADE,
 	item_qty INT NOT NULL,
@@ -260,7 +260,7 @@ go
 CREATE TABLE trx_payment_item(
 	item_no BIGINT IDENTITY(1,1) NOT NULL,
 	trx_no VARCHAR(40) NOT NULL REFERENCES trx_payment(trx_no),
-	item_barcode BIGINT NOT NULL REFERENCES box_master_item(item_barcode)
+	item_barcode VARCHAR(255) NOT NULL REFERENCES box_master_item(item_barcode)
 								ON DELETE CASCADE
 								ON UPDATE CASCADE,
 	item_qty INT NOT NULL,
@@ -279,7 +279,7 @@ go
 
 CREATE TABLE box_inv_stock_queue(
 	item_no BIGINT IDENTITY(1,1) NOT NULL,
-	item_barcode BIGINT NOT NULL REFERENCES box_master_item(item_barcode)
+	item_barcode VARCHAR(255) NOT NULL REFERENCES box_master_item(item_barcode)
 									ON DELETE CASCADE
 									ON UPDATE CASCADE,
 	item_purchase_price NUMERIC(10,2) NOT NULL DEFAULT 0,
@@ -298,7 +298,7 @@ CREATE TABLE trx_profit(
 	trx_item BIGINT IDENTITY(1,1) NOT NULL,
 	trx_no VARCHAR(40) NOT NULL REFERENCES trx_payment(trx_no) 
 									ON DELETE CASCADE,
-	item_barcode BIGINT NOT NULL REFERENCES box_master_item(item_barcode)
+	item_barcode VARCHAR(255) NOT NULL REFERENCES box_master_item(item_barcode)
 									ON DELETE CASCADE
 									ON UPDATE CASCADE,
 	profit NUMERIC(10,2) NOT NULL DEFAULT 0,
@@ -307,4 +307,14 @@ CREATE TABLE trx_profit(
 
 ALTER TABLE trx_profit 
 		ADD PRIMARY KEY CLUSTERED (trx_item ASC)
+go
+
+CREATE TABLE box_store(
+	store_name VARCHAR(255) NOT NULL,
+	store_address TEXT NULL,
+	store_phone VARCHAR(20),
+	increment_point NUMERIC(10,2),
+	is_active INT NOT NULL DEFAULT 1
+)	
+
 go

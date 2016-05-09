@@ -59,7 +59,7 @@ namespace Sales.ui.users.auth
         private void cGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (roleList != null) { roleList.Clear(); }
+            if (roleList != null) { roleList.Clear(); authTree.Nodes.Clear(); }
                 roleList = SalesMenu.fillTreeView(authTree, listGroup[cGroup.SelectedIndex].Id);
         }
 

@@ -79,9 +79,9 @@ namespace Sales.ui.transaction.payment
                     if (itemGrid.SelectedCells[0].Value.ToString().Length > 0) 
                     {
                         Item item = Item.Find(itemGrid.SelectedCells[0].Value.ToString());
-                        Int32 qty = Item.getQty(item.Barcode);
                         if (item.Barcode != null)
                         {
+                            Int32 qty = Item.getQty(item.Barcode);
                             if (qty > Convert.ToInt32(item.StockAlert))
                             {
                                 itemGrid.Rows[e.RowIndex].Cells[2].Value = item.Name;
@@ -274,10 +274,16 @@ namespace Sales.ui.transaction.payment
                     String[] iparams = { "pStrTrxNo" };
                     String[] values = { vpayment.TrxNo };
                     DatabaseBuilder.usingStoredProcedure("SP_TRX_PAYMENT", iparams, values, "Process Success.");
+                    if (customer != null) 
+                    {
+                        Double pointInc = Math.Round(amount / VariableBuilder.PermanentVar.storeIndentity.IncrementPoint, 0);
+                        MessageBox.Show(pointInc.ToString());
+                        customer.setPoint(Convert.ToInt64(customer.Point + pointInc));
+                    }
+                    
+
                     printTrx();
-                    paymentForm paymentForm = new paymentForm();
-                    Helper.Forms.startForm(paymentForm);
-                    this.Dispose();
+                    
                 }
             }
             else 

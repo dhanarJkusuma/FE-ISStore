@@ -13,7 +13,8 @@ namespace Sales.model
         public static String[] Columns = { 
                                             "store_name",
                                             "store_address",
-                                            "store_phone"
+                                            "store_phone",
+                                            "increment_point"
                                          };
         private String _store_name;
 
@@ -37,6 +38,14 @@ namespace Sales.model
             set { _store_address = value; }
         }
 
+        private Double _increment_point;
+
+        public Double IncrementPoint
+        {
+            get { return _increment_point; }
+            set { _increment_point = value; }
+        }
+
         public static Store getInformation() 
         {
             Store store = new Store();
@@ -48,6 +57,7 @@ namespace Sales.model
                 store.Name = reader.GetString(0);
                 store.Address = reader.GetString(1);
                 store.Phone = reader.GetString(2);
+                store.IncrementPoint = Convert.ToDouble(reader.GetValue(3));
             }
             connection.Close();
             return store;
@@ -55,7 +65,7 @@ namespace Sales.model
 
         public void Update() 
         {
-            String[] values = { Name, Address, Phone };
+            String[] values = { Name, Address, Phone, IncrementPoint.ToString() };
             DatabaseBuilder.update(VariableBuilder.Table.Store, Columns, Columns, values);
         }
     }
