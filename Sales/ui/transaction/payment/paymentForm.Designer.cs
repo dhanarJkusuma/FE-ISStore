@@ -80,7 +80,7 @@
             // 
             // btnPay
             // 
-            this.btnPay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPay.Image = ((System.Drawing.Image)(resources.GetObject("btnPay.Image")));
             this.btnPay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPay.Location = new System.Drawing.Point(1079, 78);

@@ -320,6 +320,7 @@ namespace Sales.ui.transaction.payment
         {
             paymentReport rpt = new paymentReport();
             rpt.Items = itemsRpt;
+            rpt.TrxNo = tTrxNo.Text;
             Helper.Forms.startForm(rpt);
         }
 

@@ -23,6 +23,14 @@ namespace Sales.ui.transaction.payment.report_payment
             set { items = value; }
         }
 
+        private String trxNo;
+
+        public String TrxNo
+        {
+            get { return trxNo; }
+            set { trxNo = value; }
+        }
+
         public paymentReport()
         {
             InitializeComponent();
@@ -35,6 +43,12 @@ namespace Sales.ui.transaction.payment.report_payment
             var records = Items;
             cryRpt.Load(VariableBuilder.DirectoryLocation + "\\_REPORT\\RptTrxPayment.rpt");
             cryRpt.Database.Tables["ItemsPayment"].SetDataSource(records);
+            cryRpt.SetParameterValue("store_name", VariableBuilder.PermanentVar.storeIndentity.Name);
+            cryRpt.SetParameterValue("store_address", VariableBuilder.PermanentVar.storeIndentity.Address);
+            cryRpt.SetParameterValue("store_phone", "Telp.  " + VariableBuilder.PermanentVar.storeIndentity.Phone);
+            cryRpt.SetParameterValue("print_date", DateTime.Now.ToString("yyyy MMMM dd HH:mm:ss"));
+            cryRpt.SetParameterValue("TrxNo", TrxNo);
+            
             paymentReportViewer.ReportSource = cryRpt;
         }
 
