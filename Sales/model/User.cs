@@ -102,6 +102,24 @@ namespace Sales.model
             DatabaseBuilder.destory(VariableBuilder.Table.User, Columns[0], id);
         }
 
+        public static Boolean isAdmin(String id) 
+        {
+            bool admin = false;
+            SqlConnection connection = DatabaseBuilder.getConnection();
+            connection.Open();
+            SqlDataReader reader = DatabaseBuilder.readData(VariableBuilder.Table.User, new String[]{ "is_admin" }, Columns[0] + "='" + id + "'", connection);
+            while (reader.Read())
+            {
+                int status = Convert.ToInt32(reader.GetValue(0));
+                if (status == 1) 
+                {
+                    admin = true;
+                }
+            }
+            connection.Close();
+            return admin;
+        }
+
         public void ChangeStatus(Int32 status) 
         {
             DatabaseBuilder.update(VariableBuilder.Table.User, new String[] { Columns[5] }, new String[] { Columns[5] }, new String[] { status.ToString() },Columns[0] + "=" + Id);

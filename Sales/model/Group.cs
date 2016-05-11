@@ -84,6 +84,24 @@ namespace Sales.model
             DatabaseBuilder.destory(VariableBuilder.Table.Group, Group.Columns[0], id);
         }
 
+        public static Boolean isAdmin(String id) 
+        {
+            bool admin = false;
+            SqlConnection connection = DatabaseBuilder.getConnection();
+            connection.Open();
+            SqlDataReader reader = DatabaseBuilder.readData(VariableBuilder.Table.Group,new String[]{ "is_admin" }, Columns[0] + "=" + id, connection);
+            while (reader.Read())
+            {
+                int status = Convert.ToInt32(reader.GetValue(0));
+                if (status == 1) 
+                {
+                    admin = true;
+                }
+            }
+            connection.Close();
+            return admin;
+        }
+
         public static List<Group> FillComboBox(ComboBox comboBox)
         {
             List<Group> values = new List<Group>();

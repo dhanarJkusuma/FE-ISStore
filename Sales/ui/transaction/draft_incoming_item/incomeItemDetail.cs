@@ -46,6 +46,15 @@ namespace Sales.ui.transaction.draft_incoming_item
         private void btnSave_Click(object sender, EventArgs e)
         {
             vTrxInvIncome.Amount = amount;
+            if (selectedSupplier != null)
+            {
+                vTrxInvIncome.SupplierID = selectedSupplier.No;
+            }
+            else 
+            {
+                vTrxInvIncome.SupplierID = null;
+            }
+            
             vTrxInvIncome.Update();
             for (int i = 0; i < selectedItem.Count; i++)
             {

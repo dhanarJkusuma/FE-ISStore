@@ -83,6 +83,7 @@ namespace Sales.ui.report.profit
             {
                 cFirstDate.Items.Add(monthDate[i]);
                 cSecondDate.Items.Add(monthDate[i]);
+                cMonthDay.Items.Add(monthDate[i]);
             }
 
             int now = Convert.ToInt32(DateTime.Now.ToString("yyyy"));
@@ -90,6 +91,7 @@ namespace Sales.ui.report.profit
             {
                 cFirstYear.Items.Add(i);
                 cEndYear.Items.Add(i);
+                cYearDay.Items.Add(i);
             }
         }
 
@@ -107,10 +109,33 @@ namespace Sales.ui.report.profit
         {
             cFirstDate.SelectedIndex = Convert.ToInt32(DateTime.Now.ToString("MM")) - 1;
             cSecondDate.SelectedIndex = Convert.ToInt32(DateTime.Now.ToString("MM")) - 1;
+            cMonthDay.SelectedIndex = Convert.ToInt32(DateTime.Now.ToString("MM")) - 1;
             cFirstYear.SelectedItem = Convert.ToInt32(DateTime.Now.ToString("yyyy"));
             cEndYear.SelectedItem = Convert.ToInt32(DateTime.Now.ToString("yyyy"));
+            cYearDay.SelectedItem = Convert.ToInt32(DateTime.Now.ToString("yyyy"));
             rTrans.Checked = true;
             monthGroup.Enabled = false;
+            rDay.Checked = true;
+        }
+
+        private void rDay_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rDay.Checked)
+            {
+                dayGroup.Enabled = true;
+            }
+            else 
+            {
+                dayGroup.Enabled = false;
+            }
+        }
+
+        private void btnGetDay_Click(object sender, EventArgs e)
+        {
+            profitDayReport rptDays = new profitDayReport();
+            rptDays.Month = cMonthDay.SelectedIndex + 1;
+            rptDays.Year = Convert.ToInt32(cYearDay.SelectedItem);
+            Helper.Forms.startForm(rptDays);
         }
     }
 }

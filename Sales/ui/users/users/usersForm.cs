@@ -71,7 +71,15 @@ namespace Sales.ui.users.users
                 {
                     if (Convert.ToInt32(row.Cells[0].Value) != VariableBuilder.Session.userLogged.Id)
                     {
-                        User.Destroy(row.Cells[0].Value.ToString());
+                        if (!User.isAdmin(row.Cells[0].Value.ToString()))
+                        {
+                            User.Destroy(row.Cells[0].Value.ToString());
+                        }
+                        else 
+                        {
+                            MessageBox.Show("You cannot delete the user admin.");
+                        }
+                        
                     }
                     else 
                     {

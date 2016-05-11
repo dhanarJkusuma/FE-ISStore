@@ -111,17 +111,31 @@ namespace Sales.model
         public static List<Unit> FillComboBox(ComboBox comboBox) 
         {
             List<Unit> values = new List<Unit>();
+            
             SqlConnection connection = DatabaseBuilder.getConnection();
             connection.Open();
             SqlDataReader reader = DatabaseBuilder.readData(VariableBuilder.Table.Unit, connection);
+            Unit other = new Unit();
             while (reader.Read())
             {
-                Unit unit = new Unit();
-                unit.Code = reader.GetString(0);
-                unit.Name = reader.GetString(1);
-                comboBox.Items.Add(unit.Name);
-                values.Add(unit);
+                String code = reader.GetString(0);
+                if (code.Equals("OTHER"))
+                {
+                    other.Code = code;
+                    other.Name = reader.GetString(1);
+                }
+                else 
+                {
+                    Unit unit = new Unit();
+                    unit.Code = code;
+                    unit.Name = reader.GetString(1);
+                    comboBox.Items.Add(unit.Name);
+                    values.Add(unit);
+                }
+                
             }
+            comboBox.Items.Add(other.Name);
+            values.Add(other);
 
             connection.Close();
             return values;

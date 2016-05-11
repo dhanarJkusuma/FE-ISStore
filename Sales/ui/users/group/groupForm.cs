@@ -54,7 +54,15 @@ namespace Sales.ui.users.group
             {
                 foreach (DataGridViewRow row in groupGrid.SelectedRows)
                 {
-                    Group.Destroy(row.Cells[0].Value.ToString());
+                    if (!Group.isAdmin(row.Cells[0].Value.ToString()))
+                    {
+                        Group.Destroy(row.Cells[0].Value.ToString());
+                    }
+                    else 
+                    {
+                        MessageBox.Show("You cannot delete admin group");
+                    }
+                    
                 }
                 refreshData();
             }

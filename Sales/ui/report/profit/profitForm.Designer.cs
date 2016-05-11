@@ -45,8 +45,15 @@
             this.cEndYear = new System.Windows.Forms.ComboBox();
             this.cFirstYear = new System.Windows.Forms.ComboBox();
             this.monthGroup = new System.Windows.Forms.GroupBox();
+            this.dayGroup = new System.Windows.Forms.GroupBox();
+            this.cYearDay = new System.Windows.Forms.ComboBox();
+            this.cMonthDay = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnGetDay = new System.Windows.Forms.Button();
+            this.rDay = new System.Windows.Forms.RadioButton();
             this.transGroup.SuspendLayout();
             this.monthGroup.SuspendLayout();
+            this.dayGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // rTrans
@@ -127,7 +134,7 @@
             this.transGroup.Size = new System.Drawing.Size(397, 167);
             this.transGroup.TabIndex = 3;
             this.transGroup.TabStop = false;
-            this.transGroup.Text = "Transaction Profit";
+            this.transGroup.Text = "per Transaction Profit";
             // 
             // label4
             // 
@@ -213,15 +220,82 @@
             this.monthGroup.Size = new System.Drawing.Size(394, 167);
             this.monthGroup.TabIndex = 3;
             this.monthGroup.TabStop = false;
-            this.monthGroup.Text = "Month Profit";
+            this.monthGroup.Text = "per Month Profit";
+            // 
+            // dayGroup
+            // 
+            this.dayGroup.Controls.Add(this.cYearDay);
+            this.dayGroup.Controls.Add(this.cMonthDay);
+            this.dayGroup.Controls.Add(this.label5);
+            this.dayGroup.Controls.Add(this.btnGetDay);
+            this.dayGroup.Location = new System.Drawing.Point(30, 358);
+            this.dayGroup.Name = "dayGroup";
+            this.dayGroup.Size = new System.Drawing.Size(394, 139);
+            this.dayGroup.TabIndex = 3;
+            this.dayGroup.TabStop = false;
+            this.dayGroup.Text = "per Day Profit";
+            // 
+            // cYearDay
+            // 
+            this.cYearDay.BackColor = System.Drawing.Color.White;
+            this.cYearDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cYearDay.FormattingEnabled = true;
+            this.cYearDay.Location = new System.Drawing.Point(187, 68);
+            this.cYearDay.Name = "cYearDay";
+            this.cYearDay.Size = new System.Drawing.Size(73, 21);
+            this.cYearDay.TabIndex = 3;
+            // 
+            // cMonthDay
+            // 
+            this.cMonthDay.BackColor = System.Drawing.Color.White;
+            this.cMonthDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cMonthDay.FormattingEnabled = true;
+            this.cMonthDay.Location = new System.Drawing.Point(33, 68);
+            this.cMonthDay.Name = "cMonthDay";
+            this.cMonthDay.Size = new System.Drawing.Size(148, 21);
+            this.cMonthDay.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(22, 43);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Select Month";
+            // 
+            // btnGetDay
+            // 
+            this.btnGetDay.Image = ((System.Drawing.Image)(resources.GetObject("btnGetDay.Image")));
+            this.btnGetDay.Location = new System.Drawing.Point(279, 30);
+            this.btnGetDay.Name = "btnGetDay";
+            this.btnGetDay.Size = new System.Drawing.Size(95, 95);
+            this.btnGetDay.TabIndex = 2;
+            this.btnGetDay.Text = "Get Data";
+            this.btnGetDay.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnGetDay.UseVisualStyleBackColor = true;
+            this.btnGetDay.Click += new System.EventHandler(this.btnGetDay_Click);
+            // 
+            // rDay
+            // 
+            this.rDay.AutoSize = true;
+            this.rDay.Location = new System.Drawing.Point(10, 358);
+            this.rDay.Name = "rDay";
+            this.rDay.Size = new System.Drawing.Size(14, 13);
+            this.rDay.TabIndex = 4;
+            this.rDay.TabStop = true;
+            this.rDay.UseVisualStyleBackColor = true;
+            this.rDay.CheckedChanged += new System.EventHandler(this.rDay_CheckedChanged);
             // 
             // profitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(445, 380);
+            this.ClientSize = new System.Drawing.Size(445, 517);
             this.Controls.Add(this.rTrans);
+            this.Controls.Add(this.rDay);
             this.Controls.Add(this.rMonth);
+            this.Controls.Add(this.dayGroup);
             this.Controls.Add(this.monthGroup);
             this.Controls.Add(this.transGroup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -235,6 +309,8 @@
             this.transGroup.PerformLayout();
             this.monthGroup.ResumeLayout(false);
             this.monthGroup.PerformLayout();
+            this.dayGroup.ResumeLayout(false);
+            this.dayGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,6 +334,12 @@
         private System.Windows.Forms.ComboBox cEndYear;
         private System.Windows.Forms.ComboBox cFirstYear;
         private System.Windows.Forms.GroupBox monthGroup;
+        private System.Windows.Forms.GroupBox dayGroup;
+        private System.Windows.Forms.ComboBox cYearDay;
+        private System.Windows.Forms.ComboBox cMonthDay;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnGetDay;
+        private System.Windows.Forms.RadioButton rDay;
 
     }
 }

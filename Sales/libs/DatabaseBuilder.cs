@@ -268,6 +268,7 @@ namespace Sales.libs
             try
             {
                 string query = "UPDATE " + table + " SET  " + generateSetValueParams(columns, iparams);
+                //MessageBox.Show(query);
                 SqlCommand updateCommand = new SqlCommand(query, openCon);
                 for (int i = 0; i < iparams.Length; i++)
                 {
@@ -290,6 +291,7 @@ namespace Sales.libs
             try
             {
                 string query = "UPDATE " + table + " SET  " + generateSetValueParams(columns, iparams) + " WHERE " + whereArgs;
+               // MessageBox.Show(query);
                 SqlCommand updateCommand = new SqlCommand(query, openCon);
                 for (int i = 0; i < iparams.Length; i++)
                 {
@@ -312,7 +314,7 @@ namespace Sales.libs
             try
             {
                 string query = "UPDATE " + table + " SET  " + generateSetValueParams(columns, iparams) + " WHERE " + whereArgs;
-                //MessageBox.Show(query);
+             //   MessageBox.Show(query);
                 SqlCommand updateCommand = new SqlCommand(query, openCon);
                 for (int i = 0; i < iparams.Length; i++)
                 {

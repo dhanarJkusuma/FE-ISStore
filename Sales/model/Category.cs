@@ -107,14 +107,28 @@ namespace Sales.model
             SqlConnection connection = DatabaseBuilder.getConnection();
             connection.Open();
             SqlDataReader reader = DatabaseBuilder.readData(VariableBuilder.Table.Category, connection);
+            Category other = new Category();
             while (reader.Read())
             {
-                Category category = new Category();
-                category.Code = reader.GetString(0);
-                category.Name = reader.GetString(1);
-                comboBox.Items.Add(category.Name);
-                values.Add(category);
+                String code = reader.GetString(0);
+
+                if (code.Equals("CTGOTHER")){
+                
+                    other.Code = code;
+                    other.Name = reader.GetString(1);
+                }
+                else 
+                {
+                    Category category = new Category();
+                    category.Code = code;
+                    category.Name = reader.GetString(1);
+                    comboBox.Items.Add(category.Name);
+                    values.Add(category);
+                }
+                
             }
+            comboBox.Items.Add(other.Name);
+            values.Add(other);
 
             connection.Close();
             return values;

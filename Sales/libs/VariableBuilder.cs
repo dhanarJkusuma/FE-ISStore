@@ -23,7 +23,7 @@ namespace Sales.libs
             public static String Menu = "box_menu";
             public static String Role = "box_role";
             public static String Store = "box_store";
-
+            public static String Gift = "box_gift";
 
             /* TABLE LOCATION */
             public static String Provinces = "box_provinces";

@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Sales.model
 {
@@ -33,7 +34,7 @@ namespace Sales.model
             get { return _modi_id; }
             set { _modi_id = value; }
         }
-        private String _supplier_id="";
+        private String _supplier_id;
 
         public String SupplierID
         {
@@ -100,9 +101,20 @@ namespace Sales.model
 
         public void Update() 
         {
-            String[] editedColumns = { Columns[2], Columns[3] };
-            String[] values = { SupplierID, Amount.ToString() };
-            DatabaseBuilder.update(VariableBuilder.Table.TrxInvIncome, editedColumns, editedColumns, values, Columns[0] + "='" + TrxNo + "'");
+            if (SupplierID != null)
+            {
+                String[] editedColumns = { Columns[2], Columns[3] };
+                String[] values = { SupplierID, Amount.ToString() };
+                DatabaseBuilder.update(VariableBuilder.Table.TrxInvIncome, editedColumns, editedColumns, values, Columns[0] + "='" + TrxNo + "'");
+            }
+            else 
+            {
+                String[] editedColumns = { Columns[3] };
+                String[] values = { Amount.ToString() };
+                DatabaseBuilder.update(VariableBuilder.Table.TrxInvIncome, editedColumns, editedColumns, values, Columns[0] + "='" + TrxNo + "'");
+            }
+            
+            
         }
 
         public static DataTable Where(String condition) 

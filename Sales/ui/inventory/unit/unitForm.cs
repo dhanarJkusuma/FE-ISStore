@@ -55,7 +55,15 @@ namespace Sales.ui.inventory.unit
             {
                 foreach (DataGridViewRow row in unitGrid.SelectedRows)
                 {
-                    Unit.Destroy(row.Cells[0].Value.ToString());
+                    if (!row.Cells[0].Value.ToString().Equals("OTHER"))
+                    {
+                        Unit.Destroy(row.Cells[0].Value.ToString());
+                    }
+                    else 
+                    {
+                        MessageBox.Show("Cannot delete default unit.");
+                    }
+                    
                 }
                 refreshData();
             }

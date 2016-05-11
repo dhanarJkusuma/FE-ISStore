@@ -89,7 +89,15 @@ namespace Sales.ui.inventory.category
             {
                 foreach (DataGridViewRow row in categoryGrid.SelectedRows)
                 {
-                    Category.Destroy(row.Cells[0].Value.ToString());
+                    if (!row.Cells[0].Value.ToString().Equals("CTGOTHER"))
+                    {
+                        Category.Destroy(row.Cells[0].Value.ToString());
+                    }
+                    else 
+                    {
+                        MessageBox.Show("Cannot delete default category");
+                    }
+                    
                 }
                 refreshData();
             }

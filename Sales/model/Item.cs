@@ -141,7 +141,7 @@ namespace Sales.model
             {
                 if (reader.HasRows)
                 {
-                    item.Barcode = (reader.IsDBNull(0)) ? null : reader.GetValue(0).ToString();
+                    item.Barcode = (reader.IsDBNull(0)) ? null : reader.GetString(0);
                     item.Name = reader.GetString(1);
                     item.Category = reader.GetString(2);
                     item.Unit = reader.GetString(3);
