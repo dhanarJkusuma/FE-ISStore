@@ -1,6 +1,7 @@
 ﻿using Sales.libs;
 using Sales.model;
 using Sales.report_model;
+using Sales.ui.data.girf;
 using Sales.ui.data.member;
 using Sales.ui.data.supplier;
 using Sales.ui.inventory.category;
@@ -18,6 +19,7 @@ using Sales.ui.setting;
 using Sales.ui.transaction.draft_incoming_item;
 using Sales.ui.transaction.incoming_item;
 using Sales.ui.transaction.payment;
+using Sales.ui.transaction.point_exchange;
 using Sales.ui.users.auth;
 using Sales.ui.users.group;
 using Sales.ui.users.users;
@@ -416,6 +418,18 @@ namespace Sales
         {
             tName.Text = VariableBuilder.Session.userLogged.Name;
             tStore.Text = VariableBuilder.PermanentVar.storeIndentity.Name;
-       }
+        }
+
+        private void btnExc_Click(object sender, EventArgs e)
+        {
+            pointExchange pE = new pointExchange();
+            Helper.Forms.startForm(pE);
+        }
+
+        private void btnGift_Click(object sender, EventArgs e)
+        {
+            giftForm gF = new giftForm();
+            Helper.Forms.startForm(gF);
+        }
     }
 }

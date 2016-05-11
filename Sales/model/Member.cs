@@ -151,6 +151,13 @@ namespace Sales.model
             DatabaseBuilder.update(VariableBuilder.Table.Member, selectedColumns, selectedColumns, values, Columns[0] + "='" + TmpId + "'", "Selected Member has been edited successfully.");   
         }
 
+        public void UpdateSilence()
+        {
+            String[] selectedColumns = { Columns[0], Columns[1], Columns[2], Columns[3], Columns[4], Columns[5], Columns[6], Columns[7], Columns[8] };
+            String[] values = { Id.ToString(), Name, Telp, Address, Point.ToString(), ProvCode.ToString(), RegCode.ToString(), DisCode.ToString(), VillCode.ToString() };
+            DatabaseBuilder.update(VariableBuilder.Table.Member, selectedColumns, selectedColumns, values, Columns[0] + "='" + TmpId + "'");
+        }
+
         public static void Destroy(Int64 member_id) 
         {
             DatabaseBuilder.destory(VariableBuilder.Table.Member, Columns[0], member_id.ToString(),"Selected member has been deleted successfully.");

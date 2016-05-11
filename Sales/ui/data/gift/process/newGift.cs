@@ -17,8 +17,8 @@ namespace Sales.ui.data.girf.process
         public newGift(BaseForm home)
         {
             InitializeComponent();
-            tName.Text = Gift.generateGiftNo();
-            tName.Enabled = false;
+            tCode.Text = Gift.generateGiftNo();
+            tCode.Enabled = false;
             this.home = home;
         }
 

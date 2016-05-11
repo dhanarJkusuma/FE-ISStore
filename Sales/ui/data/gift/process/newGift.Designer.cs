@@ -163,6 +163,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tCode);
             this.Name = "newGift";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales :: Data :: Gift :: New";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

@@ -164,6 +164,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tCode);
             this.Name = "updateGift";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales :: Data :: Gift :: Update";
             this.Load += new System.EventHandler(this.updateGift_Load);
             this.panel3.ResumeLayout(false);

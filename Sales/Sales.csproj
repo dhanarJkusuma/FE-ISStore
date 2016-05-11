@@ -174,6 +174,7 @@
     </Compile>
     <Compile Include="model\BaseModel.cs" />
     <Compile Include="model\Category.cs" />
+    <Compile Include="model\Gift.cs" />
     <Compile Include="model\Group.cs" />
     <Compile Include="model\Item.cs" />
     <Compile Include="model\Member.cs" />
@@ -237,6 +238,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RptTrxPayment.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ui\data\gift\giftForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\data\gift\giftForm.Designer.cs">
+      <DependentUpon>giftForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\data\gift\process\IncomingStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\data\gift\process\IncomingStock.Designer.cs">
+      <DependentUpon>IncomingStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\data\gift\process\newGift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\data\gift\process\newGift.Designer.cs">
+      <DependentUpon>newGift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\data\gift\process\updateGift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\data\gift\process\updateGift.Designer.cs">
+      <DependentUpon>updateGift.cs</DependentUpon>
     </Compile>
     <Compile Include="ui\data\member\memberForm.cs">
       <SubType>Form</SubType>
@@ -466,6 +491,12 @@
     <Compile Include="ui\transaction\payment\report_payment\paymentReport.Designer.cs">
       <DependentUpon>paymentReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="ui\transaction\point_exchange\pointExchange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\transaction\point_exchange\pointExchange.Designer.cs">
+      <DependentUpon>pointExchange.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\users\auth\authForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -566,6 +597,18 @@
     <EmbeddedResource Include="report_template\RptTrxPayment.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptTrxPayment.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\data\gift\giftForm.resx">
+      <DependentUpon>giftForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\data\gift\process\IncomingStock.resx">
+      <DependentUpon>IncomingStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\data\gift\process\newGift.resx">
+      <DependentUpon>newGift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\data\gift\process\updateGift.resx">
+      <DependentUpon>updateGift.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\data\member\memberForm.resx">
       <DependentUpon>memberForm.cs</DependentUpon>
@@ -680,6 +723,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ui\transaction\payment\report_payment\paymentReport.resx">
       <DependentUpon>paymentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\transaction\point_exchange\pointExchange.resx">
+      <DependentUpon>pointExchange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\users\auth\authForm.resx">
       <DependentUpon>authForm.cs</DependentUpon>

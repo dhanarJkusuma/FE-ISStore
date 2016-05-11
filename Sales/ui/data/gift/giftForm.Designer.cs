@@ -45,8 +45,10 @@
             this.giftList.AllowUserToResizeRows = false;
             this.giftList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.giftList.Location = new System.Drawing.Point(12, 12);
+            this.giftList.MultiSelect = false;
             this.giftList.Name = "giftList";
             this.giftList.RowHeadersVisible = false;
+            this.giftList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.giftList.Size = new System.Drawing.Size(712, 364);
             this.giftList.TabIndex = 0;
             // 

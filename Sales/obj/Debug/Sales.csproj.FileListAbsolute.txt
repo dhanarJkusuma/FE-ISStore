@@ -58,3 +58,8 @@ C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\S
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.csprojResolveAssemblyReference.cache
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.users.users.processForm.userChPass.resources
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.report.profit.profitDayReport.resources
+C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.data.girf.giftForm.resources
+C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.data.gift.process.IncomingStock.resources
+C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.data.girf.process.newGift.resources
+C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.data.girf.process.updateGift.resources
+C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.transaction.point_exchange.pointExchange.resources

@@ -65,7 +65,15 @@ namespace Sales.model
         {
             String[] values = { Item_name, Item_point_cost.ToString(), Item_stock.ToString()};
             String[] updatedColumns = { Columns[1], Columns[2], Columns[3] };
-            DatabaseBuilder.update(VariableBuilder.Table.Gift, updatedColumns, updatedColumns, values, "Gift successfully updated.");
+            DatabaseBuilder.update(VariableBuilder.Table.Gift, updatedColumns, updatedColumns, values, Columns[0] + "='" + Item_code + "'","Gift successfully updated.");
+        }
+
+        public void UpdateSilence() 
+        {
+            String[] values = { Item_name, Item_point_cost.ToString(), Item_stock.ToString()};
+            String[] updatedColumns = { Columns[1], Columns[2], Columns[3] };
+            DatabaseBuilder.update(VariableBuilder.Table.Gift, updatedColumns, updatedColumns, values, Columns[0] + "='" + Item_code + "'");
+        
         }
 
         public static DataTable All() 

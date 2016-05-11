@@ -53,7 +53,9 @@ namespace Sales.ui.data.girf
             if (giftList.SelectedRows.Count == 1) 
             {
                 Gift.Destroy(giftList.SelectedRows[0].Cells[0].Value.ToString());
+                
             }
+            refreshData();
         }
 
         private void btnIn_Click(object sender, EventArgs e)

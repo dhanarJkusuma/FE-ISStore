@@ -35,7 +35,8 @@ namespace Sales.ui.data.gift.process
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            CurrentGift.Item_stock = CurrentGift.Item_stock + Convert.ToInt32(tStock.Text);
+            Int32 stock =CurrentGift.Item_stock + Convert.ToInt32(tStock.Text);
+            CurrentGift.Item_stock = stock;
             CurrentGift.Update();
             home.refreshData();
             this.Dispose();

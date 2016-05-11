@@ -276,9 +276,12 @@ namespace Sales.ui.transaction.payment
                     DatabaseBuilder.usingStoredProcedure("SP_TRX_PAYMENT", iparams, values, "Process Success.");
                     if (customer != null) 
                     {
-                        Double pointInc = Math.Round(amount / VariableBuilder.PermanentVar.storeIndentity.IncrementPoint, 0);
-                        MessageBox.Show(pointInc.ToString());
-                        customer.setPoint(Convert.ToInt64(customer.Point + pointInc));
+                        if (VariableBuilder.PermanentVar.storeIndentity.IncrementPoint != 0) 
+                        {
+                            Double pointInc = Math.Round(amount / VariableBuilder.PermanentVar.storeIndentity.IncrementPoint, 0);
+                            customer.setPoint(Convert.ToInt64(customer.Point + pointInc));
+                        }
+                        
                     }
                     
 
