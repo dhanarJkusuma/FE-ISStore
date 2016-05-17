@@ -58,6 +58,7 @@
             this.btnCategory = new System.Windows.Forms.Button();
             this.btnUnit = new System.Windows.Forms.Button();
             this.btnListIncome = new System.Windows.Forms.Button();
+            this.btnExc = new System.Windows.Forms.Button();
             this.btnPayment = new System.Windows.Forms.Button();
             this.btnIncomeItem = new System.Windows.Forms.Button();
             this.btnPaymentRpt = new System.Windows.Forms.Button();
@@ -66,7 +67,6 @@
             this.btnTop = new System.Windows.Forms.Button();
             this.btnProfitReport = new System.Windows.Forms.Button();
             this.btnStockRep = new System.Windows.Forms.Button();
-            this.btnExc = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.tabUser.SuspendLayout();
             this.tabData.SuspendLayout();
@@ -387,6 +387,18 @@
             this.btnListIncome.UseVisualStyleBackColor = true;
             this.btnListIncome.Click += new System.EventHandler(this.btnListIncome_Click);
             // 
+            // btnExc
+            // 
+            this.btnExc.Image = ((System.Drawing.Image)(resources.GetObject("btnExc.Image")));
+            this.btnExc.Location = new System.Drawing.Point(355, 7);
+            this.btnExc.Name = "btnExc";
+            this.btnExc.Size = new System.Drawing.Size(110, 133);
+            this.btnExc.TabIndex = 1;
+            this.btnExc.Text = "Point Exchange";
+            this.btnExc.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnExc.UseVisualStyleBackColor = true;
+            this.btnExc.Click += new System.EventHandler(this.btnExc_Click);
+            // 
             // btnPayment
             // 
             this.btnPayment.Image = ((System.Drawing.Image)(resources.GetObject("btnPayment.Image")));
@@ -489,18 +501,6 @@
             this.btnStockRep.UseVisualStyleBackColor = true;
             this.btnStockRep.Click += new System.EventHandler(this.btnStockRep_Click);
             // 
-            // btnExc
-            // 
-            this.btnExc.Image = ((System.Drawing.Image)(resources.GetObject("btnExc.Image")));
-            this.btnExc.Location = new System.Drawing.Point(355, 7);
-            this.btnExc.Name = "btnExc";
-            this.btnExc.Size = new System.Drawing.Size(110, 133);
-            this.btnExc.TabIndex = 1;
-            this.btnExc.Text = "Point Exchange";
-            this.btnExc.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnExc.UseVisualStyleBackColor = true;
-            this.btnExc.Click += new System.EventHandler(this.btnExc_Click);
-            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -516,6 +516,7 @@
             this.Controls.Add(this.tabMenu);
             this.Font = new System.Drawing.Font("Meiryo UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

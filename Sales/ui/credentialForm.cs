@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Sales.ui
 {
-    public partial class loginForm : Form
+    public partial class credentialForm : Form
     {
         protected override CreateParams CreateParams
         {
@@ -23,20 +23,28 @@ namespace Sales.ui
                 return cp;
             }
         }
-
-        public loginForm()
+        
+        public credentialForm()
         {
+
             InitializeComponent();
             VariableBuilder.PermanentVar.storeIndentity = Store.getInformation();
+          
         }
 
 
-        private void btnClose_Click(object sender, EventArgs e)
+
+        private void lClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
+        {
+            loginIn();
+        }
+
+        private void loginIn() 
         {
             bool isLoggedIn = User.Login(tUsername.Text, EncryptBuilder.EncryptString(tPassword.Text));
             if (isLoggedIn)
@@ -45,25 +53,33 @@ namespace Sales.ui
                 Helper.Forms.startForm(home);
                 this.Hide();
             }
-            else 
+            else
             {
                 MessageBox.Show("Invalid Login. ");
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void tPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            
         }
 
-        private void loginForm_Load(object sender, EventArgs e)
+        private void credentialForm_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (e.KeyChar.Equals(Keys.Enter)) 
+            {
+                loginIn();
+            }
         }
 
-        private void btnClose_Click_1(object sender, EventArgs e)
+        private void tPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            Application.Exit();
+            if (e.KeyCode == Keys.Enter) 
+            {
+                loginIn();
+            }
         }
+
+
     }
 }

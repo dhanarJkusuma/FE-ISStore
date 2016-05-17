@@ -17,13 +17,26 @@ namespace Sales.ui.transaction.payment
     {
         private suggestMember memberForm;
         private Member customer;
-        String paymentStr = "";
-        String cashBackStr = "";
+        private String paymentStr = "";
+
+        public String PaymentStr
+        {
+            get { return paymentStr; }
+            set { paymentStr = value; }
+        }
+        private String cashBackStr = "";
+
+        public String CashBackStr
+        {
+            get { return cashBackStr; }
+            set { cashBackStr = value; }
+        }
         private List<TrxPaymentItem> items = new List<TrxPaymentItem>();
         private List<Item> gridContainer = new List<Item>();
         private List<ItemPaymentRptModel> itemsRpt = new List<ItemPaymentRptModel>();
         private Double amount=0;
         private Double payment = 0;
+
         
         public paymentForm()
         {
@@ -43,7 +56,6 @@ namespace Sales.ui.transaction.payment
             tPayment.Text = Helper.Data.rupiahParser(paymentStr);
             tCashback.Text = "Rp. 0,00";
             tTrxNo.Text = TrxPayment.generateTrxNo();
-            tDiscount.Text = "0";
         }
 
 
@@ -187,10 +199,7 @@ namespace Sales.ui.transaction.payment
                 }
             }
 
-            if (tDiscount.Text != "0" && tDiscount.Text.Length > 0) 
-            {
-                amount = amount - (amount * (Convert.ToDouble(tDiscount.Text) / 100));
-            }
+            
 
             tTotal.Text = Helper.Data.rupiahParser(amount.ToString());
             
@@ -211,6 +220,17 @@ namespace Sales.ui.transaction.payment
             }
             tPayment.Text = Helper.Data.rupiahParser(paymentStr);
             
+        }
+
+        public void bindPayment() 
+        {
+            if (paymentStr.Length > 0) 
+            {
+                tPayment.Text = Helper.Data.rupiahParser(paymentStr);
+                payment = Convert.ToDouble(paymentStr);
+            }
+            
+            tCashback.Text = Helper.Data.rupiahParser(cashBackStr);
         }
 
         private void tPayment_KeyPress(object sender, KeyPressEventArgs e)
@@ -253,6 +273,16 @@ namespace Sales.ui.transaction.payment
 
         private void btnPay_Click(object sender, EventArgs e)
         {
+            payForm pay = new payForm(this);
+            pay.PaymentStr = paymentStr;
+            pay.CashBackStr = cashBackStr;
+            pay.Amount = amount;
+            Helper.Forms.startForm(pay);
+
+        }
+
+        public void PayProcess() 
+        {
             if (payment >= amount)
             {
                 DialogResult dialogResult = MessageBox.Show("Confirm Payment?", "Dialog Confirmation", MessageBoxButtons.YesNo);
@@ -266,34 +296,34 @@ namespace Sales.ui.transaction.payment
                         vpayment.MemberID = customer.Id;
                     }
                     vpayment.TotalAmount = amount;
-                    vpayment.Discount = Convert.ToDouble(tDiscount.Text);
+                    vpayment.Discount = 0;
                     vpayment.TotalPay = payment;
-                    vpayment.CashBack = payment-amount;
+                    vpayment.CashBack = payment - amount;
                     vpayment.New();
                     getItemList();
                     String[] iparams = { "pStrTrxNo" };
                     String[] values = { vpayment.TrxNo };
                     DatabaseBuilder.usingStoredProcedure("SP_TRX_PAYMENT", iparams, values, "Process Success.");
-                    if (customer != null) 
+                    if (customer != null)
                     {
-                        if (VariableBuilder.PermanentVar.storeIndentity.IncrementPoint != 0) 
+                        if (VariableBuilder.PermanentVar.storeIndentity.IncrementPoint != 0)
                         {
                             Double pointInc = Math.Round(amount / VariableBuilder.PermanentVar.storeIndentity.IncrementPoint, 0);
                             customer.setPoint(Convert.ToInt64(customer.Point + pointInc));
                         }
-                        
+
                     }
-                    
+
 
                     printTrx();
-                    
+
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Please pay your order.");
             }
-
+        
         }
 
         private void tDiscount_TextChanged(object sender, EventArgs e)
@@ -330,7 +360,39 @@ namespace Sales.ui.transaction.payment
             paymentReport rpt = new paymentReport();
             rpt.Items = itemsRpt;
             rpt.TrxNo = tTrxNo.Text;
+            rpt.Amount = Helper.Data.rupiahParser(amount.ToString());
+            rpt.Payment = Helper.Data.rupiahParser(paymentStr);
+            rpt.Cashback = Helper.Data.rupiahParser(cashBackStr);
             Helper.Forms.startForm(rpt);
+        }
+
+        private void tPayment_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2) 
+            {
+                payForm pay = new payForm(this);
+                pay.PaymentStr = paymentStr;
+                pay.CashBackStr = cashBackStr;
+                pay.Amount = amount;
+                Helper.Forms.startForm(pay);
+            }
+        }
+
+        private void paymentForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void itemGrid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.B) 
+            {
+                payForm pay = new payForm(this);
+                pay.PaymentStr = paymentStr;
+                pay.CashBackStr = cashBackStr;
+                pay.Amount = amount;
+                Helper.Forms.startForm(pay);
+            }
         }
 
 

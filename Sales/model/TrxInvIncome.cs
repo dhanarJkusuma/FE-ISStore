@@ -34,7 +34,7 @@ namespace Sales.model
             get { return _modi_id; }
             set { _modi_id = value; }
         }
-        private String _supplier_id;
+        private String _supplier_id="";
 
         public String SupplierID
         {
@@ -59,7 +59,24 @@ namespace Sales.model
 
         public void New() 
         {
-            String[] selectedColumns = {
+            if (SupplierID != "")
+            {
+                String[] selectedColumns = {
+                                "trx_no",
+                                "modi_id",
+                                "total_amount",
+                                "created_at"
+                                };
+
+                TrxNo = generateTrxNo();
+                ModiID = VariableBuilder.Session.userLogged.Id;
+                CreatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                String[] values = { TrxNo, ModiID.ToString(), Amount.ToString(), CreatedAt };
+                DatabaseBuilder.insert(VariableBuilder.Table.TrxInvIncome, selectedColumns, selectedColumns, values);
+            }
+            else 
+            {
+                String[] selectedColumns = {
                                 "trx_no",
                                 "modi_id",
                                 "supplier_id",
@@ -67,11 +84,13 @@ namespace Sales.model
                                 "created_at"
                                 };
 
-            TrxNo = generateTrxNo();
-            ModiID = VariableBuilder.Session.userLogged.Id;
-            CreatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            String[] values = { TrxNo, ModiID.ToString(), SupplierID, Amount.ToString() , CreatedAt };
-            DatabaseBuilder.insert(VariableBuilder.Table.TrxInvIncome, selectedColumns, selectedColumns, values);
+                TrxNo = generateTrxNo();
+                ModiID = VariableBuilder.Session.userLogged.Id;
+                CreatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                String[] values = { TrxNo, ModiID.ToString(), SupplierID, Amount.ToString(), CreatedAt };
+                DatabaseBuilder.insert(VariableBuilder.Table.TrxInvIncome, selectedColumns, selectedColumns, values);
+            }
+            
         }
 
         public static String generateTrxNo() 

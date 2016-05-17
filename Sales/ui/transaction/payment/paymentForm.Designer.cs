@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(paymentForm));
-            this.tDiscount = new System.Windows.Forms.TextBox();
             this.btnPay = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,16 +66,6 @@
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tDiscount
-            // 
-            this.tDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tDiscount.Location = new System.Drawing.Point(802, 150);
-            this.tDiscount.Name = "tDiscount";
-            this.tDiscount.Size = new System.Drawing.Size(271, 20);
-            this.tDiscount.TabIndex = 20;
-            this.tDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tDiscount.TextChanged += new System.EventHandler(this.tDiscount_TextChanged);
-            // 
             // btnPay
             // 
             this.btnPay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -87,21 +75,10 @@
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(119, 92);
             this.btnPay.TabIndex = 19;
-            this.btnPay.Text = "Pay";
+            this.btnPay.Text = "Pay [B]";
             this.btnPay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPay.UseVisualStyleBackColor = true;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(731, 151);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 15);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Discount";
             // 
             // label7
             // 
@@ -152,6 +129,7 @@
             // 
             this.tPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tPayment.BackColor = System.Drawing.Color.White;
+            this.tPayment.Enabled = false;
             this.tPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tPayment.Location = new System.Drawing.Point(802, 78);
             this.tPayment.Name = "tPayment";
@@ -160,6 +138,7 @@
             this.tPayment.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tPayment.TextChanged += new System.EventHandler(this.tPayment_TextChanged);
             this.tPayment.Enter += new System.EventHandler(this.tPayment_Enter);
+            this.tPayment.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tPayment_KeyDown);
             this.tPayment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tPayment_KeyPress);
             this.tPayment.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tPayment_KeyUp);
             // 
@@ -201,6 +180,7 @@
             this.itemGrid.TabIndex = 0;
             this.itemGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemGrid_CellValueChanged);
             this.itemGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.itemGrid_EditingControlShowing);
+            this.itemGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.itemGrid_KeyDown);
             // 
             // cBarcode
             // 
@@ -387,9 +367,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1211, 625);
-            this.Controls.Add(this.tDiscount);
             this.Controls.Add(this.btnPay);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -406,6 +384,7 @@
             this.Text = "Sales :: Transaction :: Payment";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.paymentForm_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.paymentForm_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.itemGrid)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -447,8 +426,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tTrxNo;
-        private System.Windows.Forms.TextBox tDiscount;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridViewTextBoxColumn cBarcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn cQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn cName;

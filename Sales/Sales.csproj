@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -50,6 +50,10 @@
   <PropertyGroup>
     <StartupObject>Sales.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Untitled-1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
@@ -239,6 +243,12 @@
       <DependentUpon>RptTrxPayment.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ui\credentialForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\credentialForm.Designer.cs">
+      <DependentUpon>credentialForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\data\gift\giftForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -365,12 +375,6 @@
     <Compile Include="ui\inventory\unit\unitForm.Designer.cs">
       <DependentUpon>unitForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ui\loginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ui\loginForm.Designer.cs">
-      <DependentUpon>loginForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ui\report\down10\downItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -478,6 +482,12 @@
     </Compile>
     <Compile Include="ui\transaction\incoming_item\incomeItemForm.Designer.cs">
       <DependentUpon>incomeItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\transaction\payment\payForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\transaction\payment\payForm.Designer.cs">
+      <DependentUpon>payForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ui\transaction\payment\paymentForm.cs">
       <SubType>Form</SubType>
@@ -598,6 +608,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptTrxPayment.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ui\credentialForm.resx">
+      <DependentUpon>credentialForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\data\gift\giftForm.resx">
       <DependentUpon>giftForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -661,9 +674,6 @@
     <EmbeddedResource Include="ui\inventory\unit\unitForm.resx">
       <DependentUpon>unitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ui\loginForm.resx">
-      <DependentUpon>loginForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ui\report\down10\downItemForm.resx">
       <DependentUpon>downItemForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -717,6 +727,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ui\transaction\incoming_item\incomeItemForm.resx">
       <DependentUpon>incomeItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\transaction\payment\payForm.resx">
+      <DependentUpon>payForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\transaction\payment\paymentForm.resx">
       <DependentUpon>paymentForm.cs</DependentUpon>
@@ -881,6 +894,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Untitled-1.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

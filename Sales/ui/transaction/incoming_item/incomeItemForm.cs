@@ -13,7 +13,7 @@ namespace Sales.ui.transaction.incoming_item
     public partial class incomeItemForm : BaseFormSuggest
     {
         private Double amount=0;
-        private Supplier selectedSupplier;
+        private Supplier selectedSupplier = null;
         private suggestItem suggestForm;
         private suggestSupplier suggestSuppForm;
         private List<TrxInvIncomeItem> selectedItem=new List<TrxInvIncomeItem>();
@@ -98,6 +98,7 @@ namespace Sales.ui.transaction.incoming_item
             trxInv.Amount = amount;
             if (selectedSupplier != null) 
             {
+                MessageBox.Show("Adda Supplier");
                 trxInv.SupplierID = selectedSupplier.No;
             }
             

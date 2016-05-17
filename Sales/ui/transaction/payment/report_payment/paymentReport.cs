@@ -16,6 +16,27 @@ namespace Sales.ui.transaction.payment.report_payment
     {
         ReportDocument cryRpt;
         private List<ItemPaymentRptModel> items;
+        private String amount;
+
+        public String Amount
+        {
+            get { return amount; }
+            set { amount = value; }
+        }
+        private String cashback;
+
+        public String Cashback
+        {
+            get { return cashback; }
+            set { cashback = value; }
+        }
+        private String payment;
+
+        public String Payment
+        {
+            get { return payment; }
+            set { payment = value; }
+        }
 
         internal List<ItemPaymentRptModel> Items
         {
@@ -47,6 +68,9 @@ namespace Sales.ui.transaction.payment.report_payment
             cryRpt.SetParameterValue("store_address", VariableBuilder.PermanentVar.storeIndentity.Address);
             cryRpt.SetParameterValue("store_phone", "Telp.  " + VariableBuilder.PermanentVar.storeIndentity.Phone);
             cryRpt.SetParameterValue("print_date", DateTime.Now.ToString("yyyy MMMM dd HH:mm:ss"));
+            cryRpt.SetParameterValue("amount", amount);
+            cryRpt.SetParameterValue("payment",payment);
+            cryRpt.SetParameterValue("cashback", cashback);
             cryRpt.SetParameterValue("TrxNo", TrxNo);
             
             paymentReportViewer.ReportSource = cryRpt;
