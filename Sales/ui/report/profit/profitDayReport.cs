@@ -45,7 +45,15 @@ namespace Sales.ui.report.profit
             cyRpt.SetParameterValue("print_date", DateTime.Now.ToString("yyyy MMMM dd HH:mm:ss"));
 
             ProfitRptModel.InMonth dataSum = ProfitRptModel.getSingleDataMonth(Month, Year);
-            cyRpt.SetParameterValue("total_profit", dataSum.Profit);
+            if (dataSum != null)
+            {
+                cyRpt.SetParameterValue("total_profit", dataSum.Profit);
+            }
+            else
+            {
+                cyRpt.SetParameterValue("total_profit", Helper.Data.rupiahParser("0"));
+            }
+            
             daysProfitViewer.ReportSource = cyRpt;
 
         }

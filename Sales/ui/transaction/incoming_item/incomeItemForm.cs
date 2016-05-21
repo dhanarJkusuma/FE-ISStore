@@ -154,7 +154,7 @@ namespace Sales.ui.transaction.incoming_item
             {
                 if (row.Cells[5].Value != null)
                 {
-                    amount += Convert.ToDouble(row.Cells[5].Value.ToString());
+                    amount += Convert.ToDouble(row.Cells[5].Value);
                 }
             }
 

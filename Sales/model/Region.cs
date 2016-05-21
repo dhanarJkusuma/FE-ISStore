@@ -129,6 +129,11 @@ namespace Sales.model
         public static List<Regencies> FillRegencies(Provinces province, ComboBox comboBox)
         {
             List<Regencies> value = new List<Regencies>();
+
+            comboBox.Items.Add(getNullRegencies().Name);
+            value.Add(getNullRegencies());
+
+
             SqlConnection connection = DatabaseBuilder.getConnection();
             connection.Open();
             String[] columns = { "reg_code", "reg_name" };
@@ -147,10 +152,48 @@ namespace Sales.model
             return value;
         }
 
+        public static Provinces getNullProvinces() 
+        {
+            Provinces nullProvinces = new Provinces();
+            nullProvinces.Code = 0;
+            nullProvinces.Name = "N/A";
+            return nullProvinces;
+        }
+
+        public static Regencies getNullRegencies()
+        {
+            Regencies nullRegencies = new Regencies();
+            nullRegencies.Code = 0;
+            nullRegencies.Name = "N/A";
+            nullRegencies.Province = getNullProvinces();
+            return nullRegencies;
+        }
+        public static Districts getNullDistricts()
+        {
+            Districts nullDistricts = new Districts();
+            nullDistricts.Code = 0;
+            nullDistricts.Name = "N/A";
+            nullDistricts.Regency = getNullRegencies();
+            return nullDistricts;
+        }
+        public static Villages getNullVillages()
+        {
+            Villages nullVillages = new Villages();
+            nullVillages.Code = 0;
+            nullVillages.Name = "N/A";
+            nullVillages.Districts = getNullDistricts();
+            return nullVillages;
+        }
+
 
         public static List<Districts> FillDistricts(Regencies regency, ComboBox comboBox)
         {
             List<Districts> values = new List<Districts>();
+
+
+            comboBox.Items.Add(getNullDistricts().Name);
+            values.Add(getNullDistricts());
+
             SqlConnection connection = DatabaseBuilder.getConnection();
             connection.Open();
             String[] columns = { "dis_code", "dis_name" };
@@ -171,6 +214,9 @@ namespace Sales.model
         public static List<Villages> FillVillages(Districts district, ComboBox comboBox)
         {
             List<Villages> values = new List<Villages>();
+
+            comboBox.Items.Add(getNullVillages().Name);
+            values.Add(getNullVillages());
             SqlConnection connection = DatabaseBuilder.getConnection();
             connection.Open();
             String[] columns = { "vill_code", "vill_name" };

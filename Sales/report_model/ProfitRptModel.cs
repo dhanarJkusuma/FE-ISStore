@@ -132,17 +132,21 @@ namespace Sales.report_model
 
         public static InMonth getSingleDataMonth(Int32 month, Int32 year) 
         {
-            InMonth data = new InMonth();
+            InMonth data = null;
             String sql = "SELECT * from V_PROFIT_MONTH WHERE profit_year=" +year + " and profit_month=" + month;
             SqlConnection connection = DatabaseBuilder.getConnection();
             connection.Open();
             SqlDataReader reader = DatabaseBuilder.readDataQuery(sql, connection);
-            while (reader.Read())
+            if (reader.HasRows) 
             {
-                data.DateMonth = reader.GetValue(0).ToString() + " " + Helper.Date.getMonthString(Convert.ToInt32(reader.GetValue(1)));
-                data.Profit = Helper.Data.rupiahParser(Convert.ToDouble(reader.GetValue(2)).ToString());
+                while (reader.Read())
+                {
+                    data = new InMonth();
+                    data.DateMonth = reader.GetValue(0).ToString() + " " + Helper.Date.getMonthString(Convert.ToInt32(reader.GetValue(1)));
+                    data.Profit = Helper.Data.rupiahParser(Convert.ToDouble(reader.GetValue(2)).ToString());
+                }
             }
-
+            
             return data;
         }
 

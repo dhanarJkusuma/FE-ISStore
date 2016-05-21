@@ -191,6 +191,15 @@ namespace Sales
             {
                 btnSupplier.Enabled = false;
             }
+            rlz = roleLv2.Find(rl => rl.MenuID == "T002B3");
+            if (rlz.isActived == 1)
+            {
+                btnGift.Enabled = true;
+            }
+            else
+            {
+                btnGift.Enabled = false;
+            }
 
             setValueMenu("T003");
             rlz = roleLv2.Find(rl => rl.MenuID == "T003B1");
@@ -272,6 +281,16 @@ namespace Sales
                 btnPayment.Enabled = false;
             }
 
+            rlz = roleLv2.Find(rl => rl.MenuID == "T004B4");
+            if (rlz.isActived == 1)
+            {
+                btnExc.Enabled = true;
+            }
+            else
+            {
+                btnExc.Enabled = false;
+            }
+
             setValueMenu("T005");
             rlz = roleLv2.Find(rl => rl.MenuID == "T005B1");
             if (rlz.isActived == 1)
@@ -327,6 +346,7 @@ namespace Sales
             {
                 btnPaymentRpt.Enabled = false;
             }
+
 
         }
 

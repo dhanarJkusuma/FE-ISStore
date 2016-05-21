@@ -17,9 +17,19 @@ namespace Sales
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new credentialForm());
+            try 
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new credentialForm());
+            }
+            catch (Exception ex)
+            {
+                // Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+                // returns a folder that is usually allowed to write files to
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

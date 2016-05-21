@@ -15,10 +15,13 @@ namespace Sales.ui.data.girf
 {
     public partial class giftForm : BaseForm
     {
+        private List<Sales.model.SalesMenu.CompareRole> role;
         public giftForm()
         {
             InitializeComponent();
             refreshData();
+            role = SalesMenu.getAuth(VariableBuilder.Session.userLogged.Group, 2, "T002B3");
+            setMenu();
         }
 
         public override void refreshData()
@@ -28,6 +31,49 @@ namespace Sales.ui.data.girf
             giftList.ReadOnly = true;
             giftList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+        }
+
+        private void setMenu()
+        {
+            Sales.model.SalesMenu.CompareRole rlv = role.Find(rl => rl.MenuID == "T002B3P1");
+            if (rlv.isActived == 1)
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+            {
+                btnAdd.Enabled = false;
+            }
+
+            rlv = role.Find(rl => rl.MenuID == "T002B3P2");
+            if (rlv.isActived == 1)
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+            {
+                btnUpdate.Enabled = false;
+            }
+
+            rlv = role.Find(rl => rl.MenuID == "T002B3P3");
+            if (rlv.isActived == 1)
+            {
+                btnIn.Enabled = true;
+            }
+            else
+            {
+                btnIn.Enabled = false;
+            }
+
+            rlv = role.Find(rl => rl.MenuID == "T002B3P4");
+            if (rlv.isActived == 1)
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+            {
+                btnDelete.Enabled = false;
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
