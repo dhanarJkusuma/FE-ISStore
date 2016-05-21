@@ -19,7 +19,7 @@ namespace Sales.ui.transaction.point_exchange
         {
             InitializeComponent();
             Helper.Forms.setPlaceHolder(tIdMember, "ID MEMBER");
-            Helper.Forms.setPlaceHolder(tbind, "Search...");
+            
 
             itemGrid.DataSource = Gift.All();
             itemGrid.ReadOnly = true;
@@ -64,12 +64,12 @@ namespace Sales.ui.transaction.point_exchange
 
         private void tbind_Enter(object sender, EventArgs e)
         {
-            Helper.Forms.setFocusPlaceHolder(tbind, "Search...", false);
+         
         }
 
         private void tbind_Leave(object sender, EventArgs e)
         {
-            Helper.Forms.setLeavePlaceholder(tbind, "Search...", false);
+         
         }
 
         private void btnExchange_Click(object sender, EventArgs e)

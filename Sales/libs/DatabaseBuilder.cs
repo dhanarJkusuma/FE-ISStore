@@ -361,12 +361,10 @@ namespace Sales.libs
                 openCon.Open();
                 destroyCommand.ExecuteNonQuery();
                 openCon.Close();
-                
-
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error : " + e.StackTrace);
+                MessageBox.Show("Error : " + e.Message);
             }
         }
 

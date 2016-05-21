@@ -69,7 +69,7 @@
             this.cGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cGroup.FormattingEnabled = true;
-            this.cGroup.Location = new System.Drawing.Point(114, 51);
+            this.cGroup.Location = new System.Drawing.Point(114, 41);
             this.cGroup.Name = "cGroup";
             this.cGroup.Size = new System.Drawing.Size(292, 24);
             this.cGroup.TabIndex = 18;
@@ -78,7 +78,7 @@
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(12, 51);
+            this.panel3.Location = new System.Drawing.Point(12, 41);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(103, 24);
             this.panel3.TabIndex = 19;

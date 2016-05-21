@@ -44,8 +44,10 @@ namespace Sales
             InitializeComponent();
             
             role = SalesMenu.getAuth(VariableBuilder.Session.userLogged.Group, 0);
-            tName.Text = VariableBuilder.Session.userLogged.Name;
+            tFullName.Text = "Full Name : " + VariableBuilder.Session.userLogged.FullName;
+            tName.Text = "User Name : " + VariableBuilder.Session.userLogged.Name;
             tStore.Text = VariableBuilder.PermanentVar.storeIndentity.Name;
+            //MessageBox.Show(EncryptBuilder.DecryptString(VariableBuilder.Session.userLogged.Password));
             settingBtn();
             timer.Start();
             setChart();
@@ -436,7 +438,8 @@ namespace Sales
 
         public void reloadInfo() 
         {
-            tName.Text = VariableBuilder.Session.userLogged.Name;
+            tName.Text = "User Name : " + VariableBuilder.Session.userLogged.Name;
+            tFullName.Text = "Full Name : " + VariableBuilder.Session.userLogged.FullName;
             tStore.Text = VariableBuilder.PermanentVar.storeIndentity.Name;
         }
 

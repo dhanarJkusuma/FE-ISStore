@@ -61,7 +61,7 @@ namespace Sales.model
 
         public static DataTable All() 
         {
-            return DatabaseBuilder.read(VariableBuilder.Table.Group);
+            return DatabaseBuilder.read(VariableBuilder.Table.Group,Columns);
         }
 
         public static Group Find(String id)

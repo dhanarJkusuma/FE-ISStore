@@ -28,10 +28,10 @@ namespace Sales.ui.users.auth
                 roleList.Find(role => role.MenuID == e.Node.Name).IsActived = 1;
                     
                     List<Sales.model.SalesMenu.Role> child = roleList.FindAll(role => role.RootMenu == e.Node.Name);
-                        for (int i = 0; i < child.Count; i++)
-                        {
-                                e.Node.Nodes[i].Checked = true;
-                        }
+                    for (int i = 0; i < child.Count; i++)
+                    {
+                            e.Node.Nodes[i].Checked = true;
+                    }
                 
             }
             else 

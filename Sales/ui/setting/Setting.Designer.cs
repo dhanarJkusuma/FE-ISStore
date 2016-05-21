@@ -46,26 +46,26 @@
             this.tabSystem = new System.Windows.Forms.TabPage();
             this.cSystem = new System.Windows.Forms.CheckBox();
             this.gSystem = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tAddress = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tPhone = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tStore = new System.Windows.Forms.TextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tIncrement = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tStore = new System.Windows.Forms.TextBox();
+            this.tAddress = new System.Windows.Forms.TextBox();
+            this.tPhone = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.tabSettings.SuspendLayout();
             this.tabUser.SuspendLayout();
             this.gName.SuspendLayout();
             this.gPassword.SuspendLayout();
             this.tabSystem.SuspendLayout();
             this.gSystem.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabSettings
@@ -241,92 +241,6 @@
             this.gSystem.TabStop = false;
             this.gSystem.Text = "System";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 134);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Address";
-            // 
-            // tAddress
-            // 
-            this.tAddress.Location = new System.Drawing.Point(28, 150);
-            this.tAddress.Multiline = true;
-            this.tAddress.Name = "tAddress";
-            this.tAddress.Size = new System.Drawing.Size(264, 129);
-            this.tAddress.TabIndex = 2;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 84);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 13);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Phone";
-            // 
-            // tPhone
-            // 
-            this.tPhone.Location = new System.Drawing.Point(28, 100);
-            this.tPhone.Name = "tPhone";
-            this.tPhone.Size = new System.Drawing.Size(264, 20);
-            this.tPhone.TabIndex = 2;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 35);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Store Name ";
-            // 
-            // tStore
-            // 
-            this.tStore.Location = new System.Drawing.Point(28, 51);
-            this.tStore.Name = "tStore";
-            this.tStore.Size = new System.Drawing.Size(264, 20);
-            this.tStore.TabIndex = 2;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(238, 533);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(90, 73);
-            this.btnCancel.TabIndex = 1;
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(142, 533);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 73);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.tStore);
-            this.groupBox1.Controls.Add(this.tAddress);
-            this.groupBox1.Controls.Add(this.tPhone);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Location = new System.Drawing.Point(15, 19);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(317, 300);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Store Setting";
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tIncrement);
@@ -355,6 +269,92 @@
             this.label8.TabIndex = 5;
             this.label8.Text = "Increment Point per Transaction";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.tStore);
+            this.groupBox1.Controls.Add(this.tAddress);
+            this.groupBox1.Controls.Add(this.tPhone);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Location = new System.Drawing.Point(15, 19);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(317, 300);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Store Setting";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(15, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Store Name ";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(15, 134);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Address";
+            // 
+            // tStore
+            // 
+            this.tStore.Location = new System.Drawing.Point(28, 51);
+            this.tStore.Name = "tStore";
+            this.tStore.Size = new System.Drawing.Size(264, 20);
+            this.tStore.TabIndex = 2;
+            // 
+            // tAddress
+            // 
+            this.tAddress.Location = new System.Drawing.Point(28, 150);
+            this.tAddress.Multiline = true;
+            this.tAddress.Name = "tAddress";
+            this.tAddress.Size = new System.Drawing.Size(264, 129);
+            this.tAddress.TabIndex = 2;
+            // 
+            // tPhone
+            // 
+            this.tPhone.Location = new System.Drawing.Point(28, 100);
+            this.tPhone.Name = "tPhone";
+            this.tPhone.Size = new System.Drawing.Size(264, 20);
+            this.tPhone.TabIndex = 2;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 84);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Phone";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.Location = new System.Drawing.Point(238, 533);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(90, 73);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.Location = new System.Drawing.Point(142, 533);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(90, 73);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // Setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,10 +379,10 @@
             this.tabSystem.ResumeLayout(false);
             this.tabSystem.PerformLayout();
             this.gSystem.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }

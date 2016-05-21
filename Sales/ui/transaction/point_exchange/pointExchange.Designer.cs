@@ -36,6 +36,7 @@
             this.btnExchange = new System.Windows.Forms.Button();
             this.tbind = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Quantity = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.itemGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,9 +74,9 @@
             // 
             // tQty
             // 
-            this.tQty.Location = new System.Drawing.Point(12, 440);
+            this.tQty.Location = new System.Drawing.Point(85, 440);
             this.tQty.Name = "tQty";
-            this.tQty.Size = new System.Drawing.Size(347, 20);
+            this.tQty.Size = new System.Drawing.Size(274, 20);
             this.tQty.TabIndex = 1;
             // 
             // tPoint
@@ -113,11 +114,21 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Search";
             // 
+            // Quantity
+            // 
+            this.Quantity.AutoSize = true;
+            this.Quantity.Location = new System.Drawing.Point(9, 443);
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Size = new System.Drawing.Size(46, 13);
+            this.Quantity.TabIndex = 4;
+            this.Quantity.Text = "Quantity";
+            // 
             // pointExchange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(374, 529);
+            this.Controls.Add(this.Quantity);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExchange);
             this.Controls.Add(this.tQty);
@@ -149,5 +160,6 @@
         private System.Windows.Forms.Button btnExchange;
         private System.Windows.Forms.TextBox tbind;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Quantity;
     }
 }

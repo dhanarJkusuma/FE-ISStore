@@ -18,7 +18,7 @@ namespace Sales.ui.setting
         {
             InitializeComponent();
             this.home = home;
-            tName.Text = VariableBuilder.Session.userLogged.Name;
+            tName.Text = VariableBuilder.Session.userLogged.FullName;
             tStore.Text = VariableBuilder.PermanentVar.storeIndentity.Name;
             tPhone.Text = VariableBuilder.PermanentVar.storeIndentity.Phone;
             tAddress.Text = VariableBuilder.PermanentVar.storeIndentity.Address;
@@ -116,7 +116,7 @@ namespace Sales.ui.setting
         /* NAME SECTION */
         private void updateName(String name)
         {
-            VariableBuilder.Session.userLogged.Name = name;
+            VariableBuilder.Session.userLogged.FullName = name;
             VariableBuilder.Session.userLogged.UpdateNonMessage();
         }
         /* NAME SECTION */

@@ -19,8 +19,8 @@ namespace Sales.ui.users.users
                                                 VariableBuilder.Table.User + "." + User.Columns[0] + " as ID",
                                                 VariableBuilder.Table.User + "." + User.Columns[1] + " as UserName",
                                                 VariableBuilder.Table.Group + "." + Group.Columns[1] + " as UserGroup",
-                                                VariableBuilder.Table.User + "." + User.Columns[5] + " as Status",
-                                                VariableBuilder.Table.User + "." + User.Columns[4] + " as CreatedAt"
+                                                VariableBuilder.Table.User + "." + User.Columns[6] + " as Status",
+                                                VariableBuilder.Table.User + "." + User.Columns[5] + " as CreatedAt"
                                            };
         public usersForm()
         {
@@ -34,7 +34,7 @@ namespace Sales.ui.users.users
             userGrid.DataSource = User.query()
                                       .innerJoin(VariableBuilder.Table.Group)
                                       .on(
-                                            VariableBuilder.Table.User + "." + User.Columns[3]
+                                            VariableBuilder.Table.User + "." + User.Columns[4]
                                             + "=" +
                                             VariableBuilder.Table.Group + "." + Group.Columns[0]
                                          )

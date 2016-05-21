@@ -29,6 +29,7 @@ namespace Sales.ui.users.users.processForm
             {
                 User user = new User();
                 user.Name = tUserName.Text;
+                user.FullName = tFullName.Text;
                 user.Password = EncryptBuilder.EncryptString(tPassword.Text);
                 user.Group = groupValue[cGroup.SelectedIndex].Id;
                 user.New();

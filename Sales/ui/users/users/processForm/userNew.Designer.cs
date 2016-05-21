@@ -43,10 +43,14 @@
             this.tConfirm = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.tFullName = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tUserName
@@ -73,23 +77,23 @@
             this.label2.Location = new System.Drawing.Point(3, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 17);
-            this.label2.TabIndex = 0;
+            this.label2.TabIndex = 5;
             this.label2.Text = "User Name";
             // 
             // tPassword
             // 
             this.tPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tPassword.Location = new System.Drawing.Point(148, 56);
+            this.tPassword.Location = new System.Drawing.Point(148, 85);
             this.tPassword.Name = "tPassword";
             this.tPassword.PasswordChar = '*';
             this.tPassword.Size = new System.Drawing.Size(258, 23);
-            this.tPassword.TabIndex = 1;
+            this.tPassword.TabIndex = 2;
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 56);
+            this.panel1.Location = new System.Drawing.Point(12, 85);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(138, 23);
             this.panel1.TabIndex = 13;
@@ -101,14 +105,14 @@
             this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 17);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 7;
             this.label1.Text = "Password";
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(12, 114);
+            this.panel3.Location = new System.Drawing.Point(12, 143);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(138, 24);
             this.panel3.TabIndex = 13;
@@ -120,7 +124,7 @@
             this.label3.Location = new System.Drawing.Point(3, 3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 17);
-            this.label3.TabIndex = 0;
+            this.label3.TabIndex = 10;
             this.label3.Text = "Group";
             // 
             // cGroup
@@ -128,15 +132,15 @@
             this.cGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cGroup.FormattingEnabled = true;
-            this.cGroup.Location = new System.Drawing.Point(148, 114);
+            this.cGroup.Location = new System.Drawing.Point(148, 143);
             this.cGroup.Name = "cGroup";
             this.cGroup.Size = new System.Drawing.Size(258, 24);
-            this.cGroup.TabIndex = 2;
+            this.cGroup.TabIndex = 4;
             // 
             // btnSave
             // 
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(12, 148);
+            this.btnSave.Location = new System.Drawing.Point(12, 214);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(103, 87);
             this.btnSave.TabIndex = 15;
@@ -148,7 +152,7 @@
             // btnCancel
             // 
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(306, 148);
+            this.btnCancel.Location = new System.Drawing.Point(306, 214);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(103, 87);
             this.btnCancel.TabIndex = 15;
@@ -160,17 +164,17 @@
             // tConfirm
             // 
             this.tConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tConfirm.Location = new System.Drawing.Point(148, 85);
+            this.tConfirm.Location = new System.Drawing.Point(148, 114);
             this.tConfirm.Name = "tConfirm";
             this.tConfirm.PasswordChar = '*';
             this.tConfirm.Size = new System.Drawing.Size(258, 23);
-            this.tConfirm.TabIndex = 1;
+            this.tConfirm.TabIndex = 3;
             // 
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(12, 85);
+            this.panel4.Location = new System.Drawing.Point(12, 114);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(138, 23);
             this.panel4.TabIndex = 13;
@@ -182,14 +186,41 @@
             this.label4.Location = new System.Drawing.Point(3, 3);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 17);
-            this.label4.TabIndex = 0;
+            this.label4.TabIndex = 8;
             this.label4.Text = "Password Confirm";
+            // 
+            // tFullName
+            // 
+            this.tFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tFullName.Location = new System.Drawing.Point(148, 56);
+            this.tFullName.Name = "tFullName";
+            this.tFullName.Size = new System.Drawing.Size(258, 23);
+            this.tFullName.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Location = new System.Drawing.Point(12, 56);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(138, 23);
+            this.panel5.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(71, 17);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Full Name";
             // 
             // userNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 247);
+            this.ClientSize = new System.Drawing.Size(421, 317);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cGroup);
@@ -198,6 +229,8 @@
             this.Controls.Add(this.tConfirm);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tPassword);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.tFullName);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tUserName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -214,6 +247,8 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,6 +270,9 @@
         private System.Windows.Forms.TextBox tConfirm;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tFullName;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label5;
 
     }
 }
