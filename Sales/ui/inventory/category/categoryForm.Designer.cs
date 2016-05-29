@@ -33,6 +33,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.categoryGrid = new System.Windows.Forms.DataGridView();
+            this.tSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.categoryGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(129, 400);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(111, 115);
-            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Edit";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -69,7 +70,7 @@
             this.btnAdd.Location = new System.Drawing.Point(12, 400);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(111, 115);
-            this.btnAdd.TabIndex = 5;
+            this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "New";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -84,24 +85,35 @@
             this.categoryGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.categoryGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.categoryGrid.Location = new System.Drawing.Point(12, 12);
+            this.categoryGrid.Location = new System.Drawing.Point(12, 38);
             this.categoryGrid.Name = "categoryGrid";
             this.categoryGrid.RowHeadersVisible = false;
             this.categoryGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.categoryGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.categoryGrid.Size = new System.Drawing.Size(584, 366);
-            this.categoryGrid.TabIndex = 2;
+            this.categoryGrid.Size = new System.Drawing.Size(584, 340);
+            this.categoryGrid.TabIndex = 4;
+            // 
+            // tSearch
+            // 
+            this.tSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.tSearch.Location = new System.Drawing.Point(416, 12);
+            this.tSearch.Name = "tSearch";
+            this.tSearch.Size = new System.Drawing.Size(180, 20);
+            this.tSearch.TabIndex = 0;
+            this.tSearch.TextChanged += new System.EventHandler(this.tSearch_TextChanged);
             // 
             // categoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 527);
+            this.Controls.Add(this.tSearch);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.categoryGrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "categoryForm";
@@ -109,6 +121,7 @@
             this.Text = "Sales :: Dashboard :: Inventory :: Category";
             ((System.ComponentModel.ISupportInitialize)(this.categoryGrid)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -118,5 +131,6 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView categoryGrid;
+        private System.Windows.Forms.TextBox tSearch;
     }
 }

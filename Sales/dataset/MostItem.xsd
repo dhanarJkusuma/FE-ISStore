@@ -12,11 +12,12 @@
   <xs:element name="MostItem" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="MostItem" msprop:Generator_UserDSName="MostItem">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="mostItem" msprop:Generator_TableClassName="mostItemDataTable" msprop:Generator_TableVarName="tablemostItem" msprop:Generator_TablePropName="mostItem" msprop:Generator_RowDeletingName="mostItemRowDeleting" msprop:Generator_RowChangingName="mostItemRowChanging" msprop:Generator_RowEvHandlerName="mostItemRowChangeEventHandler" msprop:Generator_RowDeletedName="mostItemRowDeleted" msprop:Generator_UserTableName="mostItem" msprop:Generator_RowChangedName="mostItemRowChanged" msprop:Generator_RowEvArgName="mostItemRowChangeEvent" msprop:Generator_RowClassName="mostItemRow">
+        <xs:element name="mostItem" msprop:Generator_TableClassName="mostItemDataTable" msprop:Generator_TableVarName="tablemostItem" msprop:Generator_RowChangedName="mostItemRowChanged" msprop:Generator_TablePropName="mostItem" msprop:Generator_RowDeletingName="mostItemRowDeleting" msprop:Generator_RowChangingName="mostItemRowChanging" msprop:Generator_RowEvHandlerName="mostItemRowChangeEventHandler" msprop:Generator_RowDeletedName="mostItemRowDeleted" msprop:Generator_RowClassName="mostItemRow" msprop:Generator_UserTableName="mostItem" msprop:Generator_RowEvArgName="mostItemRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="barcode" msprop:Generator_ColumnVarNameInTable="columnbarcode" msprop:Generator_ColumnPropNameInRow="barcode" msprop:Generator_ColumnPropNameInTable="barcodeColumn" msprop:Generator_UserColumnName="barcode" type="xs:string" minOccurs="0" />
               <xs:element name="qty" msprop:Generator_ColumnVarNameInTable="columnqty" msprop:Generator_ColumnPropNameInRow="qty" msprop:Generator_ColumnPropNameInTable="qtyColumn" msprop:Generator_UserColumnName="qty" type="xs:int" minOccurs="0" />
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

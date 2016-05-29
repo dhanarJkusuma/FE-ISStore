@@ -266,6 +266,7 @@
             this.Controls.Add(this.tName);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tBarcode);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "editItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales :: Dashboard :: Item :: Edit";

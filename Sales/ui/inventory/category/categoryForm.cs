@@ -103,6 +103,11 @@ namespace Sales.ui.inventory.category
             }
         }
 
+        private void tSearch_TextChanged(object sender, EventArgs e)
+        {
+            Helper.Data.setBinding(categoryGrid, "Name", tSearch.Text);
+        }
+
 
 
     }

@@ -17,33 +17,33 @@ namespace Sales.model
                                             "item_qty"
                                          };
 
-        private Int64 _item_no;
+        private Int64 item_no;
 
         public Int64 ItemNo
         {
-            get { return _item_no; }
-            set { _item_no = value; }
+            get { return item_no; }
+            set { item_no = value; }
         }
-        private String _trx_no;
+        private String trx_no;
 
         public String TrxNo
         {
-            get { return _trx_no; }
-            set { _trx_no = value; }
+            get { return trx_no; }
+            set { trx_no = value; }
         }
-        private String _item_barcode;
+        private String item_barcode;
 
         public String ItemBarcode
         {
-            get { return _item_barcode; }
-            set { _item_barcode = value; }
+            get { return item_barcode; }
+            set { item_barcode = value; }
         }
-        private Int32 _qty;
+        private Int32 qty;
 
         public Int32 Qty
         {
-            get { return _qty; }
-            set { _qty = value; }
+            get { return qty; }
+            set { qty = value; }
         }
 
         public static QueryBuilder query()
@@ -52,7 +52,7 @@ namespace Sales.model
             return new QueryBuilder();
         }
 
-        public void New()
+        public void Insert()
         {
             String[] selectedColumns = { Columns[1], Columns[2], Columns[3] };
             String[] values = { TrxNo, ItemBarcode, Qty.ToString()};

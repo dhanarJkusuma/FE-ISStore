@@ -30,6 +30,7 @@
         {
             this.gridSuggest = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnSelect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridSuggest)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnClose.Location = new System.Drawing.Point(13, 322);
+            this.btnClose.Location = new System.Drawing.Point(592, 322);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(108, 70);
             this.btnClose.TabIndex = 1;
@@ -64,6 +65,17 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(13, 323);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(112, 69);
+            this.btnSelect.TabIndex = 2;
+            this.btnSelect.Text = "Select";
+            this.btnSelect.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
             // suggestItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -71,6 +83,7 @@
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(712, 404);
             this.ControlBox = false;
+            this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.gridSuggest);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -89,5 +102,6 @@
 
         private System.Windows.Forms.DataGridView gridSuggest;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnSelect;
     }
 }

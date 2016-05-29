@@ -114,5 +114,10 @@ namespace Sales.ui.inventory.master_item
             }
         }
 
+        private void tSearch_TextChanged(object sender, EventArgs e)
+        {
+            Helper.Data.setBinding(itemGrid, "Name", tSearch.Text);
+        }
+
     }
 }

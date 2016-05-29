@@ -28,7 +28,7 @@ namespace Sales.ui.data.girf.process
             gift.Item_code = tCode.Text;
             gift.Item_name = tName.Text;
             gift.Item_point_cost = Convert.ToInt64(tCost.Text);
-            gift.New();
+            gift.Insert();
             home.refreshData();
             this.Dispose();
         }

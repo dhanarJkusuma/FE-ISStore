@@ -64,3 +64,7 @@ C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\S
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.transaction.point_exchange.pointExchange.resources
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.credentialForm.resources
 C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.transaction.payment.payForm.resources
+C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.transaction.incoming_item.editPrice.resources
+C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.splashScreen.resources
+C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.libs.CustomProgressBar.resources
+C:\Users\VlovaverA\documents\visual studio 2013\Projects\Sales\Sales\obj\Debug\Sales.ui.about.resources

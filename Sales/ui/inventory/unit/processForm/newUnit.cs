@@ -24,7 +24,7 @@ namespace Sales.ui.inventory.unit.processForm
             Unit newUnit = new Unit();
             newUnit.Code = tCode.Text;
             newUnit.Name = tName.Text;
-            newUnit.New();
+            newUnit.Insert();
             home.refreshData();
             this.Dispose();
         }

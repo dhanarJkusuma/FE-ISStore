@@ -44,7 +44,7 @@ namespace Sales.ui.report.payment
         {
             reportPayment report = new reportPayment(paymentGrid.SelectedRows[0].Cells[0].Value.ToString());
             Helper.Forms.startForm(report);
-            
+           
         }
 
         private void reloadView() 
@@ -52,7 +52,7 @@ namespace Sales.ui.report.payment
             paymentGrid.DataSource = TrxPayment.query()
                                                 .innerJoin(VariableBuilder.Table.User)
                                                 .on(
-                                                    VariableBuilder.Table.TrxPayment + "." + TrxInvIncome.Columns[1]
+                                                    VariableBuilder.Table.TrxPayment + "." + TrxPayment.Columns[1]
                                                     + "=" +
                                                     VariableBuilder.Table.User + "." + User.Columns[0]
                                                 )
@@ -60,9 +60,9 @@ namespace Sales.ui.report.payment
                                                 .on(
                                                     VariableBuilder.Table.TrxPayment + "." + TrxPayment.Columns[2]
                                                     + "=" +
-                                                    VariableBuilder.Table.Member + "." + Member.Columns[1]
+                                                    VariableBuilder.Table.Member + "." + Member.Columns[0]
                                                 )
-                                                .where(VariableBuilder.Table.TrxPayment + "." + TrxPayment.Columns[8] + "=1")
+                                                .where(VariableBuilder.Table.TrxPayment + ".is_processed=1")
                                                 .and(
                                                     VariableBuilder.Table.TrxPayment
                                                     + ".created_at BETWEEN '" +

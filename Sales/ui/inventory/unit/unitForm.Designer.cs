@@ -33,6 +33,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.tSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.unitGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,13 +46,13 @@
             this.unitGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.unitGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.unitGrid.Location = new System.Drawing.Point(12, 13);
+            this.unitGrid.Location = new System.Drawing.Point(12, 38);
             this.unitGrid.Name = "unitGrid";
             this.unitGrid.RowHeadersVisible = false;
             this.unitGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.unitGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.unitGrid.Size = new System.Drawing.Size(571, 350);
-            this.unitGrid.TabIndex = 0;
+            this.unitGrid.Size = new System.Drawing.Size(571, 325);
+            this.unitGrid.TabIndex = 4;
             // 
             // btnAdd
             // 
@@ -73,7 +74,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(129, 369);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(111, 99);
-            this.btnUpdate.TabIndex = 1;
+            this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Edit";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -86,22 +87,33 @@
             this.btnDelete.Location = new System.Drawing.Point(246, 369);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(111, 99);
-            this.btnDelete.TabIndex = 1;
+            this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // tSearch
+            // 
+            this.tSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.tSearch.Location = new System.Drawing.Point(403, 12);
+            this.tSearch.Name = "tSearch";
+            this.tSearch.Size = new System.Drawing.Size(180, 20);
+            this.tSearch.TabIndex = 0;
+            this.tSearch.TextChanged += new System.EventHandler(this.tSearch_TextChanged);
             // 
             // unitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(595, 480);
+            this.Controls.Add(this.tSearch);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.unitGrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "unitForm";
@@ -109,6 +121,7 @@
             this.Text = "Sales :: Dashboard :: Inventory :: Unit";
             ((System.ComponentModel.ISupportInitialize)(this.unitGrid)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -118,5 +131,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox tSearch;
     }
 }

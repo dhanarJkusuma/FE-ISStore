@@ -23,7 +23,7 @@ namespace Sales.ui.users.group.processForm
         {
             Group newGroup = new Group();
             newGroup.Name = tName.Text;
-            newGroup.New();
+            newGroup.Insert();
             this.Dispose();
             home.refreshData();
         }

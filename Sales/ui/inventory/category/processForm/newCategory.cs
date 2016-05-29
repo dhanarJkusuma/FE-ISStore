@@ -25,7 +25,7 @@ namespace Sales.ui.inventory.category.processForm
             Category newCategory = new Category();
             newCategory.Code = tCode.Text;
             newCategory.Name = tName.Text;
-            newCategory.New();
+            newCategory.Insert();
             home.refreshData();
             this.Dispose();
          }

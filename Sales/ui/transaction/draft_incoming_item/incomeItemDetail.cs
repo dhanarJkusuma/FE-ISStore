@@ -1,5 +1,6 @@
 ﻿using Sales.libs;
 using Sales.model;
+using Sales.ui.transaction.incoming_item;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace Sales.ui.transaction.draft_incoming_item
 {
     public partial class incomeItemDetail : BaseFormSuggest
     {
+        private Item itemFound = null;
         private TrxInvIncome trxInvIncome;
         private Supplier selectedSupplier;
         private List<TrxInvIncomeItem> items;
@@ -63,7 +65,7 @@ namespace Sales.ui.transaction.draft_incoming_item
                 cart.ItemBarcode = selectedItem[i].ItemBarcode;
                 cart.ItemQuantity = selectedItem[i].ItemQuantity;
                 cart.ItemPurchase = selectedItem[i].ItemPurchase;
-                cart.New();    
+                cart.Insert();    
             }
             DialogResult dialogResult = MessageBox.Show("Process this data?", "Dialog Confirmation", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes) 
@@ -113,10 +115,13 @@ namespace Sales.ui.transaction.draft_incoming_item
             tBarcode.Text = item.Barcode;
             tName.Text = item.Name;
             tPrice.Text = item.Price;
+            itemFound = item;
+            btnPriceEdit.Enabled = true;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            
             if (selectedItem.Find(item => item.ItemBarcode == tBarcode.Text) == null && items.Find(item => item.ItemBarcode == tBarcode.Text) == null)
             {
                 TrxInvIncomeItem cart = new TrxInvIncomeItem();
@@ -128,6 +133,7 @@ namespace Sales.ui.transaction.draft_incoming_item
 
                 itemGridList.Rows.Add(tBarcode.Text, tName.Text, tPrice.Text, tQty.Text, tBuy.Text, Convert.ToInt32(tQty.Text) * Convert.ToDouble(tBuy.Text) + ".00");
                 setAmount();
+                itemFound = null;
             }
             else 
             {
@@ -159,6 +165,9 @@ namespace Sales.ui.transaction.draft_incoming_item
 
         private void tBarcode_TextChanged(object sender, EventArgs e)
         {
+            itemFound = null;
+            tName.Text = "";
+            tPrice.Text = "";
             if (tBarcode.Text.Length > 3)
             {
                 Helper.Forms.startForm(suggestForm);
@@ -171,6 +180,11 @@ namespace Sales.ui.transaction.draft_incoming_item
                 suggestForm.Hide();
                 tName.Text = "";
                 tPrice.Text = "";
+            }
+
+            if (itemFound == null)
+            {
+                btnPriceEdit.Enabled = false;
             }
         }
 
@@ -248,6 +262,19 @@ namespace Sales.ui.transaction.draft_incoming_item
             base.populateSupplier(supplier);
             tSupplier.Text = supplier.Name;
             selectedSupplier = supplier;
+        }
+
+        private void btnPriceEdit_Click(object sender, EventArgs e)
+        {
+            if (itemFound != null)
+            {
+                editPrice priceEdit = new editPrice(this, itemFound);
+                Helper.Forms.startForm(priceEdit);
+            }
+            else
+            {
+                MessageBox.Show("Item not found");
+            }
         }
 
     }

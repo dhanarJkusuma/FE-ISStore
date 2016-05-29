@@ -109,11 +109,12 @@
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.paymentGrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "paymentList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sales :: Report :: Payment :: List";
+            this.Text = "Sales :: Report :: Payment";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.paymentList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.paymentGrid)).EndInit();

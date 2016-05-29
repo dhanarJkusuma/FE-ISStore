@@ -22,54 +22,54 @@ namespace Sales.model
                                             "dis_code",
                                             "vill_code"
                                          };
-        private String _id;
+        private String no;
 
         public String No
         {
-            get { return _id; }
-            set { _id = value; }
+            get { return no; }
+            set { no = value; }
         }
-        private String _name;
+        private String name;
 
         public String Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get { return name; }
+            set { name = value; }
         }
-        private String _desc;
+        private String desc;
 
         public String Desc
         {
-            get { return _desc; }
-            set { _desc = value; }
+            get { return desc; }
+            set { desc = value; }
         }
-        private String _telp;
+        private String telp;
 
         public String Telp
         {
-            get { return _telp; }
-            set { _telp = value; }
+            get { return telp; }
+            set { telp = value; }
         }
-        private String _address;
+        private String address;
 
         public String Address
         {
-            get { return _address; }
-            set { _address = value; }
+            get { return address; }
+            set { address = value; }
         }
-        private Int32 _prov_code;
+        private Int32 prov_code;
 
         public Int32 ProvCode
         {
-            get { return _prov_code; }
-            set { _prov_code = value; }
+            get { return prov_code; }
+            set { prov_code = value; }
         }
-        private Int32 _reg_code;
+        private Int32 reg_code;
 
         public Int32 RegCode
         {
-            get { return _reg_code; }
-            set { _reg_code = value; }
+            get { return reg_code; }
+            set { reg_code = value; }
         }
         private Int32 _dis_code;
 
@@ -78,12 +78,12 @@ namespace Sales.model
             get { return _dis_code; }
             set { _dis_code = value; }
         }
-        private Int64 _vill_code;
+        private Int64 vill_code;
 
         public Int64 VillCode
         {
-            get { return _vill_code; }
-            set { _vill_code = value; }
+            get { return vill_code; }
+            set { vill_code = value; }
         }
 
         private String _tmpNo;
@@ -99,7 +99,7 @@ namespace Sales.model
             table = VariableBuilder.Table.Supplier;
             return new QueryBuilder();
         }
-        public void New() 
+        public void Insert() 
         {
             String[] values = { No, Name, Desc, Telp, Address, ProvCode.ToString(), RegCode.ToString(), DisCode.ToString(), VillCode.ToString() };
             DatabaseBuilder.insert(VariableBuilder.Table.Supplier, Columns, Columns, values,"Supplier has been added successfully.");
@@ -127,7 +127,7 @@ namespace Sales.model
                 supplier.No = (reader.IsDBNull(0)) ? "" : reader.GetString(0);
                 supplier.Name = (reader.IsDBNull(1)) ? "" : reader.GetString(1);
                 supplier.Desc = (reader.IsDBNull(2)) ? "" : reader.GetString(2);
-                supplier.Telp = (reader.IsDBNull(3)) ? "" : reader.GetValue(3).ToString();
+                supplier.Telp = (reader.IsDBNull(3)) ? "" : reader.GetString(3);
                 supplier.Address = (reader.IsDBNull(4)) ? "" : reader.GetString(4);
                 supplier.ProvCode = (reader.IsDBNull(5)) ? 0 : Convert.ToInt32(reader.GetValue(5));
                 supplier.RegCode = (reader.IsDBNull(6)) ? 0 : Convert.ToInt32(reader.GetValue(6));
@@ -181,7 +181,7 @@ namespace Sales.model
                 supplier.No = reader.GetString(0);
                 supplier.Name = reader.GetString(1);
                 supplier.Desc = reader.GetString(2);
-                supplier.Telp = reader.GetValue(3).ToString();
+                supplier.Telp = reader.GetString(3);
                 supplier.Address = reader.GetString(4);
                 supplier.ProvCode = Convert.ToInt32(reader.GetValue(5));
                 supplier.RegCode = Convert.ToInt32(reader.GetValue(6));

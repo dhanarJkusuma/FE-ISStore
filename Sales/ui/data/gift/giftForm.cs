@@ -114,5 +114,10 @@ namespace Sales.ui.data.girf
             }
             
         }
+
+        private void tSearch_TextChanged(object sender, EventArgs e)
+        {
+            Helper.Data.setBinding(giftList, "item_name", tSearch.Text);
+        }
     }
 }

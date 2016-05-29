@@ -1,6 +1,7 @@
 ﻿using Sales.libs;
 using Sales.model;
 using Sales.report_model;
+using Sales.ui;
 using Sales.ui.data.girf;
 using Sales.ui.data.member;
 using Sales.ui.data.supplier;
@@ -43,7 +44,7 @@ namespace Sales
         {
             InitializeComponent();
             
-            role = SalesMenu.getAuth(VariableBuilder.Session.userLogged.Group, 0);
+            role = Sales.model.SalesMenu.getAuth(VariableBuilder.Session.userLogged.Group,0);
             tFullName.Text = "Full Name : " + VariableBuilder.Session.userLogged.FullName;
             tName.Text = "User Name : " + VariableBuilder.Session.userLogged.Name;
             tStore.Text = VariableBuilder.PermanentVar.storeIndentity.Name;
@@ -453,6 +454,12 @@ namespace Sales
         {
             giftForm gF = new giftForm();
             Helper.Forms.startForm(gF);
+        }
+
+        private void amToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            about about = new about();
+            Helper.Forms.startForm(about);
         }
     }
 }

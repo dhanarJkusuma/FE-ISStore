@@ -34,6 +34,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.tSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.giftList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,13 +45,13 @@
             this.giftList.AllowUserToResizeColumns = false;
             this.giftList.AllowUserToResizeRows = false;
             this.giftList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.giftList.Location = new System.Drawing.Point(12, 12);
+            this.giftList.Location = new System.Drawing.Point(12, 43);
             this.giftList.MultiSelect = false;
             this.giftList.Name = "giftList";
             this.giftList.RowHeadersVisible = false;
             this.giftList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.giftList.Size = new System.Drawing.Size(712, 364);
-            this.giftList.TabIndex = 0;
+            this.giftList.Size = new System.Drawing.Size(712, 333);
+            this.giftList.TabIndex = 5;
             // 
             // btnIn
             // 
@@ -59,7 +60,7 @@
             this.btnIn.Location = new System.Drawing.Point(247, 382);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(111, 110);
-            this.btnIn.TabIndex = 6;
+            this.btnIn.TabIndex = 3;
             this.btnIn.Text = "Incoming Gift";
             this.btnIn.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnIn.UseVisualStyleBackColor = true;
@@ -72,7 +73,7 @@
             this.btnDelete.Location = new System.Drawing.Point(364, 382);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(111, 110);
-            this.btnDelete.TabIndex = 6;
+            this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Delete";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -85,7 +86,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(130, 382);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(111, 110);
-            this.btnUpdate.TabIndex = 5;
+            this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Edit";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -98,23 +99,34 @@
             this.btnAdd.Location = new System.Drawing.Point(13, 382);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(111, 110);
-            this.btnAdd.TabIndex = 4;
+            this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "New";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // tSearch
+            // 
+            this.tSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tSearch.Location = new System.Drawing.Point(544, 17);
+            this.tSearch.Name = "tSearch";
+            this.tSearch.Size = new System.Drawing.Size(180, 20);
+            this.tSearch.TabIndex = 0;
+            this.tSearch.TextChanged += new System.EventHandler(this.tSearch_TextChanged);
             // 
             // giftForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 504);
+            this.Controls.Add(this.tSearch);
             this.Controls.Add(this.btnIn);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.giftList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "giftForm";
@@ -122,6 +134,7 @@
             this.Text = "Sales :: Data :: Gift";
             ((System.ComponentModel.ISupportInitialize)(this.giftList)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -132,5 +145,6 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnIn;
+        private System.Windows.Forms.TextBox tSearch;
     }
 }

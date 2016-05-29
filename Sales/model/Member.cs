@@ -22,68 +22,68 @@ namespace Sales.model
                                             "vill_code",
                                             "created_at"
                                          };
-        private Int64 _member_id;
+        private Int64 id;
 
         public Int64 Id
         {
-            get { return _member_id; }
-            set { _member_id = value; }
+            get { return id; }
+            set { id = value; }
         }
-        private String _member_name;
+        private String name;
 
         public String Name
         {
-            get { return _member_name; }
-            set { _member_name = value; }
+            get { return name; }
+            set { name = value; }
         }
-        private String _member_telp;
+        private String telp;
 
         public String Telp
         {
-            get { return _member_telp; }
-            set { _member_telp = value; }
+            get { return telp; }
+            set { telp = value; }
         }
-        private String _member_address;
+        private String address;
 
         public String Address
         {
-            get { return _member_address; }
-            set { _member_address = value; }
+            get { return address; }
+            set { address = value; }
         }
-        private Int64 _member_point=0;
+        private Int64 point=0;
 
         public Int64 Point
         {
-            get { return _member_point; }
-            set { _member_point = value; }
+            get { return point; }
+            set { point = value; }
         }
-        private Int32 _prov_code = 0;
+        private Int32 prov_code = 0;
 
         public Int32 ProvCode
         {
-            get { return _prov_code; }
-            set { _prov_code = value; }
+            get { return prov_code; }
+            set { prov_code = value; }
         }
-        private Int32 _reg_code = 0;
+        private Int32 reg_code = 0;
 
         public Int32 RegCode
         {
-            get { return _reg_code; }
-            set { _reg_code = value; }
+            get { return reg_code; }
+            set { reg_code = value; }
         }
-        private Int32 _dis_code = 0;
+        private Int32 dis_code = 0;
 
         public Int32 DisCode
         {
-            get { return _dis_code; }
-            set { _dis_code = value; }
+            get { return dis_code; }
+            set { dis_code = value; }
         }
-        private Int64 _vill_code = 0;
+        private Int64 vill_code = 0;
 
         public Int64 VillCode
         {
-            get { return _vill_code; }
-            set { _vill_code = value; }
+            get { return vill_code; }
+            set { vill_code = value; }
         }
 
         private Int64 tmpId;
@@ -99,7 +99,7 @@ namespace Sales.model
             return new QueryBuilder();
         }
 
-        public void New() 
+        public void Insert() 
         {
             String[] selectedColumns = { Columns[0], Columns[1], Columns[2], Columns[3], Columns[4], Columns[5], Columns[6], Columns[7], Columns[8] };
             String[] values = { Id.ToString(), Name, Telp, Address, Point.ToString(), ProvCode.ToString(), RegCode.ToString(), DisCode.ToString(), VillCode.ToString()  };

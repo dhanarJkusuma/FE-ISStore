@@ -17,26 +17,26 @@ namespace Sales.model
                                             "created_at"
                                          };
 
-        private Int32 _id;
+        private Int32 id;
 
         public Int32 Id
         {
-            get { return _id; }
-            set { _id = value; }
+            get { return id; }
+            set { id = value; }
         }
-        private String _name;
+        private String name;
 
         public String Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get { return name; }
+            set { name = value; }
         }
-        private String _createdAt;
+        private String created_at;
 
         public String CreatedAt
         {
-            get { return _createdAt; }
-            set { _createdAt = value; }
+            get { return created_at; }
+            set { created_at = value; }
         }
 
         public static QueryBuilder query()
@@ -45,7 +45,7 @@ namespace Sales.model
             return new QueryBuilder();
         }
 
-        public void New() 
+        public void Insert() 
         {
             String[] iparams = { "groupName" };
             String[] values = { Name.ToString() };

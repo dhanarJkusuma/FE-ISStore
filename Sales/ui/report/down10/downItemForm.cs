@@ -16,7 +16,7 @@ namespace Sales.ui.report.down10
         public downItemForm()
         {
             InitializeComponent();
-            downItemGrid.DataSource = DatabaseBuilder.query("SELECT * FROM V_DOWN_10_ITEM");
+            downItemGrid.DataSource = DatabaseBuilder.query("SELECT V_DOWN_10_ITEM.item_barcode, box_master_item.item_name, V_DOWN_10_ITEM.qty from V_DOWN_10_ITEM inner join box_master_item on V_DOWN_10_ITEM.item_barcode = box_master_item.item_barcode");
             downItemGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             downItemGrid.ReadOnly = true;
         }

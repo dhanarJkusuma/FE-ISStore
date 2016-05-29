@@ -42,6 +42,7 @@
             this.colBuying = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnPriceEdit = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -89,9 +90,9 @@
             this.tTotal.BackColor = System.Drawing.Color.White;
             this.tTotal.Enabled = false;
             this.tTotal.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tTotal.Location = new System.Drawing.Point(473, 19);
+            this.tTotal.Location = new System.Drawing.Point(458, 19);
             this.tTotal.Name = "tTotal";
-            this.tTotal.Size = new System.Drawing.Size(514, 52);
+            this.tTotal.Size = new System.Drawing.Size(529, 52);
             this.tTotal.TabIndex = 14;
             this.tTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -196,6 +197,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnPriceEdit);
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.tBarcode);
@@ -209,10 +211,20 @@
             this.groupBox1.Controls.Add(this.tQty);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(453, 236);
+            this.groupBox1.Size = new System.Drawing.Size(439, 236);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item";
+            // 
+            // btnPriceEdit
+            // 
+            this.btnPriceEdit.Location = new System.Drawing.Point(353, 77);
+            this.btnPriceEdit.Name = "btnPriceEdit";
+            this.btnPriceEdit.Size = new System.Drawing.Size(66, 23);
+            this.btnPriceEdit.TabIndex = 12;
+            this.btnPriceEdit.Text = "Edit";
+            this.btnPriceEdit.UseVisualStyleBackColor = true;
+            this.btnPriceEdit.Click += new System.EventHandler(this.btnPriceEdit_Click);
             // 
             // panel2
             // 
@@ -318,7 +330,7 @@
             this.tPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tPrice.Location = new System.Drawing.Point(121, 77);
             this.tPrice.Name = "tPrice";
-            this.tPrice.Size = new System.Drawing.Size(298, 23);
+            this.tPrice.Size = new System.Drawing.Size(226, 23);
             this.tPrice.TabIndex = 2;
             // 
             // panel4
@@ -421,6 +433,7 @@
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.tSupplier);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "incomeItemForm";
@@ -483,5 +496,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tSupplier;
         private System.Windows.Forms.Button btnSup;
+        private System.Windows.Forms.Button btnPriceEdit;
     }
 }

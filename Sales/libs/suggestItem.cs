@@ -17,7 +17,7 @@ namespace Sales.libs
                                        "CAST(" + VariableBuilder.Table.Item + "." + Item.Columns[0] + " as VARCHAR(100)) as Barcode",
                                        VariableBuilder.Table.Item + "." + Item.Columns[1] + " as Name",
                                        VariableBuilder.Table.Category + "." + Category.Columns[1] + " as Category",
-                                       VariableBuilder.Table.StockItem + "." + Item.StockColumns[1] + " as Quantity",
+                                       VariableBuilder.Table.StockItem + "." + Item.StockItem.StockColumns[1] + " as Quantity",
                                        VariableBuilder.Table.Item + "." + Item.Columns[4] + " as Price"
                                    };
         private BaseFormSuggest incomeItemForm;
@@ -40,7 +40,7 @@ namespace Sales.libs
                                          .on(
                                             VariableBuilder.Table.Item + "." + Item.Columns[0]
                                             + "=" +
-                                            VariableBuilder.Table.StockItem + "." + Item.StockColumns[0]
+                                            VariableBuilder.Table.StockItem + "." + Item.StockItem.StockColumns[0]
                                          )
                                          .leftJoin(VariableBuilder.Table.Category)
                                          .on(
@@ -82,6 +82,13 @@ namespace Sales.libs
                 this.incomeItemForm.populateItem(Item.Find(selectedRow.Cells[0].Value.ToString()));
                 this.Hide();
             }
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = gridSuggest.SelectedRows[0];
+            this.incomeItemForm.populateItem(Item.Find(selectedRow.Cells[0].Value.ToString()));
+            this.Hide();
         }
 
     }

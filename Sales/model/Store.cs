@@ -16,34 +16,34 @@ namespace Sales.model
                                             "store_phone",
                                             "increment_point"
                                          };
-        private String _store_name;
+        private String store_name;
 
         public String Name
         {
-            get { return _store_name; }
-            set { _store_name = value; }
+            get { return store_name; }
+            set { store_name = value; }
         }
-        private String _store_phone;
+        private String store_phone;
 
         public String Phone
         {
-            get { return _store_phone; }
-            set { _store_phone = value; }
+            get { return store_phone; }
+            set { store_phone = value; }
         }
-        private String _store_address;
+        private String store_address;
 
         public String Address
         {
-            get { return _store_address; }
-            set { _store_address = value; }
+            get { return store_address; }
+            set { store_address = value; }
         }
 
-        private Double _increment_point;
+        private Double increment_point;
 
         public Double IncrementPoint
         {
-            get { return _increment_point; }
-            set { _increment_point = value; }
+            get { return increment_point; }
+            set { increment_point = value; }
         }
 
         public static Store getInformation() 

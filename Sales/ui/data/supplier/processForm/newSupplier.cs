@@ -99,7 +99,7 @@ namespace Sales.ui.data.supplier.processForm
             supplier.RegCode = regencies[cReg.SelectedIndex].Code;
             supplier.DisCode = districts[cDis.SelectedIndex].Code;
             supplier.VillCode = villages[cVill.SelectedIndex].Code;
-            supplier.New();
+            supplier.Insert();
             this.Dispose();
             home.refreshData();
         }

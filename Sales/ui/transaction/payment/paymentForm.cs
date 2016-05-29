@@ -49,8 +49,10 @@ namespace Sales.ui.transaction.payment
             }
             setGrid();
             memberForm = new suggestMember(this);
-            itemGrid.CurrentCell = itemGrid.Rows[0].Cells[0];
             itemGrid.Focus();
+            itemGrid.CurrentCell = itemGrid[0,0];
+            itemGrid.Select();
+            itemGrid[0, 0].Selected = true;
             itemGrid.BeginEdit(true);
             tTotal.Text = "Rp. 0,00";
             tPayment.Text = Helper.Data.rupiahParser(paymentStr);
@@ -93,7 +95,7 @@ namespace Sales.ui.transaction.payment
                         Item item = Item.Find(itemGrid.SelectedCells[0].Value.ToString());
                         if (item.Barcode != null)
                         {
-                            Int32 qty = Item.getQty(item.Barcode);
+                            Int32 qty = Item.StockItem.getQty(item.Barcode);
                             if (qty > Convert.ToInt32(item.StockAlert))
                             {
                                 itemGrid.Rows[e.RowIndex].Cells[2].Value = item.Name;
@@ -152,7 +154,7 @@ namespace Sales.ui.transaction.payment
                     if (itemGrid.Rows[e.RowIndex].Cells[0].Value.ToString().Length > 0)
                     {
                         String barcode = itemGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
-                        Int32 itemCount = Item.getQty(barcode);
+                        Int32 itemCount = Item.StockItem.getQty(barcode);
                         if (Convert.ToInt32(itemGrid.Rows[e.RowIndex].Cells[1].Value) <= itemCount)
                         {
                             TrxPaymentItem item = new TrxPaymentItem();
@@ -278,7 +280,12 @@ namespace Sales.ui.transaction.payment
             pay.CashBackStr = cashBackStr;
             pay.Amount = amount;
             Helper.Forms.startForm(pay);
+        }
 
+        public void completePayment() 
+        {
+            itemGrid.Enabled = false;
+            btnPay.Enabled = false;
         }
 
         public void PayProcess() 
@@ -296,10 +303,9 @@ namespace Sales.ui.transaction.payment
                         vpayment.MemberID = customer.Id;
                     }
                     vpayment.TotalAmount = amount;
-                    vpayment.Discount = 0;
                     vpayment.TotalPay = payment;
                     vpayment.CashBack = payment - amount;
-                    vpayment.New();
+                    vpayment.Insert();
                     getItemList();
                     String[] iparams = { "pStrTrxNo" };
                     String[] values = { vpayment.TrxNo };
@@ -313,9 +319,8 @@ namespace Sales.ui.transaction.payment
                         }
 
                     }
-
-
                     printTrx();
+                    completePayment();
 
                 }
             }
@@ -342,7 +347,7 @@ namespace Sales.ui.transaction.payment
                     newItem.TrxNo = tTrxNo.Text;
                     newItem.ItemBarcode = row.Cells[0].Value.ToString();
                     newItem.Qty = Convert.ToInt32(row.Cells[1].Value);
-                    newItem.New();
+                    newItem.Insert();
 
                     ItemPaymentRptModel modelItem = new ItemPaymentRptModel();
                     modelItem.Barcode = row.Cells[0].Value.ToString();
@@ -368,7 +373,7 @@ namespace Sales.ui.transaction.payment
 
         private void tPayment_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F2) 
+            if (e.KeyCode == Keys.B) 
             {
                 payForm pay = new payForm(this);
                 pay.PaymentStr = paymentStr;

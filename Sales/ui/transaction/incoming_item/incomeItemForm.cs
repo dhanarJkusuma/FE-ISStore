@@ -12,6 +12,8 @@ namespace Sales.ui.transaction.incoming_item
 {
     public partial class incomeItemForm : BaseFormSuggest
     {
+        private Item itemFound = null;
+
         private Double amount=0;
         private Supplier selectedSupplier = null;
         private suggestItem suggestForm;
@@ -30,10 +32,14 @@ namespace Sales.ui.transaction.incoming_item
             itemGridList.Columns[5].ReadOnly = true;
             itemGridList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tTotal.Text = "Rp. 0,00";
+            btnPriceEdit.Enabled = false;
         }
 
         private void tBarcode_TextChanged(object sender, EventArgs e)
         {
+            itemFound = null;
+            tName.Text = "";
+            tPrice.Text = "";
             if (tBarcode.Text.Length > 3)
             {
                 Helper.Forms.startForm(suggestForm);
@@ -47,6 +53,13 @@ namespace Sales.ui.transaction.incoming_item
                 tName.Text = "";
                 tPrice.Text = "";
             }
+            if (itemFound == null) 
+            {
+                btnPriceEdit.Enabled = false;
+            }
+
+            
+            
         }
 
         public override void populateItem(Item item)
@@ -55,6 +68,8 @@ namespace Sales.ui.transaction.incoming_item
             tBarcode.Text = item.Barcode;
             tName.Text = item.Name;
             tPrice.Text = item.Price;
+            itemFound = item;
+            btnPriceEdit.Enabled = true;
         }
 
        
@@ -74,6 +89,7 @@ namespace Sales.ui.transaction.incoming_item
                 selectedItem.Add(cart);
                 itemGridList.Rows.Add(tBarcode.Text, tName.Text, tPrice.Text, tQty.Text, tBuy.Text, Convert.ToInt32(tQty.Text) * Convert.ToDouble(tBuy.Text) + ".00");
                 setAmount();
+                itemFound = null;
             }
             else 
             {
@@ -98,15 +114,14 @@ namespace Sales.ui.transaction.incoming_item
             trxInv.Amount = amount;
             if (selectedSupplier != null) 
             {
-                MessageBox.Show("Adda Supplier");
                 trxInv.SupplierID = selectedSupplier.No;
             }
             
-            trxInv.New();
+            trxInv.Insert();
             for (int i = 0; i < selectedItem.Count; i++) 
             {
                 selectedItem[i].TrxNo = trxInv.TrxNo;
-                selectedItem[i].New();
+                selectedItem[i].Insert();
             }
             DialogResult dialogResult = MessageBox.Show("Process this data?", "Dialog Confirmation", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -171,6 +186,19 @@ namespace Sales.ui.transaction.incoming_item
             base.populateSupplier(supplier);
             tSupplier.Text = supplier.Name;
             selectedSupplier = supplier;
+        }
+
+        private void btnPriceEdit_Click(object sender, EventArgs e)
+        {
+            if (itemFound != null)
+            {
+                editPrice priceEdit = new editPrice(this,itemFound);
+                Helper.Forms.startForm(priceEdit);
+            }
+            else 
+            {
+                MessageBox.Show("Item not found");
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(detailPayment));
             this.tDate = new System.Windows.Forms.TextBox();
             this.tModi = new System.Windows.Forms.TextBox();
             this.tMember = new System.Windows.Forms.TextBox();
@@ -191,6 +192,7 @@
             this.Controls.Add(this.trxNo);
             this.Controls.Add(this.itemGrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "detailPayment";

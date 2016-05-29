@@ -54,7 +54,7 @@ namespace Sales.model
             set { item_added = value; }
         }
 
-        public void New() 
+        public void Insert() 
         {
             String[] values = { Item_code,Item_name, Item_point_cost.ToString() };
             String[] selectedColumns = { Columns[0], Columns[1], Columns[2] };

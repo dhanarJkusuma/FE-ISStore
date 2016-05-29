@@ -21,12 +21,7 @@ namespace Sales.model
                                             "updated_at"
                                          };
 
-        public static String[] StockColumns = { 
-                                                "item_barcode",
-                                                "item_qty",
-                                                "created_at",
-                                                "updated_at"
-                                              };
+        
 
 
 
@@ -38,48 +33,48 @@ namespace Sales.model
             set { tmpBarcode = value; }
         }
 
-        private String _barcode;
+        private String barcode;
 
 
         public String Barcode
         {
-            get { return _barcode; }
-            set { _barcode = value; }
+            get { return barcode; }
+            set { barcode = value; }
         }
-        private String _name;
+        private String name;
 
         public String Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get { return name; }
+            set { name = value; }
         }
-        private String _category;
+        private String category;
 
         public String Category
         {
-            get { return _category; }
-            set { _category = value; }
+            get { return category; }
+            set { category = value; }
         }
-        private String _unit;
+        private String unit;
 
         public String Unit
         {
-            get { return _unit; }
-            set { _unit = value; }
+            get { return unit; }
+            set { unit = value; }
         }
-        private String _price;
+        private String price;
 
         public String Price
         {
-            get { return _price; }
-            set { _price = value; }
+            get { return price; }
+            set { price = value; }
         }
-        private String _stockAlert;
+        private String stockAlert;
 
         public String StockAlert
         {
-            get { return _stockAlert; }
-            set { _stockAlert = value; }
+            get { return stockAlert; }
+            set { stockAlert = value; }
         }
 
 
@@ -89,7 +84,7 @@ namespace Sales.model
             return new QueryBuilder();
         }
 
-        public void New() 
+        public void Insert() 
         {
             String[] iparams= {
                                             "item_barcode",
@@ -117,19 +112,7 @@ namespace Sales.model
             return itemName;
         }
 
-        public static Int32 getQty(String barcode) 
-        {
-            Int32 qty = 0;
-            SqlConnection connection = DatabaseBuilder.getConnection();
-            connection.Open();
-            SqlDataReader reader = DatabaseBuilder.readData(VariableBuilder.Table.StockItem, new String[] { StockColumns[1] }, StockColumns[0] + "=" + barcode, connection);
-            while (reader.Read())
-            {
-                qty = (reader.IsDBNull(0)) ? 0 : Convert.ToInt32(reader.GetValue(0));
-            }
-            connection.Close();
-            return qty;
-        }
+        
 
         public static Item Find(String barcode)
         {
@@ -178,6 +161,86 @@ namespace Sales.model
         public static void Destroy(String barcode) 
         {
             DatabaseBuilder.usingStoredProcedure("SP_DELETE_ITEM", new String[] { "item_barcode" }, new String[] { barcode }, "Selected data has been deleted successfully.");
+        }
+
+        public class StockItem 
+        {
+            public static String[] StockColumns = { 
+                                                "item_barcode",
+                                                "item_qty",
+                                                "created_at",
+                                                "updated_at"
+                                              };
+            private String item_barcode;
+
+            public String Item_barcode
+            {
+                get { return item_barcode; }
+                set { item_barcode = value; }
+            }
+
+            private Int32 qty;
+
+            public Int32 Qty
+            {
+                get { return qty; }
+                set { qty = value; }
+            }
+
+            private String created_at;
+
+            public String Created_at
+            {
+                get { return created_at; }
+                set { created_at = value; }
+            }
+
+            private String updated_at;
+
+            public String Updated_at
+            {
+                get { return updated_at; }
+                set { updated_at = value; }
+            }
+
+            public static StockItem Find(String barcode) 
+            {
+                StockItem item = new StockItem();
+                SqlConnection connection = DatabaseBuilder.getConnection();
+                connection.Open();
+                SqlDataReader reader = DatabaseBuilder.readData(VariableBuilder.Table.StockItem, StockColumns, StockColumns[0] + "='" + barcode + "'", connection);
+                while (reader.Read())
+                {
+                    if (reader.HasRows)
+                    {
+                        item.Item_barcode = (reader.IsDBNull(0)) ? null : reader.GetString(0);
+                        item.Qty = Convert.ToInt32(reader.GetValue(1));
+                        item.Created_at = reader.GetDateTime(2).ToString();
+                        item.Updated_at = reader.GetDateTime(3).ToString();
+                        
+                    }
+                    else
+                    {
+                        item = null;
+                    }
+                }
+                connection.Close();
+                return item;
+            }
+
+            public static Int32 getQty(String barcode)
+            {
+                Int32 qty = 0;
+                SqlConnection connection = DatabaseBuilder.getConnection();
+                connection.Open();
+                SqlDataReader reader = DatabaseBuilder.readData(VariableBuilder.Table.StockItem, new String[] { StockColumns[1] }, StockColumns[0] + "=" + barcode, connection);
+                while (reader.Read())
+                {
+                    qty = (reader.IsDBNull(0)) ? 0 : Convert.ToInt32(reader.GetValue(0));
+                }
+                connection.Close();
+                return qty;
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Sales.ui;
 using Sales.ui.report;
+using Sales.ui.report.payment;
 using Sales.ui.users.auth;
 using Sales.ui.users.users;
 using System;
@@ -21,7 +22,7 @@ namespace Sales
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new credentialForm());
+                Application.Run(new splashScreen());
             }
             catch (Exception ex)
             {

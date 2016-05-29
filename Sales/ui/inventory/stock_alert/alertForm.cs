@@ -17,7 +17,7 @@ namespace Sales.ui.inventory.stock_alert
                                                 VariableBuilder.Table.Item + "." + Item.Columns[0] + " as Barcode",
                                                 VariableBuilder.Table.Item + "." + Item.Columns[1] + " as Name",
                                                 VariableBuilder.Table.Category + "." + Category.Columns[1] + " as Category",
-                                                VariableBuilder.Table.StockItem + "." + Item.StockColumns[1] + " as Stock"
+                                                VariableBuilder.Table.StockItem + "." + Item.StockItem.StockColumns[1] + " as Stock"
                                            };
         public alertForm()
         {
@@ -31,8 +31,8 @@ namespace Sales.ui.inventory.stock_alert
                                        .innerJoin(VariableBuilder.Table.StockItem)
                                        .on(
                                             VariableBuilder.Table.Item + "." + Item.Columns[0] 
-                                            + "=" + 
-                                            VariableBuilder.Table.StockItem + "." + Item.StockColumns[0]
+                                            + "=" +
+                                            VariableBuilder.Table.StockItem + "." + Item.StockItem.StockColumns[0]
                                         )
                                         .leftJoin(VariableBuilder.Table.Category)
                                         .on(
@@ -41,7 +41,7 @@ namespace Sales.ui.inventory.stock_alert
                                             VariableBuilder.Table.Item +"." + Item.Columns[2]
                                         )
                                        .where(
-                                            VariableBuilder.Table.StockItem + "." + Item.StockColumns[1] 
+                                            VariableBuilder.Table.StockItem + "." + Item.StockItem.StockColumns[1] 
                                             + "<=" + 
                                             VariableBuilder.Table.Item + "." + Item.Columns[5]
                                         )
@@ -55,6 +55,11 @@ namespace Sales.ui.inventory.stock_alert
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void tSearch_TextChanged(object sender, EventArgs e)
+        {
+            Helper.Data.setBinding(alertGrid, "Name", tSearch.Text);
         }
     }
 }

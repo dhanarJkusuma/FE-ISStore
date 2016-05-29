@@ -105,7 +105,7 @@ namespace Sales.ui.data.member.processForm
             member.RegCode = regencies[cReg.SelectedIndex].Code;
             member.DisCode = districts[cDis.SelectedIndex].Code;
             member.VillCode = villages[cVill.SelectedIndex].Code;
-            member.New();
+            member.Insert();
             this.Dispose();
             home.refreshData();
 

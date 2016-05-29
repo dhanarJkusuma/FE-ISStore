@@ -20,26 +20,26 @@ namespace Sales.model
                                             "is_processed"
                                          };
 
-        private String _trx_no;
+        private String trx_no;
 
         public String TrxNo
         {
-            get { return _trx_no; }
-            set { _trx_no = value; }
+            get { return trx_no; }
+            set { trx_no = value; }
         }
-        private Int32 _modi_id;
+        private Int32 modi_id;
 
         public Int32 ModiID
         {
-            get { return _modi_id; }
-            set { _modi_id = value; }
+            get { return modi_id; }
+            set { modi_id = value; }
         }
-        private String _supplier_id="";
+        private String supplier_id="";
 
         public String SupplierID
         {
-            get { return _supplier_id; }
-            set { _supplier_id = value; }
+            get { return supplier_id; }
+            set { supplier_id = value; }
         }
 
         private Double amount;
@@ -49,15 +49,15 @@ namespace Sales.model
             get { return amount; }
             set { amount = value; }
         }
-        private String _created_at;
+        private String created_at;
 
         public String CreatedAt
         {
-            get { return _created_at; }
-            set { _created_at = value; }
+            get { return created_at; }
+            set { created_at = value; }
         }
 
-        public void New() 
+        public void Insert() 
         {
             if (SupplierID != "")
             {

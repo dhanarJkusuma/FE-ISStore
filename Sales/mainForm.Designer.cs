@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabMenu = new System.Windows.Forms.TabControl();
             this.tabUser = new System.Windows.Forms.TabPage();
             this.btnAuth = new System.Windows.Forms.Button();
@@ -68,6 +68,8 @@
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.tFullName = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.amToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabMenu.SuspendLayout();
             this.tabUser.SuspendLayout();
             this.tabData.SuspendLayout();
@@ -75,6 +77,7 @@
             this.tabTransaction.SuspendLayout();
             this.tabReport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profitChart)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMenu
@@ -432,7 +435,7 @@
             // 
             this.ltime.Enabled = false;
             this.ltime.Font = new System.Drawing.Font("Meiryo UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ltime.Location = new System.Drawing.Point(12, 138);
+            this.ltime.Location = new System.Drawing.Point(12, 158);
             this.ltime.Name = "ltime";
             this.ltime.Size = new System.Drawing.Size(303, 33);
             this.ltime.TabIndex = 2;
@@ -441,16 +444,22 @@
             // 
             this.profitChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.profitChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.profitChart.Legends.Add(legend1);
+            this.profitChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(72)))), ((int)(((byte)(0)))));
+            this.profitChart.BorderSkin.BackColor = System.Drawing.SystemColors.GrayText;
+            this.profitChart.BorderSkin.BorderColor = System.Drawing.Color.White;
+            this.profitChart.BorderSkin.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(72)))), ((int)(((byte)(0)))));
+            chartArea3.BorderColor = System.Drawing.Color.White;
+            chartArea3.Name = "ChartArea1";
+            this.profitChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.profitChart.Legends.Add(legend3);
             this.profitChart.Location = new System.Drawing.Point(18, 244);
             this.profitChart.Name = "profitChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "profit";
-            this.profitChart.Series.Add(series1);
+            this.profitChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "profit";
+            this.profitChart.Series.Add(series3);
             this.profitChart.Size = new System.Drawing.Size(771, 143);
             this.profitChart.TabIndex = 3;
             this.profitChart.Text = "profitChart";
@@ -460,7 +469,7 @@
             this.tName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tName.Enabled = false;
-            this.tName.Location = new System.Drawing.Point(12, 111);
+            this.tName.Location = new System.Drawing.Point(12, 131);
             this.tName.Name = "tName";
             this.tName.Size = new System.Drawing.Size(492, 21);
             this.tName.TabIndex = 4;
@@ -471,7 +480,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tStore.Enabled = false;
             this.tStore.Font = new System.Drawing.Font("Meiryo UI", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tStore.Location = new System.Drawing.Point(12, 12);
+            this.tStore.Location = new System.Drawing.Point(12, 32);
             this.tStore.Name = "tStore";
             this.tStore.Size = new System.Drawing.Size(492, 62);
             this.tStore.TabIndex = 6;
@@ -507,10 +516,27 @@
             this.tFullName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tFullName.Enabled = false;
-            this.tFullName.Location = new System.Drawing.Point(12, 84);
+            this.tFullName.Location = new System.Drawing.Point(12, 104);
             this.tFullName.Name = "tFullName";
             this.tFullName.Size = new System.Drawing.Size(492, 21);
             this.tFullName.TabIndex = 4;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.amToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(914, 24);
+            this.menuStrip1.TabIndex = 7;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // amToolStripMenuItem
+            // 
+            this.amToolStripMenuItem.Name = "amToolStripMenuItem";
+            this.amToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.amToolStripMenuItem.Text = "About";
+            this.amToolStripMenuItem.Click += new System.EventHandler(this.amToolStripMenuItem_Click);
             // 
             // mainForm
             // 
@@ -526,9 +552,11 @@
             this.Controls.Add(this.btnSetting);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.tabMenu);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Meiryo UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimizeBox = false;
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -541,6 +569,8 @@
             this.tabTransaction.ResumeLayout(false);
             this.tabReport.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.profitChart)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -583,6 +613,8 @@
         private System.Windows.Forms.Button btnGift;
         private System.Windows.Forms.Button btnExc;
         private System.Windows.Forms.TextBox tFullName;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem amToolStripMenuItem;
 
 
     }

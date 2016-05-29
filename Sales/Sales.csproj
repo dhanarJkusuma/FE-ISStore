@@ -147,6 +147,9 @@
     <Compile Include="libs\BaseFormSuggest.Designer.cs">
       <DependentUpon>BaseFormSuggest.cs</DependentUpon>
     </Compile>
+    <Compile Include="libs\CustomProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="libs\DatabaseBuilder.cs" />
     <Compile Include="libs\EncryptBuilder.cs" />
     <Compile Include="libs\Helper.cs" />
@@ -243,6 +246,12 @@
       <DependentUpon>RptTrxPayment.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ui\about.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\about.Designer.cs">
+      <DependentUpon>about.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\credentialForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +317,12 @@
     </Compile>
     <Compile Include="ui\data\supplier\supplierForm.Designer.cs">
       <DependentUpon>supplierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\splashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\splashScreen.Designer.cs">
+      <DependentUpon>splashScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="ui\inventory\category\categoryForm.cs">
       <SubType>Form</SubType>
@@ -477,6 +492,12 @@
     <Compile Include="ui\transaction\draft_incoming_item\listIncomingItem.Designer.cs">
       <DependentUpon>listIncomingItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="ui\transaction\incoming_item\editPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\transaction\incoming_item\editPrice.Designer.cs">
+      <DependentUpon>editPrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\transaction\incoming_item\incomeItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -555,6 +576,9 @@
     <Compile Include="ui\users\users\usersForm.Designer.cs">
       <DependentUpon>usersForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="libs\CustomProgressBar.resx">
+      <DependentUpon>CustomProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="libs\suggestItem.resx">
       <DependentUpon>suggestItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -608,6 +632,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptTrxPayment.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ui\about.resx">
+      <DependentUpon>about.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\credentialForm.resx">
       <DependentUpon>credentialForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -640,6 +667,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ui\data\supplier\supplierForm.resx">
       <DependentUpon>supplierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\splashScreen.resx">
+      <DependentUpon>splashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\inventory\category\categoryForm.resx">
       <DependentUpon>categoryForm.cs</DependentUpon>
@@ -724,6 +754,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ui\transaction\draft_incoming_item\listIncomingItem.resx">
       <DependentUpon>listIncomingItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\transaction\incoming_item\editPrice.resx">
+      <DependentUpon>editPrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\transaction\incoming_item\incomeItemForm.resx">
       <DependentUpon>incomeItemForm.cs</DependentUpon>

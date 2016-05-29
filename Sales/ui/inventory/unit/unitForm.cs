@@ -102,5 +102,10 @@ namespace Sales.ui.inventory.unit
                 btnDelete.Enabled = false;
             }
         }
+
+        private void tSearch_TextChanged(object sender, EventArgs e)
+        {
+            Helper.Data.setBinding(unitGrid, "Name", tSearch.Text);
+        }
     }
 }

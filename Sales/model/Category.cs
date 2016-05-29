@@ -60,7 +60,7 @@ namespace Sales.model
                     );
         }
 
-        public void New() 
+        public void Insert() 
         {
             String[] values = { Code, Name };
             DatabaseBuilder.insert(VariableBuilder.Table.Category,Columns, Columns, values,"New Category has been added.");

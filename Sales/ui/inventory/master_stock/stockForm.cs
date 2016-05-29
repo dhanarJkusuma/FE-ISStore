@@ -18,7 +18,7 @@ namespace Sales.ui.inventory.master_stock
                                                 VariableBuilder.Table.Item + "." + Item.Columns[0] + " as Barcode",
                                                 VariableBuilder.Table.Item + "." + Item.Columns[1] + " as Name",
                                                 VariableBuilder.Table.Category + "." + Category.Columns[1] + " as Category",
-                                                VariableBuilder.Table.StockItem + "." + Item.StockColumns[1] + " as Stock"
+                                                VariableBuilder.Table.StockItem + "." + Item.StockItem.StockColumns[1] + " as Stock"
                                            };
         public stockForm()
         {
@@ -33,7 +33,7 @@ namespace Sales.ui.inventory.master_stock
                                       .on(
                                            VariableBuilder.Table.Item + "." + Item.Columns[0]
                                            + "=" +
-                                           VariableBuilder.Table.StockItem + "." + Item.StockColumns[0]
+                                           VariableBuilder.Table.StockItem + "." + Item.StockItem.StockColumns[0]
                                          )
                                        .leftJoin(VariableBuilder.Table.Category)
                                        .on(
@@ -49,6 +49,11 @@ namespace Sales.ui.inventory.master_stock
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void tSearch_TextChanged(object sender, EventArgs e)
+        {
+            Helper.Data.setBinding(stockGrid, "Name", tSearch.Text);
         }
     }
 }

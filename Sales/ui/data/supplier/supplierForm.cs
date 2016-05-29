@@ -127,5 +127,10 @@ namespace Sales.ui.data.supplier
                 refreshData();
             }
         }
+
+        private void tSearch_TextChanged(object sender, EventArgs e)
+        {
+            Helper.Data.setBinding(supplierGrid, "Name", tSearch.Text);
+        }
     }
 }

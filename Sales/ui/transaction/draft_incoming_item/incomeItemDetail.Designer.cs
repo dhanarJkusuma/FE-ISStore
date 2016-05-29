@@ -42,6 +42,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnPriceEdit = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -196,6 +197,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnPriceEdit);
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.tBarcode);
@@ -213,6 +215,16 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item";
+            // 
+            // btnPriceEdit
+            // 
+            this.btnPriceEdit.Location = new System.Drawing.Point(353, 77);
+            this.btnPriceEdit.Name = "btnPriceEdit";
+            this.btnPriceEdit.Size = new System.Drawing.Size(66, 23);
+            this.btnPriceEdit.TabIndex = 13;
+            this.btnPriceEdit.Text = "Edit";
+            this.btnPriceEdit.UseVisualStyleBackColor = true;
+            this.btnPriceEdit.Click += new System.EventHandler(this.btnPriceEdit_Click);
             // 
             // panel2
             // 
@@ -318,7 +330,7 @@
             this.tPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tPrice.Location = new System.Drawing.Point(121, 77);
             this.tPrice.Name = "tPrice";
-            this.tPrice.Size = new System.Drawing.Size(298, 23);
+            this.tPrice.Size = new System.Drawing.Size(226, 23);
             this.tPrice.TabIndex = 2;
             // 
             // panel4
@@ -420,6 +432,7 @@
             this.Controls.Add(this.tTotal);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "incomeItemDetail";
             this.RightToLeftLayout = true;
             this.Text = "Sales :: Transaction :: Draft Income Item :: Detail";
@@ -481,5 +494,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tSupplier;
+        private System.Windows.Forms.Button btnPriceEdit;
     }
 }

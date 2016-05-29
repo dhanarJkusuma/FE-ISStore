@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(authForm));
             this.authTree = new System.Windows.Forms.TreeView();
             this.btnSave = new System.Windows.Forms.Button();
             this.cGroup = new System.Windows.Forms.ComboBox();
@@ -71,6 +72,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.authTree);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "authForm";

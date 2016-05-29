@@ -15,7 +15,7 @@ namespace Sales.report_model
                                                 VariableBuilder.Table.Item + "." + Item.Columns[0] + " as Barcode",
                                                 VariableBuilder.Table.Item + "." + Item.Columns[1] + " as Name",
                                                 VariableBuilder.Table.Category + "." + Sales.model.Category.Columns[1] + " as Category",
-                                                VariableBuilder.Table.StockItem + "." + Item.StockColumns[1] + " as Stock"
+                                                VariableBuilder.Table.StockItem + "." + Item.StockItem.StockColumns[1] + " as Stock"
                                            };
         private String _barcode;
         public String Barcode

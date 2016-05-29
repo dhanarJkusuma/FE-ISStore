@@ -45,7 +45,7 @@ namespace Sales.ui.inventory.master_item.processForm
             item.Unit = valueUnit[cUnit.SelectedIndex].Code;
             item.Price = tPrice.Text;
             item.StockAlert = tStockAlert.Text;
-            item.New();
+            item.Insert();
             home.refreshData();
             this.Dispose();
         }

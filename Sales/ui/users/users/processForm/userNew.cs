@@ -32,7 +32,7 @@ namespace Sales.ui.users.users.processForm
                 user.FullName = tFullName.Text;
                 user.Password = EncryptBuilder.EncryptString(tPassword.Text);
                 user.Group = groupValue[cGroup.SelectedIndex].Id;
-                user.New();
+                user.Insert();
                 this.Dispose();
                 home.refreshData();
             }

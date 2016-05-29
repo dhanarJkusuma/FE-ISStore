@@ -41,40 +41,40 @@ namespace Sales.model
 
         public class CompareRole 
         {
-            private String _menu_id;
+            private String id;
 
             public String MenuID
             {
-                get { return _menu_id; }
-                set { _menu_id = value; }
+                get { return id; }
+                set { id = value; }
             }
-            private String _menu_name;
+            private String name;
 
             public String MenuName
             {
-                get { return _menu_name; }
-                set { _menu_name = value; }
+                get { return name; }
+                set { name = value; }
             }
-            private Int32 _menu_lv;
+            private Int32 level;
 
             public Int32 MenuLvl
             {
-                get { return _menu_lv; }
-                set { _menu_lv = value; }
+                get { return level; }
+                set { level = value; }
             }
-            private String _menu_root;
+            private String root;
 
             public String MenuRoot
             {
-                get { return _menu_root; }
-                set { _menu_root = value; }
+                get { return root; }
+                set { root = value; }
             }
-            private Int32 _is_actived=0;
+            private Int32 is_actived=0;
 
             public Int32 isActived
             {
-                get { return _is_actived; }
-                set { _is_actived = value; }
+                get { return is_actived; }
+                set { is_actived = value; }
             }
         }
 
@@ -87,41 +87,41 @@ namespace Sales.model
                                             "updated_at",
                                             "is_actived"
                                           };
-            private Int32 _group_id;
+            private Int32 group_id;
 
             public Int32 GroupID
             {
-                get { return _group_id; }
-                set { _group_id = value; }
+                get { return group_id; }
+                set { group_id = value; }
             }
-            private String _menu_id;
+            private String menu_id;
 
-            private String _root_menu;
+            private String root_menu;
 
             public String RootMenu
             {
-                get { return _root_menu; }
-                set { _root_menu = value; }
+                get { return root_menu; }
+                set { root_menu = value; }
             }
 
             public String MenuID
             {
-                get { return _menu_id; }
-                set { _menu_id = value; }
+                get { return menu_id; }
+                set { menu_id = value; }
             }
-            private String _updated_at = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ssyyyy-MM-dd HH:mm:ss");
+            private String updated_at = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ssyyyy-MM-dd HH:mm:ss");
 
             public String UpdatedAt
             {
-                get { return _updated_at; }
-                set { _updated_at = value; }
+                get { return updated_at; }
+                set { updated_at = value; }
             }
-            private Int32 _is_actived=0;
+            private Int32 is_actived=0;
 
             public Int32 IsActived
             {
-                get { return _is_actived; }
-                set { _is_actived = value; }
+                get { return is_actived; }
+                set { is_actived = value; }
             }
 
             public void Update() 

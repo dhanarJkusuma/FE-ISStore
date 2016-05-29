@@ -16,7 +16,7 @@ namespace Sales.ui.report.top10
         public topItemForm()
         {
             InitializeComponent();
-            topItemGrid.DataSource = DatabaseBuilder.query("SELECT * FROM V_TOP_10_ITEM");
+            topItemGrid.DataSource = DatabaseBuilder.query("SELECT V_TOP_10_ITEM.item_barcode, box_master_item.item_name, V_TOP_10_ITEM.qty from V_TOP_10_ITEM inner join box_master_item on V_TOP_10_ITEM.item_barcode = box_master_item.item_barcode");
             topItemGrid.ReadOnly = true;
             topItemGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }

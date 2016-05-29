@@ -21,48 +21,48 @@ namespace Sales.model
                                     "is_active"
                                   };
 
-        private Int32 _id;
+        private Int32 id;
 
         public Int32 Id
         {
-            get { return _id; }
-            set { _id = value; }
+            get { return id; }
+            set { id = value; }
         }
-        private String _name;
+        private String name;
 
         public String Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get { return name; }
+            set { name = value; }
         }
-        private String _password;
+        private String password;
 
-        private String _fullName;
+        private String fullname;
 
         public String FullName
         {
-            get { return _fullName; }
-            set { _fullName = value; }
+            get { return fullname; }
+            set { fullname = value; }
         }
 
         public String Password
         {
-            get { return _password; }
-            set { _password = value; }
+            get { return password; }
+            set { password = value; }
         }
-        private Int32 _group;
+        private Int32 group;
 
         public Int32 Group
         {
-            get { return _group; }
-            set { _group = value; }
+            get { return group; }
+            set { group = value; }
         }
-        private String _createdAt;
+        private String createdAt;
 
         public String CreatedAt
         {
-            get { return _createdAt; }
-            set { _createdAt = value; }
+            get { return createdAt; }
+            set { createdAt = value; }
         }
 
         private Int32 isActive;
@@ -86,7 +86,7 @@ namespace Sales.model
             return DatabaseBuilder.read(VariableBuilder.Table.User, selectedColumns);
         }
 
-        public void New() 
+        public void Insert() 
         {
             String[] selectedColumns = { Columns[1], Columns[2], Columns[3], Columns[4] };
             String[] values = { Name, FullName, Password, Group.ToString() };

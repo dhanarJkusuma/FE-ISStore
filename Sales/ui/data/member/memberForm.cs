@@ -131,5 +131,15 @@ namespace Sales.ui.data.member
                 refreshData();
             }
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tSearch_TextChanged(object sender, EventArgs e)
+        {
+            Helper.Data.setBinding(memberGrid, "Name", tSearch.Text);
+        }
     }
 }

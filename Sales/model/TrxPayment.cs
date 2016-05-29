@@ -14,68 +14,61 @@ namespace Sales.model
                                              "modi_id",
                                              "member_id",
                                              "total_amount",
-                                             "discount",
                                              "total_pay",
                                              "cash_back",
                                              "created_at",
                                              "is_processed"
                                          };
 
-        private String _trx_no;
+        private String trx_no;
 
         public String TrxNo
         {
-            get { return _trx_no; }
-            set { _trx_no = value; }
+            get { return trx_no; }
+            set { trx_no = value; }
         }
-        private Int32 _modi_id;
+        private Int32 modi_id;
 
         public Int32 ModiID
         {
-            get { return _modi_id; }
-            set { _modi_id = value; }
+            get { return modi_id; }
+            set { modi_id = value; }
         }
-        private Int64 _member_id=-1;
+        private Int64 member_id=-1;
 
         public Int64 MemberID
         {
-            get { return _member_id; }
-            set { _member_id = value; }
+            get { return member_id; }
+            set { member_id = value; }
         }
-        private Double _total_amount = 0;
+        private Double total_amount = 0;
 
         public Double TotalAmount
         {
-            get { return _total_amount; }
-            set { _total_amount = value; }
+            get { return total_amount; }
+            set { total_amount = value; }
         }
-        private Double _discount = 0;
-
-        public Double Discount
-        {
-            get { return _discount; }
-            set { _discount = value; }
-        }
-        private Double _total_pay = 0;
+       
+        private Double total_pay = 0;
 
         public Double TotalPay
         {
-            get { return _total_pay; }
-            set { _total_pay = value; }
+            get { return total_pay; }
+            set { total_pay = value; }
         }
-        private Double _cash_back = 0;
+        private Double cash_back = 0;
 
         public Double CashBack
         {
-            get { return _cash_back; }
-            set { _cash_back = value; }
+            get { return cash_back; }
+            set { cash_back = value; }
         }
-        private String _created_at;
+        private String created_at;
 
         public String CreatedAt
         {
-            get { return _created_at; }
-            set { _created_at = value; }
+            get { return created_at; }
+            set { created_at = value; }
         }
 
         public static QueryBuilder query()
@@ -84,27 +77,25 @@ namespace Sales.model
             return new QueryBuilder();
         }
 
-        public void New() 
+        public void Insert() 
         {
             String[] selectedColumns = {
                                             "trx_no",
                                             "modi_id",
                                             "member_id",
                                             "total_amount",
-                                            "discount",
                                             "total_pay",
                                             "cash_back",
                                             "created_at"
                                         };
 
-            TrxNo = generateTrxNo();
+
             ModiID = VariableBuilder.Session.userLogged.Id;
             CreatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             String[] values = {     TrxNo, 
                                     ModiID.ToString(), 
                                     (MemberID == -1) ? "" : MemberID.ToString(),
                                     TotalAmount.ToString(), 
-                                    Discount.ToString(), 
                                     TotalPay.ToString(), 
                                     CashBack.ToString(), 
                                     CreatedAt 
@@ -117,11 +108,10 @@ namespace Sales.model
             String[] selectedColumns = {
                                             "member_id",
                                             "total_amount",
-                                            "discount",
                                             "total_pay",
                                             "cash_back"
                                         };
-            String[] values = { MemberID.ToString(), TotalAmount.ToString(), Discount.ToString(), TotalPay.ToString(), CashBack.ToString() };
+            String[] values = { MemberID.ToString(), TotalAmount.ToString(), TotalPay.ToString(), CashBack.ToString() };
             DatabaseBuilder.update(VariableBuilder.Table.TrxInvIncome, selectedColumns, selectedColumns, values, Columns[0] + "='" + TrxNo + "'");
         }
 
@@ -162,10 +152,9 @@ namespace Sales.model
                 trxPayment.ModiID = (reader.IsDBNull(1)) ? -1 : Convert.ToInt32(reader.GetValue(1));
                 trxPayment.MemberID = (reader.IsDBNull(2)) ? -1 : Convert.ToInt32(reader.GetValue(2));
                 trxPayment.TotalAmount = (reader.IsDBNull(3)) ? 0 : Convert.ToDouble(reader.GetValue(3));
-                trxPayment.Discount = (reader.IsDBNull(4)) ? 0 : Convert.ToDouble(reader.GetValue(4));
-                trxPayment.TotalPay = (reader.IsDBNull(5)) ? 0 : Convert.ToDouble(reader.GetValue(5));
-                trxPayment.CashBack = (reader.IsDBNull(6)) ? 0 : Convert.ToDouble(reader.GetValue(6));
-                trxPayment.CreatedAt = reader.GetDateTime(7).ToString();
+                trxPayment.TotalPay = (reader.IsDBNull(4)) ? 0 : Convert.ToDouble(reader.GetValue(4));
+                trxPayment.CashBack = (reader.IsDBNull(5)) ? 0 : Convert.ToDouble(reader.GetValue(5));
+                trxPayment.CreatedAt = reader.GetDateTime(6).ToString();
             }
             connection.Close();
             return trxPayment;

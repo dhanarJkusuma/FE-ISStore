@@ -31,19 +31,19 @@ namespace Sales.model
             return new QueryBuilder();
         }
 
-        private String _code;
+        private String code;
 
         public String Code
         {
-            get { return _code; }
-            set { _code = value; }
+            get { return code; }
+            set { code = value; }
         }
-        private String _name;
+        private String name;
 
         public String Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get { return name; }
+            set { name = value; }
         }
 
         public static DataTable All() 
@@ -51,7 +51,7 @@ namespace Sales.model
             return DatabaseBuilder.read(VariableBuilder.Table.Unit,new String[] { Columns[0] + " as Code" ,Columns[1] + " as Name" });
         }
 
-        public void New() 
+        public void Insert() 
         {
             String[] iparams = { "CodeSatuan", "NamaSatuan" };
             String[] values = { Code, Name };

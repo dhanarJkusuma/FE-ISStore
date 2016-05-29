@@ -72,7 +72,7 @@ namespace Sales.model
             return new QueryBuilder();
         }
 
-        public void New() 
+        public void Insert() 
         {
             String[] selectedColumns = { Columns[1], Columns[2], Columns[3], Columns[4] };
             String[] values = { TrxNo, ItemBarcode, ItemQuantity.ToString(), ItemPurchase.ToString()};

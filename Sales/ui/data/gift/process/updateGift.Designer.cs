@@ -163,6 +163,7 @@
             this.Controls.Add(this.tName);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tCode);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "updateGift";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales :: Data :: Gift :: Update";
